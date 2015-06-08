@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\andr\Documents\Visual Studio 2013\Projects</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Themes/Bootstrap/css/bootstrap-theme.css">
+      <publishTime>05/26/2015 16:20:34</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/bootstrap-theme.css.map">
+      <publishTime>05/26/2015 16:20:34</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/bootstrap-theme.min.css">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/bootstrap.css">
+      <publishTime>06/02/2015 10:25:10</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/bootstrap.css.map">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/bootstrap.min.css">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/css/navbar.css">
+      <publishTime>05/26/2015 17:41:52</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/fonts/glyphicons-halflings-regular.eot">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/fonts/glyphicons-halflings-regular.svg">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/fonts/glyphicons-halflings-regular.woff">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/images/delete.png">
+      <publishTime>06/02/2015 11:04:32</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/images/select.png">
+      <publishTime>06/02/2015 11:00:08</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/js/bootstrap.js">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/js/bootstrap.min.js">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="App_Themes/Bootstrap/js/npm.js">
+      <publishTime>05/26/2015 16:20:36</publishTime>
+    </File>
+    <File Include="bin/ClinicaVeterinaria4.dll">
+      <publishTime>06/06/2015 10:43:55</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>05/27/2015 17:42:32</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>05/27/2015 17:42:32</publishTime>
+    </File>
+    <File Include="Cadastros/CadastrarHistVacina.aspx">
+      <publishTime>06/06/2015 10:38:22</publishTime>
+    </File>
+    <File Include="Cadastros/cadastroAnimal.aspx">
+      <publishTime>06/06/2015 10:08:10</publishTime>
+    </File>
+    <File Include="Cadastros/CadastroEspecie.aspx">
+      <publishTime>06/05/2015 11:42:14</publishTime>
+    </File>
+    <File Include="Cadastros/CadastroRaca.aspx">
+      <publishTime>06/05/2015 11:42:26</publishTime>
+    </File>
+    <File Include="Cadastros/CadastroResponsavel.aspx">
+      <publishTime>06/05/2015 12:23:38</publishTime>
+    </File>
+    <File Include="Cadastros/CadastroVacina.aspx">
+      <publishTime>06/05/2015 12:25:36</publishTime>
+    </File>
+    <File Include="Cadastros/CadastroVeterinaria.aspx">
+      <publishTime>06/06/2015 01:36:06</publishTime>
+    </File>
+    <File Include="Cadastros/ListarAnimal.aspx">
+      <publishTime>06/06/2015 02:21:05</publishTime>
+    </File>
+    <File Include="Cadastros/ListarEspecie.aspx">
+      <publishTime>06/05/2015 11:40:20</publishTime>
+    </File>
+    <File Include="Cadastros/ListarRaca.aspx">
+      <publishTime>06/05/2015 13:19:38</publishTime>
+    </File>
+    <File Include="Cadastros/ListarResponsavel.aspx">
+      <publishTime>06/05/2015 12:23:40</publishTime>
+    </File>
+    <File Include="Cadastros/ListarVacina.aspx">
+      <publishTime>06/05/2015 12:51:00</publishTime>
+    </File>
+    <File Include="Cadastros/ListarVeterinaria.aspx">
+      <publishTime>06/03/2015 16:29:26</publishTime>
+    </File>
+    <File Include="Cadastros/Site1.Master">
+      <publishTime>06/06/2015 10:41:26</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/27/2015 17:42:38</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/06/2015 10:43:56</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
