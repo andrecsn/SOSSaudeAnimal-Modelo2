@@ -38,17 +38,28 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buscar<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="ListarResponsavel.aspx">Responsavel</a></li>
-                                <li><a href="ListarAnimal.aspx">Animal</a></li>
+                                <li><a href="ListarAnimal.aspx">Animal e Responsável</a></li>
                                 <li><a href="ListarVeterinaria.aspx">Veterinária</a></li>
-                                <li><a href="CadastrarHistVacina.aspx">Histórico de Vacinas</a></li>
                                 <li class="divider"></li>
-                                <li class="dropdown-header">Cadastros Básicos</li>
+                                <li class="dropdown-header">Buscas Básicas</li>
                                 <li><a href="ListarVacina.aspx">Vacina</a></li>
                                 <li><a href="ListarRaca.aspx">Raça</a></li>
                                 <li><a href="ListarEspecie.aspx">Espécie</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastros<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="CadastroAnimal_Responsavel.aspx">Animal e Responsável</a></li>
+                                <li><a href="CadastroVeterinaria.aspx">Veterinária</a></li>
+                                <li><a href="CadastrarHistVacina.aspx">Histórico de Vacinas</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Cadastros Básicos</li>
+                                <li><a href="CadastroVacina.aspx">Vacina</a></li>
+                                <li><a href="CadastroRaca.aspx">Raça</a></li>
+                                <li><a href="CadastroEspecie.aspx">Espécie</a></li>
                             </ul>
                         </li>
                         <li><a href="#">Prontuário</a></li>

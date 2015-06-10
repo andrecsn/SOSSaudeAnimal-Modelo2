@@ -24,7 +24,11 @@ namespace ClinicaVeterinaria.Business
             };
             contexto.animal.Add(animal);
             contexto.SaveChanges();
-            Response.Redirect("cadastroAnimal.aspx");
+
+            //Enviando ID para a página de inserção de novo animal
+            HttpContext.Current.Session["novo"] = "NovoAnimal";
+            HttpContext.Current.Items["cd_responsavel"] = responsavel;
+            Server.Transfer("cadastroAnimal_Novo.aspx");
         }
 
         protected void editarAnimal(int codigo, string nome, string cor, string peso, DateTime dt_nascimento, string sexo, int responsavel, int raca, int especie, string inf_animal, string foto)
@@ -43,7 +47,12 @@ namespace ClinicaVeterinaria.Business
             animal.foto = foto;
 
             contexto.SaveChanges();
-            Response.Redirect("ListarAnimal.aspx");
+
+            //Enviando ID para a página de inserção de novo animal
+            HttpContext.Current.Session["alterar"] = "Alterar";
+            HttpContext.Current.Items["cd_responsavel"] = responsavel;
+            HttpContext.Current.Items["cd_animal"] = codigo;
+            Server.Transfer("cadastroAnimal_Novo.aspx");
         }
 
         protected void excluirAnimal(int codigo)
@@ -52,7 +61,57 @@ namespace ClinicaVeterinaria.Business
 
             contexto.animal.Remove(animal);
             contexto.SaveChanges();
-            Response.Redirect("ListarEspecie.aspx");
+
+            //Enviando ID para a página de inserção de novo animal
+            HttpContext.Current.Session["novo"] = "NovoAnimal";
+            Server.Transfer("cadastroAnimal_Novo.aspx");
+        }
+
+        protected int cadastrarResponsavel(string nome, string cpf, string telefone, string celular, string email, string endereco, string bairro, string cidade, string estado)
+        {
+            Models.responsavel responsavel = new Models.responsavel()
+            {
+                nm_responsavel = nome,
+                CPF = cpf,
+                telefone = telefone,
+                celular = celular,
+                email = email,
+                endereco = endereco,
+                bairro = bairro,
+                cidade = cidade,
+                estado = estado
+            };
+            contexto.responsavel.Add(responsavel);
+            contexto.SaveChanges();
+
+            int idResponsavel = responsavel.cd_responsavel;
+            return (idResponsavel);
+        }
+
+        protected void editarResponsavel(int codigo, string nome, string cpf, string telefone, string celular, string email, string endereco, string bairro, string cidade, string estado)
+        {
+            Models.responsavel responsavel = contexto.responsavel.First(x => x.cd_responsavel == codigo);
+
+            responsavel.nm_responsavel = nome;
+            responsavel.CPF = cpf;
+            responsavel.telefone = telefone;
+            responsavel.celular = celular;
+            responsavel.email = email;
+            responsavel.endereco = endereco;
+            responsavel.bairro = bairro;
+            responsavel.cidade = cidade;
+            responsavel.estado = estado;
+
+            contexto.SaveChanges();
+        }
+
+        protected void excluirResponsavel(int codigo)
+        {
+            Models.responsavel responsavel = contexto.responsavel.First(x => x.cd_responsavel == codigo);
+
+            contexto.responsavel.Remove(responsavel);
+            contexto.SaveChanges();
+            Response.Redirect("listarResponsavel.aspx");
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cadastros/Site1.Master" AutoEventWireup="true" CodeBehind="ListarVacina.aspx.cs" Inherits="ClinicaVeterinaria.Cadastros.ListarVacina" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Corpo" runat="server">
 
     <form id="form1" runat="server" class="jumbotron">
@@ -31,8 +32,6 @@
                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>
-
-
     </form>
 
 </asp:Content>
