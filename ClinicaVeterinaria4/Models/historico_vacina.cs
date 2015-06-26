@@ -15,6 +15,8 @@ namespace ClinicaVeterinaria.Models
 
         public int? cd_vacina { get; set; }
 
+        public int? cd_funcionario { get; set; }
+
         [Column(TypeName = "smalldatetime")]
         public DateTime? dt_hist_vacina { get; set; }
 
@@ -24,5 +26,7 @@ namespace ClinicaVeterinaria.Models
         public virtual animal animal { get; set; }
 
         public virtual vacina vacina { get; set; }
+
+        public virtual funcionario funcionario { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cadastros/Site1.Master" AutoEventWireup="true" CodeBehind="ListarVacina.aspx.cs" Inherits="ClinicaVeterinaria.Cadastros.ListarVacina" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="Corpo" runat="server">
 
     <form id="form1" runat="server" class="jumbotron">
@@ -26,13 +27,12 @@
             <Columns>
                 <asp:BoundField DataField="cd_vacina" HeaderText="#" />
                 <asp:BoundField DataField="nm_vacina" HeaderText="Nome" />
+                <asp:BoundField DataField="valor" HeaderText="Valor" DataFormatString="{0:C}"/>
                 <asp:BoundField DataField="st_vacina" HeaderText="Status" />
-                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" />
-                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" />
+                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30"/>
+                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" HeaderStyle-Width="30" />
             </Columns>
         </asp:GridView>
-
-
     </form>
 
 </asp:Content>

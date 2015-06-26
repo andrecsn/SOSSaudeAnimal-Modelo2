@@ -23,7 +23,7 @@ namespace ClinicaVeterinaria.Model.Shared
         public virtual DbSet<responsavel> responsavel { get; set; }
         public virtual DbSet<tratamento> tratamento { get; set; }
         public virtual DbSet<vacina> vacina { get; set; }
-        public virtual DbSet<veterinaria> veterinaria { get; set; }
+        public virtual DbSet<funcionario> funcionario { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -54,10 +54,6 @@ namespace ClinicaVeterinaria.Model.Shared
             modelBuilder.Entity<consulta>()
                 .Property(e => e.ds_consulta)
                 .IsUnicode(false);
-
-            modelBuilder.Entity<consulta>()
-                .Property(e => e.varlor_total)
-                .HasPrecision(19, 4);
 
             modelBuilder.Entity<especie>()
                 .Property(e => e.nm_especie)
@@ -136,44 +132,56 @@ namespace ClinicaVeterinaria.Model.Shared
                 .Property(e => e.st_vacina)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
-                .Property(e => e.nm_veterinaria)
+            modelBuilder.Entity<funcionario>()
+                .Property(e => e.nm_funcionario)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.cpf)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.telefone)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.celular)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.email)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.endereco)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.cep)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.bairro)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.cidade)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<veterinaria>()
+            modelBuilder.Entity<funcionario>()
                 .Property(e => e.estado)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<funcionario>()
+                .Property(e => e.login)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<funcionario>()
+                .Property(e => e.senha)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<funcionario>()
+                .Property(e => e.tipo)
                 .IsUnicode(false);
         }
     }

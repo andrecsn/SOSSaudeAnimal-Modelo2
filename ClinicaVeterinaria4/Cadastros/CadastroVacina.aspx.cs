@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             var cd_Vacina = HttpContext.Current.Items["cd_vacina"];
             var cmdAlterar = HttpContext.Current.Session["alterar"];
             var cmdExcluir = HttpContext.Current.Session["excluir"];
@@ -30,12 +32,15 @@ namespace ClinicaVeterinaria.Cadastros
                 Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == codigo);
 
                 lblVacina.Text = vacina.nm_vacina;
+                lblValor.Text = vacina.valor.ToString();
                 lblStatus.Text = vacina.st_vacina;
 
                 lblVacina.Visible = true;
+                lblValor.Visible = true;
                 lblStatus.Visible = true;
 
                 txtVacina.Visible = false;
+                txtValor.Visible = false;
                 listStatus.Visible = false;
 
                 btnExcluir.Visible = true;
@@ -55,6 +60,7 @@ namespace ClinicaVeterinaria.Cadastros
             Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == codigo);
 
             txtVacina.Text = vacina.nm_vacina;
+            txtValor.Text = vacina.valor.ToString();
             listStatus.Text = vacina.st_vacina;
 
             btnAlterar.Visible = true;
@@ -70,8 +76,9 @@ namespace ClinicaVeterinaria.Cadastros
             {
                 string nome = txtVacina.Text;
                 string status = listStatus.Text;
+                double valor = Convert.ToDouble(txtValor.Text);
 
-                cadastrarVacina(nome, status);
+                cadastrarVacina(nome, status, valor);
             }
             catch (Exception ex)
             {
@@ -85,9 +92,10 @@ namespace ClinicaVeterinaria.Cadastros
             {
                 int codigo = Convert.ToInt32(lblCodigo.Text);
                 string nome = txtVacina.Text;
+                double valor = Convert.ToDouble(txtValor.Text);
                 string status = listStatus.Text;
 
-                editarVacina(codigo, nome, status);
+                editarVacina(codigo, nome, status, valor);
             }
             catch (Exception ex)
             {

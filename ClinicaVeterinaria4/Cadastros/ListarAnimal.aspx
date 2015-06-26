@@ -30,12 +30,13 @@
             <Columns>
                 <asp:BoundField DataField="cd_animal" HeaderText="#" />
                 <asp:BoundField DataField="nm_animal" HeaderText="Nome" />
-                <asp:BoundField DataField="raca.nm_raca" HeaderText="Raça" />
-                <asp:BoundField DataField="especie.nm_especie" HeaderText="Espécie" />
-                <asp:BoundField DataField="responsavel.nm_responsavel" HeaderText="Responsável" />
-                <asp:BoundField DataField="responsavel.celular" HeaderText="Celular" />
+                <asp:BoundField DataField="nm_raca" HeaderText="Raça" />
+                <asp:BoundField DataField="nm_especie" HeaderText="Espécie" />
+                <asp:BoundField DataField="nm_responsavel" HeaderText="Responsável" />
+                <asp:BoundField DataField="celular" HeaderText="Celular" />
                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" />
-                <asp:CommandField ButtonType="Image" EditImageUrl="~/App_Themes/Bootstrap/images/animal.png" ControlStyle-Width="22" ControlStyle-Height="22" ShowEditButton="True" />
+                <asp:CommandField ButtonType="Image" EditImageUrl="~/App_Themes/Bootstrap/images/animal.png" ControlStyle-Width="22" ControlStyle-Height="22" ShowEditButton="True" ></asp:CommandField>
+                <asp:CommandField ButtonType="Image" ControlStyle-Width="22" ControlStyle-Height="22" ShowInsertButton="True" NewImageUrl="~/App_Themes/Bootstrap/images/vacina.png" ></asp:CommandField>
                 <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" />
             </Columns>
         </asp:GridView>

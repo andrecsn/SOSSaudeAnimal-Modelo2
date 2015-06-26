@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             if (!IsPostBack)
             {
                 listarRaca();
@@ -22,9 +24,7 @@ namespace ClinicaVeterinaria
                 var cmdAlterar = HttpContext.Current.Session["alterar"];
                 var cmdExcluir = HttpContext.Current.Session["excluir"];
 
-                //Listando animais do responsável no Grid
-                this.gridAnimal.DataSource = contexto.animal.Where(x => x.cd_responsavel == cd_responsavel).ToList();
-                this.gridAnimal.DataBind();
+                listarGrid(cd_responsavel);
 
                 if (cmdNovoAnimal == "NovoAnimal" && cd_responsavel != null)
                     exibirResponsavel(Convert.ToInt32(cd_responsavel));
@@ -164,6 +164,23 @@ namespace ClinicaVeterinaria
             lblBairroResp.Text = responsavel.bairro;
             lblCidadeResp.Text = responsavel.cidade;
             lblEstadoResp.Text = responsavel.estado;
+        }
+
+        private void listarGrid(int cd_responsavel)
+        {
+            var dados = from a in contexto.animal
+                        where a.cd_responsavel == cd_responsavel
+                        select new
+                        {
+                            cd_animal = a.cd_animal,
+                            cd_responsavel = a.cd_responsavel,
+                            nm_animal = a.nm_animal,
+                            nm_raca = a.raca.nm_raca,
+                            nm_especie = a.especie.nm_especie,
+                            inf_animal = a.inf_animal
+                        };
+            this.gridAnimal.DataSource = dados.ToList();
+            this.gridAnimal.DataBind();
         }
 
         protected void listarRaca()

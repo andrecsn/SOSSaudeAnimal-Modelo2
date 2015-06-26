@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             if (!this.IsPostBack)
             {
                 this.gridRaca.DataSource = contexto.raca.Select(x => x).ToList();

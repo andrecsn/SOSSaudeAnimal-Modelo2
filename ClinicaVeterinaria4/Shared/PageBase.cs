@@ -18,5 +18,12 @@ namespace ClinicaVeterinaria.Model.Shared
             contexto.Dispose();
             base.OnUnload(e);
         }
+
+        protected void autenticarUsuario()
+        {
+            var cd_usuario = HttpContext.Current.Session["cd_usuario"];
+
+            if (cd_usuario == null) Response.Redirect("logout.aspx");
+        }
     }
 }

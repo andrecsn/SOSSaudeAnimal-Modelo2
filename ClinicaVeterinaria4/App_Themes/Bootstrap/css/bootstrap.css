@@ -11,9 +11,9 @@ html {
       -ms-text-size-adjust: 100%;
 }
 body {
-  min-height: 2000px;
-  padding-top: 70px;
+    padding-top: 70px;
 }
+
 article,
 aside,
 details,
@@ -28,6 +28,12 @@ nav,
 section,
 summary {
   display: block;
+}
+.titulo{
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 2px 15px;
+    background-color: #cbcbcb;
 }
 .separador{
     border-bottom: dashed;

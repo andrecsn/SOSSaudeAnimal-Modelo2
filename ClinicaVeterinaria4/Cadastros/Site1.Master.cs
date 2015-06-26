@@ -11,7 +11,10 @@ namespace ClinicaVeterinaria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                lblNome.Text = HttpContext.Current.Session["usuario"].ToString();
+            }
         }
     }
 }

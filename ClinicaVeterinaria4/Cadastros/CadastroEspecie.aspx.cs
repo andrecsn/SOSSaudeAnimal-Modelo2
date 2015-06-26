@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             var cd_especie = HttpContext.Current.Items["cod_especie"];
             var cmdAlterar = HttpContext.Current.Session["alterar"];
             var cmdExcluir = HttpContext.Current.Session["excluir"];

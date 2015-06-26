@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             var cd_responsavel = HttpContext.Current.Items["cd_responsavel"];
             var cmdAlterar = HttpContext.Current.Session["alterar"];
             var cmdExcluir = HttpContext.Current.Session["excluir"];

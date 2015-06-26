@@ -23,6 +23,9 @@ namespace ClinicaVeterinaria.Models
         [StringLength(10)]
         public string st_vacina { get; set; }
 
+        [Column(TypeName = "float")]
+        public double? valor { get; set; }
+
         public virtual ICollection<historico_vacina> historico_vacina { get; set; }
     }
 }

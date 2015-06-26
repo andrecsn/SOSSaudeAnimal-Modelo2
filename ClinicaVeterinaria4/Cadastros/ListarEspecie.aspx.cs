@@ -11,6 +11,8 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             if (!this.IsPostBack)
             {
                 this.gridEspecie.DataSource = contexto.especie.Select(x => x).ToList();

@@ -27,9 +27,10 @@
             <Columns>
                 <asp:BoundField DataField="cd_vacina" HeaderText="#" />
                 <asp:BoundField DataField="nm_vacina" HeaderText="Nome" />
+                <asp:BoundField DataField="valor" HeaderText="Valor" DataFormatString="{0:C}"/>
                 <asp:BoundField DataField="st_vacina" HeaderText="Status" />
-                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" />
-                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" />
+                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30"/>
+                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" HeaderStyle-Width="30" />
             </Columns>
         </asp:GridView>
     </form>

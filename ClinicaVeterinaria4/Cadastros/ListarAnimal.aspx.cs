@@ -11,11 +11,30 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             if (!this.IsPostBack)
             {
-                this.gridAnimal.DataSource = contexto.animal.Select(x => x).ToList();
-                this.gridAnimal.DataBind();
+                listarGrid("", "");
             }
+        }
+
+        private void listarGrid(string nm_animal, string nm_responsavel)
+        {
+            var dados = from a in contexto.animal
+                        where a.nm_animal.Contains(nm_animal) & a.responsavel.nm_responsavel.Contains(nm_responsavel)
+                        select new
+                        {
+                            cd_animal = a.cd_animal,
+                            cd_responsavel = a.cd_responsavel,
+                            nm_animal = a.nm_animal,
+                            nm_raca = a.raca.nm_raca,
+                            nm_especie = a.especie.nm_especie,
+                            nm_responsavel = a.responsavel.nm_responsavel,
+                            celular = a.responsavel.celular
+                        };
+            this.gridAnimal.DataSource = dados.ToList();
+            this.gridAnimal.DataBind();
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
@@ -23,16 +42,7 @@ namespace ClinicaVeterinaria.Cadastros
             string animal = txtAnimal.Text;
             string responsavel = txtResponsavel.Text;
 
-            if (animal == "" & responsavel == "")
-            {
-                this.gridAnimal.DataSource = contexto.animal.Select(x => x).ToList();
-                this.gridAnimal.DataBind();
-            }
-            else
-            {
-                this.gridAnimal.DataSource = contexto.animal.Where(x => x.nm_animal.Contains(animal) & x.responsavel.nm_responsavel.Contains(responsavel)).ToList();
-                this.gridAnimal.DataBind();
-            }
+            listarGrid(animal, responsavel);
         }
 
         protected void gridAnimal_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -63,6 +73,12 @@ namespace ClinicaVeterinaria.Cadastros
                 //Enviando ID para edição
                 HttpContext.Current.Session["novo"] = "NovoAnimal";
                 Server.Transfer("cadastroAnimal_Novo.aspx");
+            }
+
+            if (e.CommandName == "New")
+            {
+                //Enviando ID para histórico de vacinas
+                Server.Transfer("CadastrarHistVacina.aspx");
             }
         }
 

@@ -6,10 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <link rel="icon" href="../../favicon.ico">
-
     <title>Clinica Veterinária</title>
+
     <style>
         .separador {
             margin-right: 10px;
@@ -41,7 +40,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Buscar<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="ListarAnimal.aspx">Animal e Responsável</a></li>
-                                <li><a href="ListarVeterinaria.aspx">Veterinária</a></li>
+                                <li><a href="ListarFuncionario.aspx">Funcionário</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Buscas Básicas</li>
                                 <li><a href="ListarVacina.aspx">Vacina</a></li>
@@ -53,8 +52,7 @@
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Cadastros<span class="caret"></span></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="CadastroAnimal_Responsavel.aspx">Animal e Responsável</a></li>
-                                <li><a href="CadastroVeterinaria.aspx">Veterinária</a></li>
-                                <li><a href="CadastrarHistVacina.aspx">Histórico de Vacinas</a></li>
+                                <li><a href="CadastroFuncionario.aspx">Funcionário</a></li>
                                 <li class="divider"></li>
                                 <li class="dropdown-header">Cadastros Básicos</li>
                                 <li><a href="CadastroVacina.aspx">Vacina</a></li>
@@ -62,11 +60,13 @@
                                 <li><a href="CadastroEspecie.aspx">Espécie</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Prontuário</a></li>
+                        <li><a href="ListarProntuario.aspx">Prontuário</a></li>
                         <li><a href="#">Financeiro</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li class="active"><a href="./">Encerrar <span class="sr-only">(current)</span></a></li>
+                        <li class="active"><a href="logout.aspx">Sair de: <b>
+                            <asp:Label ID="lblNome" runat="server"></asp:Label></b>
+                            <span class="sr-only">(current)</span></a></li>
                     </ul>
                 </div>
                 <!--/.nav-collapse -->
@@ -87,6 +87,21 @@
     <script src="../App_Themes/Bootstrap/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/ie10-viewport-bug-workaround.js"></script>
+
+    <script src="../App_Themes/Bootstrap/js/uteis.js"></script>
+
+    <script src="../App_Themes/Bootstrap/js/jquery-1.11.3.min.js"></script>
+    <script src="../App_Themes/Bootstrap/js/jquery.maskedinput.min.js"></script>
+    <script src="../App_Themes/Bootstrap/js/bootstrap-datepicker.js"></script>
+
+    <script type="text/javascript">
+        // When the document is ready
+        $(document).ready(function () {
+            $('.data').datepicker({
+                format: "dd/mm/yyyy"
+            });
+        });
+    </script>
 
 
 </body>

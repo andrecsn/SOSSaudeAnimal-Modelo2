@@ -4,7 +4,8 @@
 
     <form id="form1" runat="server" class="jumbotron">
 
-        <h2><asp:Label ID="lblTitulo" runat="server" Text="Cadastrar Vacina"></asp:Label></h2>
+        <h2>
+            <asp:Label ID="lblTitulo" runat="server" Text="Cadastrar Vacina"></asp:Label></h2>
         <h4>Preencha todos os dados de vacina corretamente.</h4>
 
         </br>
@@ -13,13 +14,22 @@
 
             <asp:Label ID="lblCodigo" runat="server" Text="" Visible="False" Enabled="False"></asp:Label>
 
-            <div class="col-xs-7">
+            <div class="col-xs-6">
                 <label for="usr">Name da vacina:</label>
                 <asp:TextBox ID="txtVacina" runat="server" Columns="50" class="form-control" placeholder="Nome completo" required autofocus></asp:TextBox>
                 <asp:Label ID="lblVacina" runat="server" Text="" Visible="False"></asp:Label>
             </div>
 
-            <div class="col-xs-5">
+            <div class="col-xs-3">
+                <label for="usr">Valor da aplicação: </label>
+                <div class="input-group">
+                    <div class="input-group-addon">R$</div>
+                    <asp:TextBox ID="txtValor" runat="server" class="form-control" placeholder="0,00" required></asp:TextBox>
+                    <asp:Label ID="lblValor" runat="server" Text="" Visible="False"></asp:Label>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
                 <label class="control-label" for="radios">Status: </label>
                 <div class="controls">
                     <asp:RadioButtonList ID="listStatus" runat="server" CellPadding="5" CellSpacing="5" RepeatDirection="Horizontal" Width="150">

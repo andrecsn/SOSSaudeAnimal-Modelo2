@@ -11,9 +11,19 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             if (!IsPostBack)
             {
                 listarVacina();
+
+                int cd_animal = Convert.ToInt32(HttpContext.Current.Items["cd_animal"]);
+                HttpContext.Current.Session["cd_animal"] = cd_animal;
+
+                if (cd_animal != 0)
+                {
+                    listarHistVacinas(cd_animal);
+                }
             }
         }
 
@@ -28,18 +38,19 @@ namespace ClinicaVeterinaria.Cadastros
             cboVacina.Items.Insert(0, "--Select--");
         }
 
-        protected void btnPesquisar_Click(object sender, EventArgs e)
+        private void listarGrid(int cd_animal)
         {
-            try
-            {
-                int parametro = Convert.ToInt32(txtCodigoAnimal.Text);
-                HttpContext.Current.Session["cd_animal"] = parametro;
-                listarHistVacinas(parametro);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.InnerException);
-            }
+            var dados = from a in contexto.historico_vacina
+                        where a.cd_animal == cd_animal
+                        select new
+                        {
+                            cd_hist_Vacina = a.cd_hist_vacina,
+                            nm_vacina = a.vacina.nm_vacina,
+                            dt_hist_vacina = a.dt_hist_vacina,
+                            dt_vencimento = a.dt_vencimento
+                        };
+            this.gridHistVacina.DataSource = dados.ToList();
+            this.gridHistVacina.DataBind();
         }
 
         protected void listarHistVacinas(int parametro)
@@ -48,26 +59,14 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (animal != null)
             {
-                //habilitando campos
-                lblTituloVacina.Visible = true;
-                lblTituloAplicacao.Visible = true;
-                lblTituloVencimento.Visible = true;
-                cboVacina.Visible = true;
-                txtDt_aplicacao.Visible = true;
-                txtDt_vencimento.Visible = true;
-                btnCadastrar.Visible = true;
-
                 //listando animal
-                lblAnimal.Visible = true;
                 lblAnimal.Text = animal.nm_animal;
 
                 //listando resposável
                 Models.responsavel responsavel = contexto.responsavel.First(x => x.cd_responsavel == animal.cd_responsavel);
-                lblResponsavel.Visible = true;
                 lblResponsavel.Text = responsavel.nm_responsavel;
 
-                this.gridHistVacina.DataSource = contexto.historico_vacina.Where(x => x.cd_animal == parametro).ToList();
-                this.gridHistVacina.DataBind();
+                listarGrid(parametro);
             }
             else
             {
@@ -79,12 +78,29 @@ namespace ClinicaVeterinaria.Cadastros
         {
             int animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
             int cd_vacina = Convert.ToInt32(cboVacina.SelectedValue.ToString());
+            int cd_funcionario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
             DateTime dt_aplicacao = Convert.ToDateTime(txtDt_aplicacao.Text);
             DateTime dt_vencimento = Convert.ToDateTime(txtDt_vencimento.Text);
 
-            cadastrarHistoricoVacina(animal, cd_vacina, dt_aplicacao, dt_vencimento);
+            cadastrarHistoricoVacina(animal, cd_vacina, dt_aplicacao, dt_vencimento, cd_funcionario, "CadastrarHistVacina.aspx");
             listarHistVacinas(animal);
-            Session.Remove("cd_animal");
+        }
+
+        protected void gridHistVacina_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Delete")
+            {
+                int cd_animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
+                int index = int.Parse((string)e.CommandArgument);
+                int cd_vacina = Convert.ToInt32(gridHistVacina.DataKeys[index]["cd_hist_vacina"].ToString());
+
+                excluirHistVacina(cd_vacina, cd_animal, "CadastrarHistVacina.aspx");
+            }
+        }
+
+        protected void btnVoltar_click(object sender, EventArgs e)
+        {
+            Server.Transfer("ListarAnimal.aspx");
         }
     }
 }

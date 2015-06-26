@@ -22,24 +22,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// txtCodigoAnimal control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigoAnimal;
-        
-        /// <summary>
-        /// btnPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesquisar;
-        
-        /// <summary>
         /// lblMensagem control.
         /// </summary>
         /// <remarks>
@@ -85,15 +67,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.Label lblResponsavel;
         
         /// <summary>
-        /// lblTituloVacina control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloVacina;
-        
-        /// <summary>
         /// cboVacina control.
         /// </summary>
         /// <remarks>
@@ -103,15 +76,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.DropDownList cboVacina;
         
         /// <summary>
-        /// lblTituloAplicacao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloAplicacao;
-        
-        /// <summary>
         /// txtDt_aplicacao control.
         /// </summary>
         /// <remarks>
@@ -119,15 +83,6 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDt_aplicacao;
-        
-        /// <summary>
-        /// lblTituloVencimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTituloVencimento;
         
         /// <summary>
         /// txtDt_vencimento control.
@@ -146,6 +101,15 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastrar;
+        
+        /// <summary>
+        /// btnVoltar control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton btnVoltar;
         
         /// <summary>
         /// gridHistVacina control.

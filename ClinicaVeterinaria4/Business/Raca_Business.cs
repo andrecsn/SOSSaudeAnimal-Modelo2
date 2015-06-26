@@ -17,7 +17,7 @@ namespace ClinicaVeterinaria.Business
 
             contexto.raca.Add(raca);
             contexto.SaveChanges();
-            Response.Redirect("cadastroRaca.aspx");
+            Response.Redirect("listarRaca.aspx");
         }
 
         protected void editarRaca(int codigo, string nm_raca, string st_raca)
@@ -33,11 +33,11 @@ namespace ClinicaVeterinaria.Business
 
         protected void excluirRaca(int codigo)
         {
-            Models.veterinaria veterinaria = contexto.veterinaria.First(x => x.cd_veterinaria == codigo);
+            Models.raca raca = contexto.raca.First(x => x.cd_raca == codigo);
 
-            contexto.veterinaria.Remove(veterinaria);
+            contexto.raca.Remove(raca);
             contexto.SaveChanges();
-            Response.Redirect("listarVeterinaria.aspx");
+            Response.Redirect("listarRaca.aspx");
         }
     }
 }

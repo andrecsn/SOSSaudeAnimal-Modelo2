@@ -11,18 +11,20 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            autenticarUsuario();
+
             var cd_raca = HttpContext.Current.Items["cd_raca"];
             var cmdAlterar = HttpContext.Current.Session["alterar"];
             var cmdExcluir = HttpContext.Current.Session["excluir"];
 
             if (cmdAlterar == "Alterar" && cd_raca != null)
-                EditarRaca(Convert.ToInt32(cd_raca));
+                exibirEditarRaca(Convert.ToInt32(cd_raca));
 
             if (cmdExcluir == "Excluir" && cd_raca != null)
-                excluirRaca(Convert.ToInt32(cd_raca));
+                exibirExcluirRaca(Convert.ToInt32(cd_raca));
         }
 
-        public void excluirRaca(int codigo)
+        public void exibirExcluirRaca(int codigo)
         {
             if (codigo != 0)
             {
@@ -49,7 +51,7 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
-        public void EditarRaca(int codigo)
+        public void exibirEditarRaca(int codigo)
         {
             lblCodigo.Text = codigo.ToString();
             Models.raca raca = contexto.raca.First(x => x.cd_raca == codigo);
