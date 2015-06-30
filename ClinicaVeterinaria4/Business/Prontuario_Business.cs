@@ -7,7 +7,7 @@ namespace ClinicaVeterinaria.Business
 {
     public class Prontuario_Business : Business.Historico_vacina_Business
     {
-        protected void cadastrarConsulta(DateTime dt_consulta, string ds_consulta, string st_consulta, int cd_funcionario, int cd_animal, double consultaValor, double cirurgiaValor, double soroterapiaValor, double medicamentosValor, double tartarectomiaValor, double outrosValor, string ds_outros, double exameValor, string ds_exame, double vendasValor, string ds_vendas, double valorTotal, double saldoDevedor, double pg_dinheiro, double pg_credito, double pg_debito)
+        protected void cadastrarConsulta(DateTime dt_consulta, string ds_consulta, string st_consulta, int cd_funcionario, int cd_animal, double consultaValor, double cirurgiaValor, double soroterapiaValor, double medicamentosValor, double vacinasValor, double tartarectomiaValor, double outrosValor, string ds_outros, double exameValor, string ds_exame, double vendasValor, string ds_vendas, double valorTotal, double saldoDevedor, double pg_dinheiro, double pg_credito, double pg_debito)
         {
             Models.consulta consulta = new Models.consulta()
             {
@@ -24,6 +24,7 @@ namespace ClinicaVeterinaria.Business
                 valor_soroterapia = soroterapiaValor,
                 valor_tartarectomia = tartarectomiaValor,
                 valor_medicamentos = medicamentosValor,
+                valor_vacinas = vacinasValor,
                 valor_outros = outrosValor,
                 ds_outros = ds_outros,
                 valor_exame = exameValor,

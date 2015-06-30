@@ -136,30 +136,6 @@ namespace ClinicaVeterinaria
             }
         }
 
-        protected void gridVacina_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            int index = int.Parse((string)e.CommandArgument);
-            string cd_animal = gridVacina.DataKeys[index]["cd_animal"].ToString();
-            HttpContext.Current.Items["cd_animal"] = cd_animal;
-
-            string cd_responsavel = gridVacina.DataKeys[index]["cd_responsavel"].ToString();
-            HttpContext.Current.Items["cd_responsavel"] = cd_responsavel;
-
-            if (e.CommandName == "Select")
-            {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
-            }
-
-            if (e.CommandName == "Delete")
-            {
-                //Enviando ID para exclusão
-                HttpContext.Current.Session["excluir"] = "Excluir";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
-            }
-        }
-
         protected void btnCadastrarVacina_Click(object sender, EventArgs e)
         {
             try
@@ -171,6 +147,14 @@ namespace ClinicaVeterinaria
                 DateTime dt_aplicacao = Convert.ToDateTime(txtDt_aplicacao.Text);
                 DateTime dt_vencimento = Convert.ToDateTime(txtDt_vencimento.Text);
 
+                //Calculando total
+                Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == cd_vacina);
+                double valorVacina = Convert.ToDouble(hiddenVacinas.Value);
+                double totalVacinas = (valorVacina + Convert.ToDouble(vacina.valor));
+                lblTotalVacinas.Text = string.Format("{0:C}", totalVacinas);
+                hiddenVacinas.Value = totalVacinas.ToString();
+
+                //Cadastrando vacina
                 cadastrarHistoricoVacina(cd_animal, cd_vacina, dt_aplicacao, dt_vencimento, cd_funcionario, "cadastroProntuario.aspx");
                 listarHistVacina(cd_animal);
             }
@@ -189,29 +173,42 @@ namespace ClinicaVeterinaria
             string cd_consulta = GridConsulta.DataKeys[index]["cd_consulta"].ToString();
             HttpContext.Current.Session["cd_consulta"] = cd_consulta;
 
-            if (e.CommandName == "Select22")
-            {
-                //Enviando ID para edição
-                HttpContext.Current.Items["alterarConsulta"] = "Alterar";
-                Server.Transfer("CadastroProntuario.aspx");
-            }
-
             if (e.CommandName == "Select")
             {
-                ////aaaaaaa
-                int cd_consulta2 = Convert.ToInt32(cd_consulta);
-                Models.consulta detalheConsulta = contexto.consulta.First(x => x.cd_consulta == cd_consulta2);
-                TextBox1.Text = detalheConsulta.pg_dinheiro.ToString();
-                TextBox2.Text = detalheConsulta.pg_debito.ToString();
-                TextBox3.Text = detalheConsulta.pg_credito.ToString();
-
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append("<script type='text/javascript'>");
-                sb.Append("$('#detalheConsulta').modal('show');");
-                sb.Append("</script>");
-                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "EditModalScript", sb.ToString(), false);
-
+                detalhesModal(cd_consulta);
+                modal("#detalheConsulta", "show");
             }
+        }
+
+        private void detalhesModal(string cd_consulta)
+        {
+            int cd_consulta2 = Convert.ToInt32(cd_consulta);
+            Models.consulta detalheConsulta = contexto.consulta.First(x => x.cd_consulta == cd_consulta2);
+            lblDt_Consulta.Text = detalheConsulta.dt_consulta.ToString();
+            lblveterinaria.Text = detalheConsulta.funcionario.nm_funcionario.ToString();
+            lblDsConsulta.Text = detalheConsulta.ds_consulta.ToString();
+
+            int cd_usuario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
+
+            lblValorConsulta.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_consulta);
+            lblValorCirurgia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_cirurgia);
+            lblValorSoroterapia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_soroterapia);
+            lblValortartarectomia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_tartarectomia);
+            lblValorMedicamentos.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_medicamentos);
+            lblValorVacinas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_vacinas);
+            lblValorOutros.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_outros);
+            lblDescricaoOutros.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_outros.ToString();
+            lblValorExame.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_exame);
+            lblDescricaoExame.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_exame.ToString();
+            lblValorVendas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_vendas);
+            lblDescricaoVendas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_vendas.ToString();
+
+            lblValorDinheiro.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_dinheiro);
+            lblValorDebito.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_debito);
+            lblValorCredito.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_credito);
+            lblTotalModal.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_total);
+
+            lblSaldoDevedor.Text = string.Format("{0:C}", detalheConsulta.saldo_devedor);
         }
 
         protected void btnCadastrarConsulta_Click(object sender, EventArgs e)
@@ -226,7 +223,7 @@ namespace ClinicaVeterinaria
                 int cd_animal = Convert.ToInt32(lblCodigo.Text);
 
                 //Valores
-                double vacinasValor = 0;
+                double vacinasValor = Convert.ToDouble(hiddenVacinas.Value);
                 double consultaValor = txtConsultaValor.Text == "" ? 0 : Convert.ToDouble(txtConsultaValor.Text);
                 double cirurgiaValor = txtCirurgiaValor.Text == "" ? 0 : Convert.ToDouble(txtCirurgiaValor.Text);
                 double soroterapiaValor = txtSoroterapiaValor.Text == "" ? 0 : Convert.ToDouble(txtSoroterapiaValor.Text);
@@ -250,7 +247,8 @@ namespace ClinicaVeterinaria
                 //calculo de saldo devedor
                 double saldo_devedor = (valor_total - (pg_dinheiro + pg_debito + pg_credito));
 
-                cadastrarConsulta(dt_consulta, ds_consulta, st_consulta, cd_funcionario, cd_animal, consultaValor, cirurgiaValor, soroterapiaValor, medicamentosValor, tartarectomiaValor, outrosValor, ds_outros, exameValor, ds_exame, vendasValor, ds_vendas, valor_total, saldo_devedor, pg_dinheiro, pg_credito, pg_debito);
+                cadastrarConsulta(dt_consulta, ds_consulta, st_consulta, cd_funcionario, cd_animal, consultaValor, cirurgiaValor, soroterapiaValor, medicamentosValor, vacinasValor, tartarectomiaValor, outrosValor, ds_outros, exameValor, ds_exame, vendasValor, ds_vendas, valor_total, saldo_devedor, pg_dinheiro, pg_credito, pg_debito);
+                modal("#pagamento", "hide");
                 listarConsulta(cd_animal);
             }
             catch (Exception ex)
@@ -268,7 +266,7 @@ namespace ClinicaVeterinaria
                 double valor_total = 0;//Convert.ToDouble(txtValorAtendimento.Text);
 
                 editarConsulta(cd_consulta, ds_consulta, valor_total);
-                listarConsulta( Convert.ToInt32(lblCodigo.Text));
+                listarConsulta(Convert.ToInt32(lblCodigo.Text));
 
                 //Limpando campos e setando botões
                 //txtValorAtendimento.Text = "";

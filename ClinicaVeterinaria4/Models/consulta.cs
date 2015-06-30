@@ -49,6 +49,9 @@ namespace ClinicaVeterinaria.Models
         public double? valor_medicamentos { get; set; }
 
         [Column(TypeName = "float")]
+        public double? valor_vacinas { get; set; }
+
+        [Column(TypeName = "float")]
         public double? valor_outros { get; set; }
 
         public string ds_outros { get; set; }

@@ -72,6 +72,7 @@
     <Content Include="App_Themes\Bootstrap\images\animal.png" />
     <Content Include="App_Themes\Bootstrap\images\cachorro-e-veterinário.jpg" />
     <Content Include="App_Themes\Bootstrap\images\delete.png" />
+    <Content Include="App_Themes\Bootstrap\images\visualizar.png" />
     <Content Include="App_Themes\Bootstrap\images\prontuario.png" />
     <Content Include="App_Themes\Bootstrap\images\select.png" />
     <Content Include="App_Themes\Bootstrap\images\vacina.png" />
@@ -82,8 +83,8 @@
     <Content Include="App_Themes\Bootstrap\js\jquery.maskedinput.min.js" />
     <Content Include="App_Themes\Bootstrap\js\uteis.js" />
     <Content Include="Cadastros\CadastrarHistVacina.aspx" />
-    <Content Include="Cadastros\cadastroProntuario.aspx" />
-    <Content Include="Cadastros\cadastroAnimal_Novo.aspx" />
+    <Content Include="Cadastros\CadastroProntuario.aspx" />
+    <Content Include="Cadastros\CadastroAnimal_Novo.aspx" />
     <Content Include="Cadastros\CadastroVacina.aspx" />
     <Content Include="Cadastros\CadastroRaca.aspx" />
     <Content Include="Cadastros\CadastroEspecie.aspx" />
@@ -104,6 +105,7 @@
     <Content Include="App_Themes\Bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="App_Themes\Bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Cadastros\teste.aspx" />
+    <Content Include="Cadastros\teste2.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\SOSSaudeAniamal.pubxml" />
     <None Include="Web.Debug.config">
@@ -123,7 +125,7 @@
     <Content Include="App_Themes\Bootstrap\js\bootstrap.js" />
     <Content Include="App_Themes\Bootstrap\js\bootstrap.min.js" />
     <Content Include="App_Themes\Bootstrap\js\npm.js" />
-    <Content Include="Cadastros\cadastroAnimal_Responsavel.aspx" />
+    <Content Include="Cadastros\CadastroAnimal_Responsavel.aspx" />
     <Content Include="Cadastros\CadastroResponsavel.aspx" />
     <Content Include="Cadastros\CadastroFuncionario.aspx" />
     <Content Include="Web.config" />
@@ -162,19 +164,19 @@
     <Compile Include="Cadastros\CadastrarHistVacina.aspx.designer.cs">
       <DependentUpon>CadastrarHistVacina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\cadastroProntuario.aspx.cs">
-      <DependentUpon>cadastroProntuario.aspx</DependentUpon>
+    <Compile Include="Cadastros\CadastroProntuario.aspx.cs">
+      <DependentUpon>CadastroProntuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\cadastroProntuario.aspx.designer.cs">
-      <DependentUpon>cadastroProntuario.aspx</DependentUpon>
+    <Compile Include="Cadastros\CadastroProntuario.aspx.designer.cs">
+      <DependentUpon>CadastroProntuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\cadastroAnimal_Novo.aspx.cs">
-      <DependentUpon>cadastroAnimal_Novo.aspx</DependentUpon>
+    <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.cs">
+      <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\cadastroAnimal_Novo.aspx.designer.cs">
-      <DependentUpon>cadastroAnimal_Novo.aspx</DependentUpon>
+    <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.designer.cs">
+      <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\CadastroVacina.aspx.cs">
       <DependentUpon>CadastroVacina.aspx</DependentUpon>
@@ -260,13 +262,20 @@
     <Compile Include="Cadastros\teste.aspx.designer.cs">
       <DependentUpon>teste.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Models\animal.cs" />
-    <Compile Include="Cadastros\cadastroAnimal_Responsavel.aspx.cs">
-      <DependentUpon>cadastroAnimal_Responsavel.aspx</DependentUpon>
+    <Compile Include="Cadastros\teste2.aspx.cs">
+      <DependentUpon>teste2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\cadastroAnimal_Responsavel.aspx.designer.cs">
-      <DependentUpon>cadastroAnimal_Responsavel.aspx</DependentUpon>
+    <Compile Include="Cadastros\teste2.aspx.designer.cs">
+      <DependentUpon>teste2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\animal.cs" />
+    <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.cs">
+      <DependentUpon>CadastroAnimal_Responsavel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.designer.cs">
+      <DependentUpon>CadastroAnimal_Responsavel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\CadastroResponsavel.aspx.cs">
       <DependentUpon>CadastroResponsavel.aspx</DependentUpon>

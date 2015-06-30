@@ -28,8 +28,8 @@
                 <asp:BoundField DataField="cod_especie" HeaderText="#" />
                 <asp:BoundField DataField="nm_especie" HeaderText="Nome" />
                 <asp:BoundField DataField="st_especie" HeaderText="Status" />
-                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" />
-                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" />
+                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
+                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" HeaderStyle-Width="30" />
             </Columns>
         </asp:GridView>
 

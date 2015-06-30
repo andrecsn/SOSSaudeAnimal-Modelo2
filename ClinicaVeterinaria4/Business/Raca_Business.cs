@@ -37,7 +37,6 @@ namespace ClinicaVeterinaria.Business
 
             contexto.raca.Remove(raca);
             contexto.SaveChanges();
-            Response.Redirect("listarRaca.aspx");
         }
     }
 }

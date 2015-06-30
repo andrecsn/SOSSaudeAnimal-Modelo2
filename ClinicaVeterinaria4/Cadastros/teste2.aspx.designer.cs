@@ -10,7 +10,7 @@
 namespace ClinicaVeterinaria.Cadastros {
     
     
-    public partial class teste {
+    public partial class teste2 {
         
         /// <summary>
         /// form1 control.

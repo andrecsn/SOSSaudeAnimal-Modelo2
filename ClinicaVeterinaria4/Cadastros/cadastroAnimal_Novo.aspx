@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cadastros/Site1.Master" AutoEventWireup="true" CodeBehind="cadastroAnimal_Novo.aspx.cs" Inherits="ClinicaVeterinaria.cadastroAnimal_Novo" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cadastros/Site1.Master" AutoEventWireup="true" CodeBehind="CadastroAnimal_Novo.aspx.cs" Inherits="ClinicaVeterinaria.cadastroAnimal_Novo" %>
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Corpo" runat="server">

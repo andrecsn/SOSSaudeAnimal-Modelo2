@@ -193,6 +193,15 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.Label lblEstadoResp;
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+        
+        /// <summary>
         /// MultviewHistoricoVacinas control.
         /// </summary>
         /// <remarks>
@@ -247,6 +256,15 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.Button btnCadastrarVacina;
         
         /// <summary>
+        /// upVacinas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upVacinas;
+        
+        /// <summary>
         /// gridVacina control.
         /// </summary>
         /// <remarks>
@@ -254,6 +272,24 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridVacina;
+        
+        /// <summary>
+        /// lblTotalVacinas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalVacinas;
+        
+        /// <summary>
+        /// hiddenVacinas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenVacinas;
         
         /// <summary>
         /// txtDescricaoAtendimento control.
@@ -373,15 +409,6 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtOutrosDescricao;
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
         /// upGridConsulta control.
         /// </summary>
         /// <remarks>
@@ -416,6 +443,15 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenTotal;
+        
+        /// <summary>
+        /// upPagamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upPagamento;
         
         /// <summary>
         /// txtDinheiro control.
@@ -463,39 +499,183 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.UpdatePanel upDetalheConsulta;
         
         /// <summary>
-        /// TextBox1 control.
+        /// lblDt_Consulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label lblDt_Consulta;
         
         /// <summary>
-        /// TextBox2 control.
+        /// lblveterinaria control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
+        protected global::System.Web.UI.WebControls.Label lblveterinaria;
         
         /// <summary>
-        /// TextBox3 control.
+        /// lblDsConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox3;
+        protected global::System.Web.UI.WebControls.Label lblDsConsulta;
         
         /// <summary>
-        /// Button1 control.
+        /// lblValorConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Label lblValorConsulta;
+        
+        /// <summary>
+        /// lblValorCirurgia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorCirurgia;
+        
+        /// <summary>
+        /// lblValorSoroterapia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorSoroterapia;
+        
+        /// <summary>
+        /// lblValortartarectomia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValortartarectomia;
+        
+        /// <summary>
+        /// lblValorMedicamentos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorMedicamentos;
+        
+        /// <summary>
+        /// lblValorVacinas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorVacinas;
+        
+        /// <summary>
+        /// lblValorOutros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorOutros;
+        
+        /// <summary>
+        /// lblDescricaoOutros control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescricaoOutros;
+        
+        /// <summary>
+        /// lblValorExame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorExame;
+        
+        /// <summary>
+        /// lblDescricaoExame control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescricaoExame;
+        
+        /// <summary>
+        /// lblValorVendas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorVendas;
+        
+        /// <summary>
+        /// lblDescricaoVendas control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDescricaoVendas;
+        
+        /// <summary>
+        /// lblValorDinheiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorDinheiro;
+        
+        /// <summary>
+        /// lblValorDebito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorDebito;
+        
+        /// <summary>
+        /// lblValorCredito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblValorCredito;
+        
+        /// <summary>
+        /// lblTotalModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotalModal;
+        
+        /// <summary>
+        /// lblSaldoDevedor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSaldoDevedor;
     }
 }
