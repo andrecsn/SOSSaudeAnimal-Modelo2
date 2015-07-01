@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClinicaVeterinaria.Cadastros
 {
-    public partial class ListarEspecie : Model.Shared.PageBase
+    public partial class ListarEspecie : Business.Especie_Business
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,12 +15,16 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (!this.IsPostBack)
             {
-                this.gridEspecie.DataSource = contexto.especie.Select(x => x).ToList();
-                this.gridEspecie.DataBind();
+                listarGrid();
             }
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            listarGrid();
+        }
+
+        protected void listarGrid()
         {
             string parametro = txtNome.Text;
 
@@ -44,22 +48,64 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (e.CommandName == "Select")
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroEspecie.aspx");
+                detalheModal(cd_especie);
+                modal("#modalAlterar", "show");
             }
 
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "New")
             {
-                //Enviando ID para exclusão
-                HttpContext.Current.Session["excluir"] = "Excluir";
-                Server.Transfer("cadastroEspecie.aspx");
+                detalheModal(cd_especie);
+                modal("#modalExcluir", "show");
             }
+        }
+
+        protected void detalheModal(string cd_especie)
+        {
+            int cd_especie2 = Convert.ToInt32(cd_especie);
+            Models.especie detalheEspecie = contexto.especie.First(x => x.cod_especie == cd_especie2);
+
+            hiddenCodigo.Value = detalheEspecie.cod_especie.ToString();
+            lblNomeModal.Text = detalheEspecie.nm_especie.ToString();
+            txtNomeModal.Text = detalheEspecie.nm_especie.ToString();
+            HttpContext.Current.Session["cd_especie"] = cd_especie2;
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             Server.Transfer("cadastroEspecie.aspx");
+        }
+
+        protected void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_especie"]);
+                string nm_especie = txtNomeModal.Text.ToString();
+
+                editarEspecie(codigo, nm_especie, "Ativo");
+                listarGrid();
+                modal("#modalAlterar", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+            }
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_especie"]);
+
+                excluirEspecie(codigo);
+                listarGrid();
+                modal("#modalExcluir", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+            }
         }
     }
 }

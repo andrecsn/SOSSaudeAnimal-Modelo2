@@ -9,9 +9,21 @@
 
         </br>
 
-        <div class="col-xs-9">
-            <asp:TextBox ID="txtNome" runat="server" Columns="50" class="form-control" placeholder="Caixa de pesquisa" autofocus></asp:TextBox>
-        </div>
+        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+
+        <asp:UpdatePanel ID="upPesquisa" runat="server">
+            <ContentTemplate>
+
+                <div class="col-xs-9">
+                    <asp:TextBox ID="txtNome" runat="server" class="form-control" placeholder="Caixa de pesquisa" OnTextChanged="btnPesquisar_Click" autofocus AutoPostBack="True" ></asp:TextBox>
+                    <asp:HiddenField ID="hiddenCodigo" runat="server" />
+                </div>
+
+            </ContentTemplate>
+            <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+            </Triggers>
+        </asp:UpdatePanel>
 
 
         <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
@@ -20,7 +32,7 @@
 
         <div class="separador"></div>
 
-        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+
 
         <asp:UpdatePanel ID="upGridRaca" runat="server">
             <ContentTemplate>
@@ -44,28 +56,29 @@
         </asp:UpdatePanel>
 
 
-        <!-- Modal de pagamento -->
-        <div id="excluirRaca" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <!-- Modal Excluir -->
+        <div id="modalExcluir" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-md">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="gridSystemModalLabel">Excluir Raça</h4>
+                        <h4 class="modal-title">Excluir Raça</h4>
                     </div>
 
                     <div class="modal-body">
 
-                        <asp:UpdatePanel ID="upExcluirRaca" runat="server">
+                        <asp:UpdatePanel ID="upExcluir" runat="server">
                             <ContentTemplate>
 
                                 <div class="row">
 
                                     <div class="col-xs-12">
                                         <div class="input-group">
-                                             <h4>Deseja mesmo excluir a Raça <b><asp:Label ID="lblNomeRaca" runat="server"></asp:Label></b> ?
+                                            <h4>Deseja mesmo excluir a Raça <b>
+                                                <asp:Label ID="lblNomeModal" runat="server"></asp:Label></b>
+                                            ?
                                         </div>
 
-                                        <asp:HiddenField ID="hiddenCodigo" runat="server" />
                                     </div>
 
                                 </div>
@@ -76,12 +89,55 @@
                             </Triggers>
                         </asp:UpdatePanel>
 
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                            <asp:Button ID="btnExcluir" runat="server" Text="Confirmar" class="btn btn-danger" OnClick="btnExcluir_Click" />
-                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <asp:Button ID="btnExcluir" runat="server" Text="Confirmar" class="btn btn-danger" OnClick="btnExcluir_Click" />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Modal Alterar -->
+        <div id="modalAlterar" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel2" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Alterar Raça</h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <asp:UpdatePanel ID="upAlterar" runat="server">
+                            <ContentTemplate>
+
+                                <div class="row">
+                                    <div class="form-group">
+
+                                        <div class="col-sm-12">
+                                            <label for="nomeRaca" class="control-label">Nome Raça:</label>
+                                            <asp:TextBox ID="txtNomeModal" runat="server" class="form-control" placeholder="Nova Raça" autofocus></asp:TextBox>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnAlterar" EventName="Click" />
+                            </Triggers>
+                        </asp:UpdatePanel>
 
                     </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <asp:Button ID="btnAlterar" runat="server" Text="Alterar" class="btn btn-success" OnClick="btnAlterar_Click" />
+                    </div>
+
                 </div>
             </div>
         </div>

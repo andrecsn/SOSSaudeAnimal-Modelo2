@@ -14,60 +14,6 @@ namespace ClinicaVeterinaria.Cadastros
             autenticarUsuario();
 
             var cd_Vacina = HttpContext.Current.Items["cd_vacina"];
-            var cmdAlterar = HttpContext.Current.Session["alterar"];
-            var cmdExcluir = HttpContext.Current.Session["excluir"];
-
-            if (cmdAlterar == "Alterar" && cd_Vacina != null)
-                exibirEditarVacina(Convert.ToInt32(cd_Vacina));
-
-            if (cmdExcluir == "Excluir" && cd_Vacina != null)
-                exibirExcluirVacina(Convert.ToInt32(cd_Vacina));
-        }
-
-        public void exibirExcluirVacina(int codigo)
-        {
-            if (codigo != 0)
-            {
-                lblCodigo.Text = codigo.ToString();
-                Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == codigo);
-
-                lblVacina.Text = vacina.nm_vacina;
-                lblValor.Text = vacina.valor.ToString();
-                lblStatus.Text = vacina.st_vacina;
-
-                lblVacina.Visible = true;
-                lblValor.Visible = true;
-                lblStatus.Visible = true;
-
-                txtVacina.Visible = false;
-                txtValor.Visible = false;
-                listStatus.Visible = false;
-
-                btnExcluir.Visible = true;
-                btnCadastrar.Visible = false;
-                btnAlterar.Visible = false;
-
-                lblTitulo.Text = "Remover Vacina";
-
-                Session.Remove("excluir");
-                Session.Remove("alterar");
-            }
-        }
-
-        public void exibirEditarVacina(int codigo)
-        {
-            lblCodigo.Text = codigo.ToString();
-            Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == codigo);
-
-            txtVacina.Text = vacina.nm_vacina;
-            txtValor.Text = vacina.valor.ToString();
-            listStatus.Text = vacina.st_vacina;
-
-            btnAlterar.Visible = true;
-            btnCadastrar.Visible = false;
-            btnExcluir.Visible = false;
-
-            lblTitulo.Text = "Alterar Vacina";
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
@@ -79,37 +25,6 @@ namespace ClinicaVeterinaria.Cadastros
                 double valor = Convert.ToDouble(txtValor.Text);
 
                 cadastrarVacina(nome, status, valor);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.InnerException);
-            }
-        }
-
-        protected void btnAlterar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int codigo = Convert.ToInt32(lblCodigo.Text);
-                string nome = txtVacina.Text;
-                double valor = Convert.ToDouble(txtValor.Text);
-                string status = listStatus.Text;
-
-                editarVacina(codigo, nome, status, valor);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.InnerException);
-            }
-        }
-
-        protected void btnExcluir_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int codigo = Convert.ToInt32(lblCodigo.Text);
-
-                excluirVacina(codigo);
             }
             catch (Exception ex)
             {

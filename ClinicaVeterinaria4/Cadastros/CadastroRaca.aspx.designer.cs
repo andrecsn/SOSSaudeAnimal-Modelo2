@@ -49,15 +49,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox txtRaca;
         
         /// <summary>
-        /// lblRaca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRaca;
-        
-        /// <summary>
         /// listStatus control.
         /// </summary>
         /// <remarks>
@@ -67,15 +58,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.RadioButtonList listStatus;
         
         /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
-        
-        /// <summary>
         /// btnCadastrar control.
         /// </summary>
         /// <remarks>
@@ -83,24 +65,6 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastrar;
-        
-        /// <summary>
-        /// btnAlterar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAlterar;
-        
-        /// <summary>
-        /// btnExcluir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExcluir;
         
         /// <summary>
         /// btnVoltar control.

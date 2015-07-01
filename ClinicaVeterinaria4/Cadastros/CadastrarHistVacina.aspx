@@ -69,7 +69,8 @@
                 <asp:BoundField DataField="nm_vacina" HeaderText="Vacina" />
                 <asp:BoundField DataField="dt_hist_vacina" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" HeaderText="Data de Aplicação" />
                 <asp:BoundField DataField="dt_vencimento" DataFormatString="{0:dd/MM/yyyy}" HtmlEncode="false" HeaderText="Revacinar" />
-                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" HeaderText="Excluir" />
+                <asp:BoundField DataField="nm_funcionario" HeaderText="Veterinária" />
+                <asp:CommandField ButtonType="Image" DeleteImageUrl="~/App_Themes/Bootstrap/images/delete.png" ShowDeleteButton="True" HeaderText="Excluir" HeaderStyle-Width="30" />
             </Columns>
         </asp:GridView>
 

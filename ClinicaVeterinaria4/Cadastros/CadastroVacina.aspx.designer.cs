@@ -49,15 +49,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox txtVacina;
         
         /// <summary>
-        /// lblVacina control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVacina;
-        
-        /// <summary>
         /// txtValor control.
         /// </summary>
         /// <remarks>
@@ -65,15 +56,6 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtValor;
-        
-        /// <summary>
-        /// lblValor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblValor;
         
         /// <summary>
         /// listStatus control.
@@ -85,15 +67,6 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.RadioButtonList listStatus;
         
         /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
-        
-        /// <summary>
         /// btnCadastrar control.
         /// </summary>
         /// <remarks>
@@ -101,24 +74,6 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCadastrar;
-        
-        /// <summary>
-        /// btnAlterar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAlterar;
-        
-        /// <summary>
-        /// btnExcluir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExcluir;
         
         /// <summary>
         /// btnVoltar control.

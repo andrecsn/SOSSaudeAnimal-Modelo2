@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClinicaVeterinaria.Cadastros
 {
-    public partial class ListarFuncionario : Model.Shared.PageBase
+    public partial class ListarFuncionario : Business.Funcionario_Business
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -15,12 +15,16 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (!this.IsPostBack)
             {
-                this.gridFuncionario.DataSource = contexto.funcionario.Select(x => x).ToList();
-                this.gridFuncionario.DataBind();
+                listarGrid();
             }
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            listarGrid();
+        }
+
+        protected void listarGrid()
         {
             string parametro = txtNome.Text;
 
@@ -50,11 +54,36 @@ namespace ClinicaVeterinaria.Cadastros
                 Server.Transfer("cadastroFuncionario.aspx");
             }
 
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "New")
             {
-                //Enviando ID para exclusão
-                HttpContext.Current.Session["excluir"] = "Excluir";
-                Server.Transfer("cadastroFuncionario.aspx");
+                detalheModal(cd_funcionario);
+                modal("#modalExcluir", "show");
+            }
+        }
+
+        protected void detalheModal(string cd_funcionario)
+        {
+            int cd_funcionario2 = Convert.ToInt32(cd_funcionario);
+            Models.funcionario detalheFuncionario = contexto.funcionario.First(x => x.cd_funcionario == cd_funcionario2);
+
+            hiddenCodigo.Value = detalheFuncionario.cd_funcionario.ToString();
+            lblNomeModal.Text = detalheFuncionario.nm_funcionario.ToString();
+            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario2;
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_funcionario"]);
+
+                excluirFuncionario(codigo);
+                listarGrid();
+                modal("#modalExcluir", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
             }
         }
 

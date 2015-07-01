@@ -27,16 +27,14 @@ namespace ClinicaVeterinaria.Business
             especie.st_especie = status;
 
             contexto.SaveChanges();
-            Response.Redirect("ListarEspecie.aspx");
         }
 
         protected void excluirEspecie(int codigo)
         {
             Models.especie especie = contexto.especie.First(x => x.cod_especie == codigo);
 
-            contexto.especie.Remove(especie);
+            especie.st_especie = "Inativo";
             contexto.SaveChanges();
-            Response.Redirect("ListarEspecie.aspx");
         }
     }
 }

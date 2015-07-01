@@ -47,7 +47,8 @@ namespace ClinicaVeterinaria.Cadastros
                             cd_hist_Vacina = a.cd_hist_vacina,
                             nm_vacina = a.vacina.nm_vacina,
                             dt_hist_vacina = a.dt_hist_vacina,
-                            dt_vencimento = a.dt_vencimento
+                            dt_vencimento = a.dt_vencimento, 
+                            nm_funcionario = a.funcionario.nm_funcionario
                         };
             this.gridHistVacina.DataSource = dados.ToList();
             this.gridHistVacina.DataBind();

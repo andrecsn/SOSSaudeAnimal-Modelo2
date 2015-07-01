@@ -28,14 +28,13 @@ namespace ClinicaVeterinaria.Business
             raca.st_raca = st_raca;
 
             contexto.SaveChanges();
-            Response.Redirect("listarRaca.aspx");
         }
 
         protected void excluirRaca(int codigo)
         {
             Models.raca raca = contexto.raca.First(x => x.cd_raca == codigo);
 
-            contexto.raca.Remove(raca);
+            raca.st_raca = "Inativa";
             contexto.SaveChanges();
         }
     }

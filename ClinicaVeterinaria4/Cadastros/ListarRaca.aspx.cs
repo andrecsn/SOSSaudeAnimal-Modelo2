@@ -15,20 +15,17 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (!this.IsPostBack)
             {
-                this.gridRaca.DataSource = contexto.raca.Select(x => x).ToList();
-                this.gridRaca.DataBind();
+                listarGrid(txtNome.Text);
             }
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            listarGridRaca();
+            listarGrid(txtNome.Text);
         }
 
-        protected void listarGridRaca()
+        protected void listarGrid(string parametro)
         {
-            string parametro = txtNome.Text;
-
             if (parametro == "")
             {
                 this.gridRaca.DataSource = contexto.raca.Select(x => x).ToList();
@@ -49,31 +46,48 @@ namespace ClinicaVeterinaria.Cadastros
 
             if (e.CommandName == "Select")
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroRaca.aspx");
+                detalheModal(cd_raca);
+                modal("#modalAlterar", "show");
             }
 
             if (e.CommandName == "New")
             {
-                detalheRacaModal(cd_raca);
-                modal("#excluirRaca", "show");
+                detalheModal(cd_raca);
+                modal("#modalExcluir", "show");
             }
         }
 
-        protected void detalheRacaModal(string cd_raca)
+        protected void detalheModal(string cd_raca)
         {
             int cd_raca2 = Convert.ToInt32(cd_raca);
             Models.raca detalheRaca = contexto.raca.First(x => x.cd_raca == cd_raca2);
 
             hiddenCodigo.Value = detalheRaca.cd_raca.ToString();
-            lblNomeRaca.Text = detalheRaca.nm_raca.ToString();
+            lblNomeModal.Text = detalheRaca.nm_raca.ToString();
+            txtNomeModal.Text = detalheRaca.nm_raca.ToString();
             HttpContext.Current.Session["cd_raca"] = cd_raca2;
         }
 
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             Server.Transfer("cadastroRaca.aspx");
+        }
+
+        protected void btnAlterar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_raca"]);
+                string nm_raca = txtNomeModal.Text.ToString();
+
+                editarRaca(codigo, nm_raca, "Ativo");
+                listarGrid(txtNome.Text);
+                modal("#modalAlterar", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+            }
         }
 
         protected void btnExcluir_Click(object sender, EventArgs e)
@@ -83,8 +97,8 @@ namespace ClinicaVeterinaria.Cadastros
                 int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_raca"]);
 
                 excluirRaca(codigo);
-                listarGridRaca();
-                modal("#excluirRaca", "hide");
+                listarGrid(txtNome.Text);
+                modal("#modalExcluir", "hide");
             }
             catch (Exception ex)
             {

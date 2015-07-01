@@ -29,16 +29,14 @@ namespace ClinicaVeterinaria.Business
             vacina.st_vacina = status;
 
             contexto.SaveChanges();
-            Response.Redirect("ListarVacina.aspx");
         }
 
         protected void excluirVacina(int codigo)
         {
             Models.vacina vacina = contexto.vacina.First(x => x.cd_vacina == codigo);
 
-            contexto.vacina.Remove(vacina);
+            vacina.st_vacina = "Inativa";
             contexto.SaveChanges();
-            Response.Redirect("ListarVacina.aspx");
         }
     }
 }
