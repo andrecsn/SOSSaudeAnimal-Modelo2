@@ -2,37 +2,49 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Corpo" runat="server">
 
-    <form id="form1" runat="server" class="jumbotron">
+    <form id="form1" runat="server">
 
-        <h2>Lista de Espécie</h2>
-        <h4>Resumo de todas as espécies cadastradas.</h4>
-
-        </br>
-
-
-        <div class="col-xs-9">
-            <asp:TextBox ID="txtNome" runat="server" Columns="50" class="form-control" placeholder="Caixa de pesquisa" autofocus></asp:TextBox>
-            <asp:HiddenField ID="hiddenCodigo" runat="server" />
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Lista de Espécie</h1>
+                <h4>Resumo de todas as espécies cadastradas.</h4>
+            </div>
         </div>
 
 
-        <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
-        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar Espécie" class="btn btn-success" OnClick="btnCadastrar_Click" />
+        <div class="col-lg-16">
+            <div class="well well-sm">
+                <h4>Caixa de pesquisa</h4>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <asp:TextBox ID="txtNome" runat="server" OnTextChanged="btnPesquisar_Click" AutoPostBack="true" class="form-control" placeholder="Caixa de pesquisa" autofocus></asp:TextBox>
+                        <asp:HiddenField ID="hiddenCodigo" runat="server" />
+                    </div>
 
+                    <div class="col-xs-4">
+                        <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
+                        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar Espécie" class="btn btn-success" OnClick="btnCadastrar_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div class="separador"></div>
 
         <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
         <asp:UpdatePanel ID="upGrid" runat="server">
             <ContentTemplate>
 
-                <asp:GridView ID="gridEspecie" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" GridLines="None"
+                <asp:GridView ID="gridEspecie" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
                     OnRowCommand="gridEspecie_RowCommand" DataKeyNames="cod_especie">
                     <Columns>
                         <asp:BoundField DataField="cod_especie" HeaderText="#" />
                         <asp:BoundField DataField="nm_especie" HeaderText="Nome" />
-                        <asp:BoundField DataField="st_especie" HeaderText="Status" />
+                        <asp:TemplateField HeaderText="Status">
+                            <ItemTemplate>
+                                <asp:Label ID="lblRaca" runat="server" CssClass='<%# cssGrid(Eval("st_especie").ToString()) %>' Text='<%# Bind("st_especie") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
                         <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
                     </Columns>
@@ -40,8 +52,11 @@
 
             </ContentTemplate>
             <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+                <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
+
 
 
         <!-- Modal Excluir -->

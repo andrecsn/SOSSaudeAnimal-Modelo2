@@ -2,22 +2,31 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="Corpo" runat="server">
 
-    <form id="form1" runat="server" class="jumbotron">
+    <form id="form1" runat="server">
 
-        <h2>Lista de Vacina</h2>
-        <h4>Resumo de todas as vacina cadastradas.</h4>
-
-        </br>
-
-
-        <div class="col-xs-9">
-            <asp:TextBox ID="txtNome" runat="server" Columns="50" class="form-control" placeholder="Caixa de pesquisa" autofocus></asp:TextBox>
-            <asp:HiddenField ID="hiddenCodigo" runat="server" />
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Lista de Vacina</h1>
+                <h4>Resumo de todas as vacina cadastradas.</h4>
+            </div>
         </div>
 
+        <div class="col-lg-16">
+            <div class="well well-sm">
+                <h4>Caixa de pesquisa</h4>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <asp:TextBox ID="txtNome" runat="server" OnTextChanged="btnPesquisar_Click" AutoPostBack="true" class="form-control" placeholder="Caixa de pesquisa" autofocus></asp:TextBox>
+                        <asp:HiddenField ID="hiddenCodigo" runat="server" />
+                    </div>
 
-        <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
-        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar Vacina" class="btn btn-success" OnClick="btnCadastrar_Click" />
+                    <div class="col-xs-4">
+                        <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
+                        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar Vacina" class="btn btn-success" OnClick="btnCadastrar_Click" />
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <div class="separador"></div>
@@ -27,15 +36,19 @@
         <asp:UpdatePanel ID="upGrid" runat="server">
             <ContentTemplate>
 
-                <asp:GridView ID="gridVacina" runat="server" AutoGenerateColumns="False" CssClass="table table-hover" GridLines="None"
+                <asp:GridView ID="gridVacina" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
                     OnRowCommand="gridVacina_RowCommand" DataKeyNames="cd_vacina">
                     <Columns>
                         <asp:BoundField DataField="cd_vacina" HeaderText="#" />
                         <asp:BoundField DataField="nm_vacina" HeaderText="Nome" />
                         <asp:BoundField DataField="valor" HeaderText="Valor" DataFormatString="{0:C}" />
-                        <asp:BoundField DataField="st_vacina" HeaderText="Status" />
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" >
-                        <HeaderStyle Width="30px" />
+                        <asp:TemplateField HeaderText="Status">
+                            <ItemTemplate>
+                                <asp:Label ID="lblStatus" runat="server" CssClass='<%# cssGrid(Eval("st_vacina").ToString()) %>' Text='<%# Bind("st_vacina") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
+                            <HeaderStyle Width="30px" />
                         </asp:CommandField>
                         <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
                     </Columns>
@@ -43,6 +56,8 @@
 
             </ContentTemplate>
             <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+                <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
             </Triggers>
         </asp:UpdatePanel>
 

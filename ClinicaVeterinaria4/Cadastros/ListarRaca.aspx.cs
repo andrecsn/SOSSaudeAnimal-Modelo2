@@ -38,6 +38,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public string cssGrid(string tipo)
+        {
+            if (tipo == "Ativo")
+                return "label label-success";
+            else if (tipo == "Inativa")
+                return "label label-danger";
+
+            return "";
+        }
+
         protected void gridRaca_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = int.Parse((string)e.CommandArgument);

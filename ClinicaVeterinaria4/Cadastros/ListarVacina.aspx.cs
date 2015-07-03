@@ -59,6 +59,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public string cssGrid(string tipo)
+        {
+            if (tipo == "Ativo")
+                return "label label-success";
+            else if (tipo == "Inativa")
+                return "label label-danger";
+
+            return "";
+        }
+
         protected void detalheModal(string cd_vacina)
         {
             int cd_vacina2 = Convert.ToInt32(cd_vacina);

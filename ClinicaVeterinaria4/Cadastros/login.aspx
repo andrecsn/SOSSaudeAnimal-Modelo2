@@ -9,6 +9,18 @@
 
     <title>Clinica Veterinária</title>
 
+    <!-- Bootstrap Core CSS -->
+    <link href="../App_Themes/Bootstrap/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- MetisMenu CSS -->
+    <link href="../App_Themes/Bootstrap/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    <link href="../App_Themes/Bootstrap/dist/css/sb-admin-2.css" rel="stylesheet" />
+
+    <!-- Custom Fonts -->
+    <link href="../App_Themes/Bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+
     <style>
         .rodape {
             position: absolute;
@@ -20,8 +32,8 @@
             opacity: 0.9;
             margin-top: 70px;
         }
-        .container
-        {
+
+        .container {
             position: relative;
             z-index: 9999;
         }
@@ -29,11 +41,11 @@
 
 </head>
 
-<body>
+<body style="background-color:#ffffff; ">
     <form id="form1" runat="server" class="form-horizontal">
 
 
-         <!-- Static navbar -->
+        <!-- Static navbar -->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -88,7 +100,9 @@
                 </div>
             </div>
         </div>
-        <div class="rodape"><img src="../App_Themes/Bootstrap/images/cachorro-e-veterinário.jpg" class="img-responsive" /></div>
+        <div class="rodape">
+            <img src="../App_Themes/Bootstrap/images/cachorro-e-veterinário.jpg" class="img-responsive" />
+        </div>
     </form>
 </body>
 </html>

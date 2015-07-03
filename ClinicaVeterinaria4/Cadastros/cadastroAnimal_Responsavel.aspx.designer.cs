@@ -49,13 +49,22 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// txtCor control.
+        /// cboEspecie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCor;
+        protected global::System.Web.UI.WebControls.DropDownList cboEspecie;
+        
+        /// <summary>
+        /// cboSexo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cboSexo;
         
         /// <summary>
         /// txtPeso control.
@@ -67,13 +76,13 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtPeso;
         
         /// <summary>
-        /// cboSexo control.
+        /// txtCor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboSexo;
+        protected global::System.Web.UI.WebControls.TextBox txtCor;
         
         /// <summary>
         /// txtNascimento control.
@@ -94,15 +103,6 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.DropDownList cboRaca;
         
         /// <summary>
-        /// cboEspecie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboEspecie;
-        
-        /// <summary>
         /// txtInformacoes control.
         /// </summary>
         /// <remarks>
@@ -112,6 +112,15 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtInformacoes;
         
         /// <summary>
+        /// Image1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Image1;
+        
+        /// <summary>
         /// arqFoto control.
         /// </summary>
         /// <remarks>
@@ -119,15 +128,6 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload arqFoto;
-        
-        /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
         
         /// <summary>
         /// Label2 control.

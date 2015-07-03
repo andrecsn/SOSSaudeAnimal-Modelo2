@@ -40,18 +40,17 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
-
         protected void gridFuncionario_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = int.Parse((string)e.CommandArgument);
             string cd_funcionario = gridFuncionario.DataKeys[index]["cd_funcionario"].ToString();
-            HttpContext.Current.Items["cd_funcionario"] = cd_funcionario;
+            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
 
             if (e.CommandName == "Select")
             {
                 //Enviando ID para edição
                 HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroFuncionario.aspx");
+                Response.Redirect("CadastroFuncionario.aspx");
             }
 
             if (e.CommandName == "New")
@@ -59,6 +58,20 @@ namespace ClinicaVeterinaria.Cadastros
                 detalheModal(cd_funcionario);
                 modal("#modalExcluir", "show");
             }
+        }
+
+        public string cssGrid(string tipo)
+        {
+            string retorno = "";
+
+            if (tipo == "Administrador")
+                retorno = "label label-success";
+            else if (tipo == "Veterinária")
+                retorno = "label label-primary";
+            else if (tipo == "Atendente")
+                retorno = "label label-default";
+
+            return retorno;
         }
 
         protected void detalheModal(string cd_funcionario)
