@@ -30,35 +30,41 @@
         </div>
 
 
-        <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
+        <div class="row">
+            <div class="col-lg-12">
 
-        <asp:UpdatePanel ID="upGridRaca" runat="server">
-            <ContentTemplate>
+                <asp:ScriptManager ID="ScriptManager2" runat="server"></asp:ScriptManager>
 
-                <asp:GridView ID="gridFuncionario" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
-                    OnRowCommand="gridFuncionario_RowCommand" DataKeyNames="cd_funcionario">
-                    <Columns>
-                        <asp:BoundField DataField="cd_funcionario" HeaderText="#" />
-                        <asp:BoundField DataField="nm_funcionario" HeaderText="Nome" />
-                        <asp:BoundField DataField="cpf" HeaderText="CPF" />
-                        <asp:BoundField DataField="telefone" HeaderText="Telefone" />
-                        <asp:BoundField DataField="celular" HeaderText="Celular" />
-                        <asp:TemplateField HeaderText="Tipo">
-                            <ItemTemplate>
-                                <asp:Label ID="lblTipo" runat="server" CssClass='<%# cssGrid(Eval("tipo").ToString()) %>' Text='<%# Bind("tipo") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
-                        <asp:CommandField ButtonType="Image" ShowInsertButton="True" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" HeaderStyle-Width="30" />
-                    </Columns>
-                </asp:GridView>
+                <asp:UpdatePanel ID="upGridRaca" runat="server">
+                    <ContentTemplate>
 
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
-                <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
-            </Triggers>
-        </asp:UpdatePanel>
+                        <asp:GridView ID="gridFuncionario" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
+                            OnRowCommand="gridFuncionario_RowCommand" DataKeyNames="cd_funcionario">
+                            <Columns>
+                                <asp:BoundField DataField="cd_funcionario" HeaderText="#" />
+                                <asp:BoundField DataField="nm_funcionario" HeaderText="Nome" />
+                                <asp:BoundField DataField="cpf" HeaderText="CPF" />
+                                <asp:BoundField DataField="telefone" HeaderText="Telefone" />
+                                <asp:BoundField DataField="celular" HeaderText="Celular" />
+                                <asp:TemplateField HeaderText="Tipo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblTipo" runat="server" CssClass='<%# cssGrid(Eval("tipo").ToString()) %>' Text='<%# Bind("tipo") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
+                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" HeaderStyle-Width="30" />
+                            </Columns>
+                        </asp:GridView>
+
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+
+            </div>
+        </div>
 
 
         <!-- Modal Excluir -->

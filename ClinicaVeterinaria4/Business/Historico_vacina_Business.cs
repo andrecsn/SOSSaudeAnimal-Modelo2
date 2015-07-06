@@ -47,9 +47,13 @@ namespace ClinicaVeterinaria.Business
             contexto.historico_vacina.Remove(historico_vacina);
             contexto.SaveChanges();
 
-            //Enviando ID para a página de inserção de novo animal
-            HttpContext.Current.Items["cd_animal"] = animal;
-            Server.Transfer(pagina);
+            if (pagina != "")
+            {
+                //Enviando ID para a página de inserção de novo animal
+                HttpContext.Current.Items["cd_animal"] = animal;
+                Server.Transfer(pagina);
+            }
+            
         }
     }
 }

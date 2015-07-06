@@ -51,12 +51,12 @@ namespace ClinicaVeterinaria.Cadastros
             {
                 int index = int.Parse((string)e.CommandArgument);
                 string cd_animal = gridProntuario.DataKeys[index]["cd_animal"].ToString();
-                HttpContext.Current.Items["cd_animal"] = cd_animal;
+                HttpContext.Current.Session["cd_animal"] = cd_animal;
 
                 string cd_responsavel = gridProntuario.DataKeys[index]["cd_responsavel"].ToString();
-                HttpContext.Current.Items["cd_responsavel"] = cd_responsavel;
+                HttpContext.Current.Session["cd_responsavel"] = cd_responsavel;
 
-                Server.Transfer("cadastroProntuario.aspx");
+                Response.Redirect("cadastroProntuario.aspx");
             }
         }
 

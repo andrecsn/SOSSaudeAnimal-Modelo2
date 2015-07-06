@@ -40,32 +40,38 @@
         </asp:UpdatePanel>
 
 
-        <asp:UpdatePanel ID="upGridRaca" runat="server">
-            <ContentTemplate>
+        <div class="row">
+            <div class="col-lg-12">
 
-                <asp:GridView ID="gridRaca" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
-                    OnRowCommand="gridRaca_RowCommand" DataKeyNames="cd_raca">
-                    <Columns>
-                        <asp:BoundField DataField="cd_raca" HeaderText="#" />
-                        <asp:BoundField DataField="nm_raca" HeaderText="Nome" />
-                        <asp:TemplateField HeaderText="Status">
-                            <ItemTemplate>
-                                <asp:Label ID="lblStatus" runat="server" CssClass='<%# cssGrid(Eval("st_raca").ToString()) %>' Text='<%# Bind("st_raca") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
-                            <HeaderStyle Width="30px" />
-                        </asp:CommandField>
-                        <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png">
-                            <HeaderStyle Width="30px" />
-                        </asp:CommandField>
-                    </Columns>
-                </asp:GridView>
+                <asp:UpdatePanel ID="upGridRaca" runat="server">
+                    <ContentTemplate>
 
-            </ContentTemplate>
-            <Triggers>
-            </Triggers>
-        </asp:UpdatePanel>
+                        <asp:GridView ID="gridRaca" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
+                            OnRowCommand="gridRaca_RowCommand" DataKeyNames="cd_raca">
+                            <Columns>
+                                <asp:BoundField DataField="cd_raca" HeaderText="#" />
+                                <asp:BoundField DataField="nm_raca" HeaderText="Nome" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblStatus" runat="server" CssClass='<%# cssGrid(Eval("st_raca").ToString()) %>' Text='<%# Bind("st_raca") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
+                                    <HeaderStyle Width="30px" />
+                                </asp:CommandField>
+                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png">
+                                    <HeaderStyle Width="30px" />
+                                </asp:CommandField>
+                            </Columns>
+                        </asp:GridView>
+
+                    </ContentTemplate>
+                    <Triggers>
+                    </Triggers>
+                </asp:UpdatePanel>
+
+            </div>
+        </div>
 
 
         <!-- Modal Excluir -->

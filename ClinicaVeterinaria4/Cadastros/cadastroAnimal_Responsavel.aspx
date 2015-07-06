@@ -111,7 +111,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><b>Dados básicos de cadastro de Animal</b></div>
+                    <div class="panel-heading"><b>Dados básicos de cadastro do Responsável</b></div>
                     <div class="panel-body">
 
                         <div class="col-lg-4">

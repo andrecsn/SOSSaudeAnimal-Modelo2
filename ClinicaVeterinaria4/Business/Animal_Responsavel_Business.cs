@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ClinicaVeterinaria.Business
 {
-    public class Animal_Business : Model.Shared.PageBase
+    public class Animal_Responsavel_Business : Model.Shared.PageBase
     {
         protected void cadastrarAnimal(string nome, string cor, string peso, DateTime dt_nascimento, string sexo, int responsavel, int raca, int especie, string inf_animal, string foto)
         {
@@ -64,7 +64,6 @@ namespace ClinicaVeterinaria.Business
 
             //Enviando ID para a página de inserção de novo animal
             HttpContext.Current.Session["novo"] = "NovoAnimal";
-            Server.Transfer("cadastroAnimal_Novo.aspx");
         }
 
         protected int cadastrarResponsavel(string nome, string cpf, string telefone, string celular, string email, string endereco, string bairro, string cidade, string estado)

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClinicaVeterinaria
 {
-    public partial class cadastroAnimal_Novo : Business.Animal_Business
+    public partial class cadastroAnimal_Novo : Business.Animal_Responsavel_Business
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,11 +18,10 @@ namespace ClinicaVeterinaria
                 listarRaca();
                 listarEspecie();
 
-                int cd_responsavel = Convert.ToInt32(HttpContext.Current.Items["cd_responsavel"]);
-                var cd_animal = HttpContext.Current.Items["cd_animal"];
+                int cd_responsavel = Convert.ToInt32(HttpContext.Current.Session["cd_responsavel"]);
+                var cd_animal = HttpContext.Current.Session["cd_animal"];
                 var cmdNovoAnimal = HttpContext.Current.Session["novo"];
                 var cmdAlterar = HttpContext.Current.Session["alterar"];
-                var cmdExcluir = HttpContext.Current.Session["excluir"];
 
                 listarGrid(cd_responsavel);
 
@@ -35,61 +34,6 @@ namespace ClinicaVeterinaria
                     exibirEditarResponsavel(cd_responsavel);
                 }
 
-                if (cmdExcluir == "Excluir" && cd_animal != null)
-                {
-                    exibirExcluirAnimal(Convert.ToInt32(cd_animal));
-                    exibirResponsavel(cd_responsavel);
-                }
-
-            }
-        }
-
-        public void exibirExcluirAnimal(int codigo)
-        {
-            if (codigo != 0)
-            {
-                lblCodigo.Text = codigo.ToString();
-                Models.animal animal = contexto.animal.First(x => x.cd_animal == codigo);
-
-                lblNome.Text = animal.nm_animal;
-                lblCor.Text = animal.cor;
-                lblPeso.Text = animal.peso;
-                lblNascimento.Text = Convert.ToDateTime(animal.dt_nascimento).ToShortDateString();
-                lblSexo.Text = animal.sexo;
-                lblEspecie.Text = animal.especie.nm_especie;
-                lblraca.Text = animal.raca.nm_raca;
-                lblInformacoes.Text = animal.inf_animal;
-                lblFoto.Text = animal.foto;
-
-                lblNome.Visible = true;
-                lblCor.Visible = true;
-                lblPeso.Visible = true;
-                lblNascimento.Visible = true;
-                lblSexo.Visible = true;
-                lblraca.Visible = true;
-                lblEspecie.Visible = true;
-                lblInformacoes.Visible = true;
-                lblFoto.Visible = true;
-
-                txtNome.Visible = false;
-                txtCor.Visible = false;
-                txtPeso.Visible = false;
-                txtNascimento.Visible = false;
-                cboSexo.Visible = false;
-                cboEspecie.Visible = false;
-                cboRaca.Visible = false;
-                txtInformacoes.Visible = false;
-                arqFoto.Visible = false;
-
-                btnExcluir.Visible = true;
-                btnCadastrar.Visible = false;
-                btnAlterar.Visible = false;
-
-                lblTitulo.Text = "Remover Animal";
-
-                Session.Remove("excluir");
-                Session.Remove("alterar");
-                Session.Remove("novo");
             }
         }
 
@@ -110,7 +54,6 @@ namespace ClinicaVeterinaria
 
             btnAlterar.Visible = true;
             btnCadastrar.Visible = false;
-            btnExcluir.Visible = false;
 
             lblTitulo.Text = "Alterar Animal";
         }
@@ -238,9 +181,13 @@ namespace ClinicaVeterinaria
         {
             try
             {
-                int codigo = Convert.ToInt32(lblCodigo.Text);
+                int cd_responsavel = Convert.ToInt32(HttpContext.Current.Session["cd_responsavel"]);
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
 
                 excluirAnimal(codigo);
+                listarGrid(cd_responsavel);
+                limparCamposAnimal();
+                modal("#modalExcluir", "hide");
             }
             catch (Exception ex)
             {
@@ -253,7 +200,9 @@ namespace ClinicaVeterinaria
             Session.Remove("excluir");
             Session.Remove("alterar");
             Session.Remove("novo");
-            Server.Transfer("listarAnimal.aspx");
+            Session.Remove("cd_responsavel");
+            Session.Remove("cd_animal");
+            Response.Redirect("ListarAnimal_Responsavel.aspx");
         }
 
         protected void gridAnimal_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -267,17 +216,41 @@ namespace ClinicaVeterinaria
 
             if (e.CommandName == "Select")
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
+                exibirEditarAnimal(Convert.ToInt32(cd_animal));
             }
 
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "New")
             {
-                //Enviando ID para exclusão
-                HttpContext.Current.Session["excluir"] = "Excluir";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
+                detalheModal(cd_animal);
+                modal("#modalExcluir", "show");
             }
+        }
+
+        protected void detalheModal(string cd_animal)
+        {
+            int cd_animal2 = Convert.ToInt32(cd_animal);
+            Models.animal detalheAnimal = contexto.animal.First(x => x.cd_animal == cd_animal2);
+
+            lblNomeModal.Text = detalheAnimal.nm_animal.ToString();
+            HttpContext.Current.Session["cd_animal"] = cd_animal2;
+        }
+
+        private void limparCamposAnimal()
+        {
+            lblTitulo.Text = "Dados do novo animal";
+            txtNome.Text = "";
+            txtCor.Text = "";
+            txtPeso.Text = "";
+            txtNascimento.Text = "";
+            cboSexo.Text = "";
+            cboEspecie.SelectedValue = "--Select--";
+            cboRaca.SelectedValue = "--Select--";
+            txtInformacoes.Text = "";
+            lblFoto.Text = "";
+
+            txtNome.Focus();
+            btnAlterar.Visible = false;
+            btnCadastrar.Visible = true;
         }
 
         protected void alterarAnimal()

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClinicaVeterinaria
 {
-    public partial class cadastroAnimal : Business.Animal_Business
+    public partial class cadastroAnimal : Business.Animal_Responsavel_Business
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace ClinicaVeterinaria
 
         protected void btnVoltar_click(object sender, EventArgs e)
         {
-            Server.Transfer("listarAnimal.aspx");
+            Server.Transfer("listarAnimal_Responsavel.aspx");
         }
 
     }

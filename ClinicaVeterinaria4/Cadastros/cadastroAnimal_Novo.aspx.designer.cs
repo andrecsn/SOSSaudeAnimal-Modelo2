@@ -193,6 +193,24 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.Label lblEstadoResp;
         
         /// <summary>
+        /// ScriptManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
+        
+        /// <summary>
+        /// upGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upGrid;
+        
+        /// <summary>
         /// gridAnimal control.
         /// </summary>
         /// <remarks>
@@ -229,67 +247,13 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtNome;
         
         /// <summary>
-        /// lblNome control.
+        /// cboEspecie control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNome;
-        
-        /// <summary>
-        /// txtCor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCor;
-        
-        /// <summary>
-        /// lblCor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCor;
-        
-        /// <summary>
-        /// txtPeso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPeso;
-        
-        /// <summary>
-        /// lblPeso control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPeso;
-        
-        /// <summary>
-        /// txtNascimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNascimento;
-        
-        /// <summary>
-        /// lblNascimento control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNascimento;
+        protected global::System.Web.UI.WebControls.DropDownList cboEspecie;
         
         /// <summary>
         /// cboSexo control.
@@ -301,13 +265,31 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.DropDownList cboSexo;
         
         /// <summary>
-        /// lblSexo control.
+        /// txtPeso control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblSexo;
+        protected global::System.Web.UI.WebControls.TextBox txtPeso;
+        
+        /// <summary>
+        /// txtCor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCor;
+        
+        /// <summary>
+        /// txtNascimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNascimento;
         
         /// <summary>
         /// cboRaca control.
@@ -319,33 +301,6 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.DropDownList cboRaca;
         
         /// <summary>
-        /// lblraca control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblraca;
-        
-        /// <summary>
-        /// cboEspecie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboEspecie;
-        
-        /// <summary>
-        /// lblEspecie control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEspecie;
-        
-        /// <summary>
         /// txtInformacoes control.
         /// </summary>
         /// <remarks>
@@ -355,13 +310,13 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtInformacoes;
         
         /// <summary>
-        /// lblInformacoes control.
+        /// Image1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInformacoes;
+        protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
         /// arqFoto control.
@@ -400,15 +355,6 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.Button btnAlterar;
         
         /// <summary>
-        /// btnExcluir control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnExcluir;
-        
-        /// <summary>
         /// btnVoltar control.
         /// </summary>
         /// <remarks>
@@ -416,5 +362,32 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btnVoltar;
+        
+        /// <summary>
+        /// upExcluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upExcluir;
+        
+        /// <summary>
+        /// lblNomeModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeModal;
+        
+        /// <summary>
+        /// btnExcluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcluir;
     }
 }

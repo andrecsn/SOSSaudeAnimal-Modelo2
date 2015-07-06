@@ -29,33 +29,37 @@
             </div>
         </div>
 
+        <div class="row">
+            <div class="col-lg-12">
+                <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
-        <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+                <asp:UpdatePanel ID="upGrid" runat="server">
+                    <ContentTemplate>
 
-        <asp:UpdatePanel ID="upGrid" runat="server">
-            <ContentTemplate>
+                        <asp:GridView ID="gridEspecie" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
+                            OnRowCommand="gridEspecie_RowCommand" DataKeyNames="cod_especie">
+                            <Columns>
+                                <asp:BoundField DataField="cod_especie" HeaderText="#" />
+                                <asp:BoundField DataField="nm_especie" HeaderText="Nome" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblRaca" runat="server" CssClass='<%# cssGrid(Eval("st_especie").ToString()) %>' Text='<%# Bind("st_especie") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
+                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
+                            </Columns>
+                        </asp:GridView>
 
-                <asp:GridView ID="gridEspecie" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
-                    OnRowCommand="gridEspecie_RowCommand" DataKeyNames="cod_especie">
-                    <Columns>
-                        <asp:BoundField DataField="cod_especie" HeaderText="#" />
-                        <asp:BoundField DataField="nm_especie" HeaderText="Nome" />
-                        <asp:TemplateField HeaderText="Status">
-                            <ItemTemplate>
-                                <asp:Label ID="lblRaca" runat="server" CssClass='<%# cssGrid(Eval("st_especie").ToString()) %>' Text='<%# Bind("st_especie") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
-                        <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
-                    </Columns>
-                </asp:GridView>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
 
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
-                <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
-            </Triggers>
-        </asp:UpdatePanel>
+            </div>
+        </div>
 
 
 

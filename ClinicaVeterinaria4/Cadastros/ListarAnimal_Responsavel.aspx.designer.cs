@@ -31,6 +31,15 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.TextBox txtAnimal;
         
         /// <summary>
+        /// hiddenCodigo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hiddenCodigo;
+        
+        /// <summary>
         /// txtResponsavel control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.ScriptManager ScriptManager2;
         
         /// <summary>
-        /// upGridRaca control.
+        /// upGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upGridRaca;
+        protected global::System.Web.UI.UpdatePanel upGrid;
         
         /// <summary>
         /// gridAnimal control.
@@ -83,5 +92,32 @@ namespace ClinicaVeterinaria.Cadastros {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gridAnimal;
+        
+        /// <summary>
+        /// upExcluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upExcluir;
+        
+        /// <summary>
+        /// lblNomeModal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNomeModal;
+        
+        /// <summary>
+        /// btnExcluir control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcluir;
     }
 }

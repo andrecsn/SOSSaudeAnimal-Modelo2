@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace ClinicaVeterinaria.Cadastros
 {
-    public partial class ListarAnimal : Model.Shared.PageBase
+    public partial class ListarAnimal : Business.Animal_Responsavel_Business
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -49,36 +49,61 @@ namespace ClinicaVeterinaria.Cadastros
         {
             int index = int.Parse((string)e.CommandArgument);
             string cd_animal = gridAnimal.DataKeys[index]["cd_animal"].ToString();
-            HttpContext.Current.Items["cd_animal"] = cd_animal;
+            HttpContext.Current.Session["cd_animal"] = cd_animal;
 
             string cd_responsavel = gridAnimal.DataKeys[index]["cd_responsavel"].ToString();
-            HttpContext.Current.Items["cd_responsavel"] = cd_responsavel;
+            HttpContext.Current.Session["cd_responsavel"] = cd_responsavel;
 
             if (e.CommandName == "Select")
             {
                 //Enviando ID para edição
                 HttpContext.Current.Session["alterar"] = "Alterar";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
+                Response.Redirect("cadastroAnimal_Novo.aspx");
             }
 
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "New")
             {
-                //Enviando ID para exclusão
-                HttpContext.Current.Session["excluir"] = "Excluir";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
+                detalheModal(cd_animal);
+                modal("#modalExcluir", "show");
             }
 
             if (e.CommandName == "Edit")
             {
                 //Enviando ID para edição
                 HttpContext.Current.Session["novo"] = "NovoAnimal";
-                Server.Transfer("cadastroAnimal_Novo.aspx");
+                Response.Redirect("cadastroAnimal_Novo.aspx");
             }
 
-            if (e.CommandName == "New")
+            if (e.CommandName == "Delete")
             {
                 //Enviando ID para histórico de vacinas
-                Server.Transfer("CadastrarHistVacina.aspx");
+                Response.Redirect("CadastrarHistVacina.aspx");
+            }
+        }
+
+        protected void detalheModal(string cd_animal)
+        {
+            int cd_animal2 = Convert.ToInt32(cd_animal);
+            Models.animal detalheAnimal = contexto.animal.First(x => x.cd_animal == cd_animal2);
+
+            hiddenCodigo.Value = detalheAnimal.cd_animal.ToString();
+            lblNomeModal.Text = detalheAnimal.nm_animal.ToString();
+            HttpContext.Current.Session["cd_animal"] = cd_animal2;
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
+
+                excluirAnimal(codigo);
+                listarGrid("", "");
+                modal("#modalExcluir", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
             }
         }
 

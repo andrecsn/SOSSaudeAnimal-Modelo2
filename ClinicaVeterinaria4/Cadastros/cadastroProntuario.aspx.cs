@@ -22,8 +22,8 @@ namespace ClinicaVeterinaria
                 listarVacina();
 
                 //pegando ID
-                int cd_responsavel = Convert.ToInt32(HttpContext.Current.Items["cd_responsavel"]);
-                int cd_animal = Convert.ToInt32(HttpContext.Current.Items["cd_animal"]);
+                int cd_responsavel = Convert.ToInt32(HttpContext.Current.Session["cd_responsavel"]);
+                int cd_animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
                 var alterarConsulta = HttpContext.Current.Items["alterarConsulta"];
 
                 //Listando histórico de vacinas do animal e consultas no Grid

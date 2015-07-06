@@ -17,7 +17,7 @@ namespace ClinicaVeterinaria.Cadastros
             {
                 listarVacina();
 
-                int cd_animal = Convert.ToInt32(HttpContext.Current.Items["cd_animal"]);
+                int cd_animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
                 HttpContext.Current.Session["cd_animal"] = cd_animal;
 
                 if (cd_animal != 0)
@@ -71,7 +71,7 @@ namespace ClinicaVeterinaria.Cadastros
             }
             else
             {
-                lblMensagem.Text = "Animal não encontrado!!";
+                //lblMensagem.Text = "Animal não encontrado!!";
             }
         }
 
@@ -89,19 +89,38 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void gridHistVacina_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "Delete")
+            if (e.CommandName == "Select")
             {
                 int cd_animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
                 int index = int.Parse((string)e.CommandArgument);
                 int cd_vacina = Convert.ToInt32(gridHistVacina.DataKeys[index]["cd_hist_vacina"].ToString());
 
-                excluirHistVacina(cd_vacina, cd_animal, "CadastrarHistVacina.aspx");
+                detalheModal(cd_vacina);
+                modal("#modalExcluir", "show");
             }
+        }
+
+        protected void detalheModal(int cd_vacina)
+        {
+            Models.historico_vacina detalheVacina = contexto.historico_vacina.First(x => x.cd_hist_vacina == cd_vacina);
+
+            lblNomeModal.Text = detalheVacina.vacina.nm_vacina.ToString();
+            HttpContext.Current.Session["cd_vacina"] = cd_vacina;
+        }
+
+        protected void btnExcluir_Click(object sender, EventArgs e)
+        {
+            int cd_animal = Convert.ToInt32(HttpContext.Current.Session["cd_animal"]);
+            int cd_vacina = Convert.ToInt32(HttpContext.Current.Session["cd_vacina"]);
+
+            excluirHistVacina(cd_vacina, cd_animal, "");
+            listarGrid(cd_animal);
+            modal("#modalExcluir", "hide");
         }
 
         protected void btnVoltar_click(object sender, EventArgs e)
         {
-            Server.Transfer("ListarAnimal.aspx");
+            Server.Transfer("ListarAnimal_Responsavel.aspx");
         }
     }
 }

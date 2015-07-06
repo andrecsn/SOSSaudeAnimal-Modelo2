@@ -518,7 +518,6 @@
     <Content Include="Cadastros\ListarAnimal_Responsavel.aspx" />
     <Content Include="Cadastros\ListarEspecie.aspx" />
     <Content Include="Cadastros\ListarRaca.aspx" />
-    <Content Include="Cadastros\ListarResponsavel.aspx" />
     <Content Include="Cadastros\ListarVacina.aspx" />
     <Content Include="Cadastros\ListarFuncionario.aspx" />
     <Content Include="Cadastros\login.aspx" />
@@ -847,7 +846,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Animal_Business.cs">
+    <Compile Include="Business\Animal_Responsavel_Business.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Business\Prontuario_Business.cs">
@@ -935,13 +934,6 @@
     </Compile>
     <Compile Include="Cadastros\ListarRaca.aspx.designer.cs">
       <DependentUpon>ListarRaca.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cadastros\ListarResponsavel.aspx.cs">
-      <DependentUpon>ListarResponsavel.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cadastros\ListarResponsavel.aspx.designer.cs">
-      <DependentUpon>ListarResponsavel.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\ListarVacina.aspx.cs">
       <DependentUpon>ListarVacina.aspx</DependentUpon>

@@ -58,6 +58,24 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.Button btCadastrar;
         
         /// <summary>
+        /// ScriptManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
+        
+        /// <summary>
+        /// upGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upGrid;
+        
+        /// <summary>
         /// gridProntuario control.
         /// </summary>
         /// <remarks>

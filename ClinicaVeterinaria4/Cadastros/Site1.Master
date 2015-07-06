@@ -236,7 +236,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                          <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Prontuário</a>
+                            <a href="ListarProntuario.aspx"><i class="fa fa-dashboard fa-fw"></i> Prontuário</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Financeiro</a>

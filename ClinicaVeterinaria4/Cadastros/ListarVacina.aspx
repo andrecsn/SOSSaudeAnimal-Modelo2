@@ -29,37 +29,41 @@
         </div>
 
 
-        <div class="separador"></div>
+        <div class="row">
+            <div class="col-lg-12">
 
-        <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
+                <asp:ScriptManager ID="ScriptManager" runat="server"></asp:ScriptManager>
 
-        <asp:UpdatePanel ID="upGrid" runat="server">
-            <ContentTemplate>
+                <asp:UpdatePanel ID="upGrid" runat="server">
+                    <ContentTemplate>
 
-                <asp:GridView ID="gridVacina" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
-                    OnRowCommand="gridVacina_RowCommand" DataKeyNames="cd_vacina">
-                    <Columns>
-                        <asp:BoundField DataField="cd_vacina" HeaderText="#" />
-                        <asp:BoundField DataField="nm_vacina" HeaderText="Nome" />
-                        <asp:BoundField DataField="valor" HeaderText="Valor" DataFormatString="{0:C}" />
-                        <asp:TemplateField HeaderText="Status">
-                            <ItemTemplate>
-                                <asp:Label ID="lblStatus" runat="server" CssClass='<%# cssGrid(Eval("st_vacina").ToString()) %>' Text='<%# Bind("st_vacina") %>'></asp:Label>
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
-                            <HeaderStyle Width="30px" />
-                        </asp:CommandField>
-                        <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
-                    </Columns>
-                </asp:GridView>
+                        <asp:GridView ID="gridVacina" runat="server" AutoGenerateColumns="False" CssClass="table table-striped" GridLines="None"
+                            OnRowCommand="gridVacina_RowCommand" DataKeyNames="cd_vacina">
+                            <Columns>
+                                <asp:BoundField DataField="cd_vacina" HeaderText="#" />
+                                <asp:BoundField DataField="nm_vacina" HeaderText="Nome" />
+                                <asp:BoundField DataField="valor" HeaderText="Valor" DataFormatString="{0:C}" />
+                                <asp:TemplateField HeaderText="Status">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblStatus" runat="server" CssClass='<%# cssGrid(Eval("st_vacina").ToString()) %>' Text='<%# Bind("st_vacina") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
+                                    <HeaderStyle Width="30px" />
+                                </asp:CommandField>
+                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
+                            </Columns>
+                        </asp:GridView>
 
-            </ContentTemplate>
-            <Triggers>
-                <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
-                <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
-            </Triggers>
-        </asp:UpdatePanel>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="txtNome" EventName="TextChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+
+            </div>
+        </div>
 
 
         <!-- Modal Excluir -->
