@@ -72,7 +72,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group">
                                         </br>
-                                        <asp:Button ID="btnCadastrar" runat="server" Text="Incluir Vacina" class="btn btn-primary" OnClick="btnCadastrar_Click" />
+                                        <asp:Button ID="btnCadastrar" runat="server" Text="Incluir Vacina" class="btn btn-success" OnClick="btnCadastrar_Click" />
                                         <asp:LinkButton ID="btnVoltar" runat="server" class="btn btn-primary" OnClick="btnVoltar_click">voltar</asp:LinkButton>
                                     </div>
                                 </div>

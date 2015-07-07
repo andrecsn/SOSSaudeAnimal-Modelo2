@@ -50,7 +50,16 @@ namespace ClinicaVeterinaria
             cboEspecie.SelectedValue = animal.cd_especie.ToString();
             cboRaca.SelectedValue = animal.cd_raca.ToString();
             txtInformacoes.Text = animal.inf_animal;
-            lblFoto.Text = animal.foto;
+            hiddenFoto.Value = animal.foto;
+
+            if (animal.foto != "")
+            {
+                foto.ImageUrl = "~/App_Themes/Bootstrap/images/imagens_upload/" + animal.foto;
+            }
+            else
+            {
+                foto.ImageUrl = "~/App_Themes/Bootstrap/images/sem-foto.jpg";
+            }
 
             btnAlterar.Visible = true;
             btnCadastrar.Visible = false;
@@ -107,6 +116,8 @@ namespace ClinicaVeterinaria
             lblBairroResp.Text = responsavel.bairro;
             lblCidadeResp.Text = responsavel.cidade;
             lblEstadoResp.Text = responsavel.estado;
+
+            foto.ImageUrl = "~/App_Themes/Bootstrap/images/sem-foto.jpg";
         }
 
         private void listarGrid(int cd_responsavel)
@@ -129,7 +140,7 @@ namespace ClinicaVeterinaria
         protected void listarRaca()
         {
             //Adicionando a raça na combo
-            var raca = from c in contexto.raca select new { c.cd_raca, c.nm_raca };
+            var raca = from c in contexto.raca where c.st_raca == "Ativo" select new { c.cd_raca, c.nm_raca };
             cboRaca.DataSource = raca.ToList();
             cboRaca.DataValueField = "cd_raca";
             cboRaca.DataTextField = "nm_raca";
@@ -140,7 +151,7 @@ namespace ClinicaVeterinaria
         protected void listarEspecie()
         {
             //Adicionando a especie na combo
-            var especie = from c in contexto.especie select new { c.cod_especie, c.nm_especie };
+            var especie = from c in contexto.especie where c.st_especie == "Ativo" select new { c.cod_especie, c.nm_especie };
             cboEspecie.DataSource = especie.ToList();
             cboEspecie.DataValueField = "cod_especie";
             cboEspecie.DataTextField = "nm_especie";
@@ -161,9 +172,18 @@ namespace ClinicaVeterinaria
                 int raca = Convert.ToInt32(cboRaca.SelectedValue.ToString());
                 int especie = Convert.ToInt32(cboEspecie.SelectedValue.ToString());
                 string inf_animal = txtInformacoes.Text;
-                string foto = arqFoto.FileName.ToString();
+                string nomeFoto = "";
 
-                cadastrarAnimal(nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, foto);
+                if (arqFoto.HasFile)
+                {
+                    arqFoto.SaveAs(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/" + arqFoto.FileName));
+                    System.Drawing.Image img1 = System.Drawing.Image.FromFile(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/") + arqFoto.FileName);
+                    nomeFoto = arqFoto.FileName;
+                }
+
+                cadastrarAnimal(nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, nomeFoto);
+                limparCamposAnimal();
+                listarGrid(responsavel);
             }
             catch (Exception ex)
             {
@@ -175,6 +195,10 @@ namespace ClinicaVeterinaria
         {
             alterarResponsavel();
             alterarAnimal();
+
+            int responsavel = Convert.ToInt32(lblCodigoResp.Text);
+            limparCamposAnimal();
+            listarGrid(responsavel);
         }
 
         protected void btnExcluir_Click(object sender, EventArgs e)
@@ -246,7 +270,8 @@ namespace ClinicaVeterinaria
             cboEspecie.SelectedValue = "--Select--";
             cboRaca.SelectedValue = "--Select--";
             txtInformacoes.Text = "";
-            lblFoto.Text = "";
+            hiddenFoto.Value = "";
+            foto.ImageUrl = "~/App_Themes/Bootstrap/images/sem-foto.jpg";
 
             txtNome.Focus();
             btnAlterar.Visible = false;
@@ -267,9 +292,18 @@ namespace ClinicaVeterinaria
                 int raca = Convert.ToInt32(cboRaca.SelectedValue);
                 int especie = Convert.ToInt32(cboEspecie.SelectedValue);
                 string inf_animal = txtInformacoes.Text;
-                string foto = arqFoto.FileName.ToString();
+                string nomeFoto = "";
 
-                editarAnimal(codigo, nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, foto);
+                if (arqFoto.HasFile)
+                {
+                    arqFoto.SaveAs(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/" + arqFoto.FileName));
+                    System.Drawing.Image img1 = System.Drawing.Image.FromFile(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/") + arqFoto.FileName);
+                    nomeFoto = arqFoto.FileName;
+                }
+                else
+                    nomeFoto = hiddenFoto.Value;
+
+                editarAnimal(codigo, nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, nomeFoto);
             }
             catch (Exception ex)
             {

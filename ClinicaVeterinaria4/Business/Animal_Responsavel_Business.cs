@@ -24,11 +24,6 @@ namespace ClinicaVeterinaria.Business
             };
             contexto.animal.Add(animal);
             contexto.SaveChanges();
-
-            //Enviando ID para a página de inserção de novo animal
-            HttpContext.Current.Session["novo"] = "NovoAnimal";
-            HttpContext.Current.Items["cd_responsavel"] = responsavel;
-            Server.Transfer("cadastroAnimal_Novo.aspx");
         }
 
         protected void editarAnimal(int codigo, string nome, string cor, string peso, DateTime dt_nascimento, string sexo, int responsavel, int raca, int especie, string inf_animal, string foto)
@@ -47,12 +42,6 @@ namespace ClinicaVeterinaria.Business
             animal.foto = foto;
 
             contexto.SaveChanges();
-
-            //Enviando ID para a página de inserção de novo animal
-            HttpContext.Current.Session["alterar"] = "Alterar";
-            HttpContext.Current.Items["cd_responsavel"] = responsavel;
-            HttpContext.Current.Items["cd_animal"] = codigo;
-            Server.Transfer("cadastroAnimal_Novo.aspx");
         }
 
         protected void excluirAnimal(int codigo)

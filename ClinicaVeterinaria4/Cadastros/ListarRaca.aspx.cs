@@ -57,7 +57,10 @@ namespace ClinicaVeterinaria.Cadastros
             if (e.CommandName == "Select")
             {
                 detalheModal(cd_raca);
-                modal("#modalAlterar", "show");
+                btnAlterar.Visible = true;
+                btnCadastrar.Visible = false;
+                lblTituloModal.Text = "Alterar Raça";
+                modal("#modalAlterarIncluir", "show");
             }
 
             if (e.CommandName == "New")
@@ -78,9 +81,29 @@ namespace ClinicaVeterinaria.Cadastros
             HttpContext.Current.Session["cd_raca"] = cd_raca2;
         }
 
-        protected void btnCadastrar_Click(object sender, EventArgs e)
+        protected void btnCadastrarModal_Click(object sender, EventArgs e)
         {
-            Server.Transfer("cadastroRaca.aspx");
+            txtNomeModal.Text = "";
+            btnCadastrar.Visible = true;
+            btnAlterar.Visible = false;
+            lblTituloModal.Text = "Incluir Raça";
+            modal("#modalAlterarIncluir", "show");
+        }
+
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nm_raca = txtNomeModal.Text.ToString();
+
+                cadastrarRaca(nm_raca, "Ativo");
+                listarGrid(txtNome.Text);
+                modal("#modalAlterarIncluir", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+            }
         }
 
         protected void btnAlterar_Click(object sender, EventArgs e)
@@ -92,7 +115,7 @@ namespace ClinicaVeterinaria.Cadastros
 
                 editarRaca(codigo, nm_raca, "Ativo");
                 listarGrid(txtNome.Text);
-                modal("#modalAlterar", "hide");
+                modal("#modalAlterarIncluir", "hide");
             }
             catch (Exception ex)
             {

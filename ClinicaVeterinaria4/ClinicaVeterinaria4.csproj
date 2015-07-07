@@ -498,6 +498,7 @@
     <Content Include="App_Themes\Bootstrap\images\cachorro-e-veterinário.jpg" />
     <Content Include="App_Themes\Bootstrap\images\delete.png" />
     <Content Include="App_Themes\Bootstrap\images\funcionarios.png" />
+    <Content Include="App_Themes\Bootstrap\images\imagens_upload\cachorro1.jpeg" />
     <Content Include="App_Themes\Bootstrap\images\prontuario.png" />
     <Content Include="App_Themes\Bootstrap\images\select.png" />
     <Content Include="App_Themes\Bootstrap\images\sem-foto.jpg" />
@@ -505,15 +506,13 @@
     <Content Include="App_Themes\Bootstrap\images\visualizar.png" />
     <Content Include="App_Themes\Bootstrap\js\bootstrap-datepicker.js" />
     <Content Include="App_Themes\Bootstrap\js\flot-data.js" />
+    <Content Include="App_Themes\Bootstrap\js\jquery-1.11.3.min.js" />
     <Content Include="App_Themes\Bootstrap\js\jquery.maskedinput.min.js" />
     <Content Include="App_Themes\Bootstrap\js\morris-data.js" />
     <Content Include="App_Themes\Bootstrap\js\uteis.js" />
     <Content Include="Cadastros\CadastrarHistVacina.aspx" />
     <Content Include="Cadastros\CadastroProntuario.aspx" />
     <Content Include="Cadastros\CadastroAnimal_Novo.aspx" />
-    <Content Include="Cadastros\CadastroVacina.aspx" />
-    <Content Include="Cadastros\CadastroRaca.aspx" />
-    <Content Include="Cadastros\CadastroEspecie.aspx" />
     <Content Include="Cadastros\ListarProntuario.aspx" />
     <Content Include="Cadastros\ListarAnimal_Responsavel.aspx" />
     <Content Include="Cadastros\ListarEspecie.aspx" />
@@ -893,20 +892,6 @@
     <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.designer.cs">
       <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\CadastroVacina.aspx.cs">
-      <DependentUpon>CadastroVacina.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cadastros\CadastroVacina.aspx.designer.cs">
-      <DependentUpon>CadastroVacina.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cadastros\CadastroRaca.aspx.cs">
-      <DependentUpon>CadastroRaca.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cadastros\CadastroRaca.aspx.designer.cs">
-      <DependentUpon>CadastroRaca.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Cadastros\ListarProntuario.aspx.cs">
       <DependentUpon>ListarProntuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -977,13 +962,6 @@
     </Compile>
     <Compile Include="Cadastros\CadastroFuncionario.aspx.designer.cs">
       <DependentUpon>CadastroFuncionario.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Cadastros\CadastroEspecie.aspx.cs">
-      <DependentUpon>CadastroEspecie.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cadastros\CadastroEspecie.aspx.designer.cs">
-      <DependentUpon>CadastroEspecie.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\consulta.cs" />
     <Compile Include="Shared\Contexto.cs" />

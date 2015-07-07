@@ -49,7 +49,10 @@ namespace ClinicaVeterinaria.Cadastros
             if (e.CommandName == "Select")
             {
                 detalheModal(cd_especie);
-                modal("#modalAlterar", "show");
+                btnAlterar.Visible = true;
+                btnCadastrar.Visible = false;
+                lblTituloModal.Text = "Alterar Espécie";
+                modal("#modalAlterarIncluir", "show");
             }
 
             if (e.CommandName == "New")
@@ -80,9 +83,29 @@ namespace ClinicaVeterinaria.Cadastros
             HttpContext.Current.Session["cd_especie"] = cd_especie2;
         }
 
-        protected void btnCadastrar_Click(object sender, EventArgs e)
+        protected void btnCadastrarModal_Click(object sender, EventArgs e)
         {
-            Server.Transfer("cadastroEspecie.aspx");
+            txtNomeModal.Text = "";
+            btnCadastrar.Visible = true;
+            btnAlterar.Visible = false;
+            lblTituloModal.Text = "Incluir Espécie";
+            modal("#modalAlterarIncluir", "show");
+        }
+
+        protected void btnIncluir_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nm_especie = txtNomeModal.Text.ToString();
+
+                cadastrarEspecie(nm_especie, "Ativo");
+                listarGrid();
+                modal("#modalAlterarIncluir", "hide");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.InnerException);
+            }
         }
 
         protected void btnAlterar_Click(object sender, EventArgs e)
@@ -94,7 +117,7 @@ namespace ClinicaVeterinaria.Cadastros
 
                 editarEspecie(codigo, nm_especie, "Ativo");
                 listarGrid();
-                modal("#modalAlterar", "hide");
+                modal("#modalAlterarIncluir", "hide");
             }
             catch (Exception ex)
             {

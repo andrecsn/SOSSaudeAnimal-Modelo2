@@ -16,7 +16,6 @@ namespace ClinicaVeterinaria.Business
                 };
             contexto.especie.Add(especie);
             contexto.SaveChanges();
-            Response.Redirect("ListarEspecie.aspx");
         }
 
         protected void editarEspecie(int codigo, string nome, string status)
@@ -33,7 +32,7 @@ namespace ClinicaVeterinaria.Business
         {
             Models.especie especie = contexto.especie.First(x => x.cod_especie == codigo);
 
-            especie.st_especie = "Inativo";
+            especie.st_especie = "Inativa";
             contexto.SaveChanges();
         }
     }

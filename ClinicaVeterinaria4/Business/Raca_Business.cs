@@ -17,7 +17,6 @@ namespace ClinicaVeterinaria.Business
 
             contexto.raca.Add(raca);
             contexto.SaveChanges();
-            Response.Redirect("listarRaca.aspx");
         }
 
         protected void editarRaca(int codigo, string nm_raca, string st_raca)

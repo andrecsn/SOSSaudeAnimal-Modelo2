@@ -182,7 +182,7 @@
                                                 <div class="form-group">
                                                     <label>Data de Nascimento: </label>
                                                     <div class='input-group date'>
-                                                        <asp:TextBox ID="txtNascimento" runat="server" class="form-control data" placeholder="00/00/0000" required></asp:TextBox>
+                                                        <asp:TextBox ID="txtNascimento" runat="server" class="form-control data" placeholder="00/00/0000"></asp:TextBox>
                                                         <span class="input-group-addon">
                                                             <span class="glyphicon glyphicon-calendar"></span>
                                                         </span>
@@ -212,12 +212,11 @@
                                 </div>
 
                                 <div class="col-lg-4 text-center img-responsive">
-
-                                    <asp:Image ID="Image1" runat="server" ImageUrl="~/App_Themes/Bootstrap/images/sem-foto.jpg" Height="300" Width="300" CssClass="img-circle" />
+                                    <asp:HiddenField ID="hiddenFoto" runat="server" />
+                                    <asp:Image ID="foto" runat="server" Height="300" Width="300" CssClass="img-circle" />
 
                                     <div class="form-group">
                                         <asp:FileUpload ID="arqFoto" runat="server" />
-                                        <asp:Label ID="lblFoto" runat="server" Text="Label" Visible="False"></asp:Label>
                                     </div>
                                 </div>
                             </div>
@@ -240,6 +239,8 @@
 
             </ContentTemplate>
             <Triggers>
+                <asp:AsyncPostBackTrigger ControlID="btnCadastrar" EventName="Click" />
+                <asp:PostBackTrigger ControlID="btnAlterar" />
             </Triggers>
         </asp:UpdatePanel>
 

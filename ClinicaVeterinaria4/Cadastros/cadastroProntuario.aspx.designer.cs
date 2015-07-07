@@ -103,13 +103,13 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.Label lblEspecie;
         
         /// <summary>
-        /// Image1 control.
+        /// foto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.Image foto;
         
         /// <summary>
         /// lblCodigoResp control.
@@ -281,6 +281,15 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hiddenVacinas;
+        
+        /// <summary>
+        /// upAtendimento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upAtendimento;
         
         /// <summary>
         /// txtDescricaoAtendimento control.

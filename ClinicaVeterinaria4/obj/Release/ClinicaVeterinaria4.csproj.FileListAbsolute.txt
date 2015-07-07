@@ -16,3 +16,12 @@ C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal\ClinicaVeterinaria4\bin\Enti
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal\ClinicaVeterinaria4\bin\EntityFramework.SqlServer.xml
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal\ClinicaVeterinaria4\obj\Release\ClinicaVeterinaria4.dll
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal\ClinicaVeterinaria4\obj\Release\ClinicaVeterinaria4.pdb
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\ClinicaVeterinaria4.dll.config
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\ClinicaVeterinaria4.dll
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\ClinicaVeterinaria4.pdb
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\EntityFramework.dll
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\EntityFramework.SqlServer.dll
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\EntityFramework.xml
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\EntityFramework.SqlServer.xml
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\obj\Release\ClinicaVeterinaria4.dll
+C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\obj\Release\ClinicaVeterinaria4.pdb

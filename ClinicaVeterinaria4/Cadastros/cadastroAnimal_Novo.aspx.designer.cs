@@ -310,13 +310,22 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.WebControls.TextBox txtInformacoes;
         
         /// <summary>
-        /// Image1 control.
+        /// hiddenFoto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image1;
+        protected global::System.Web.UI.WebControls.HiddenField hiddenFoto;
+        
+        /// <summary>
+        /// foto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image foto;
         
         /// <summary>
         /// arqFoto control.
@@ -326,15 +335,6 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload arqFoto;
-        
-        /// <summary>
-        /// lblFoto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFoto;
         
         /// <summary>
         /// btnCadastrar control.

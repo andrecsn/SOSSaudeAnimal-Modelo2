@@ -30,7 +30,7 @@ namespace ClinicaVeterinaria.Cadastros
         protected void listarVacina()
         {
             //Adiconando o resposanvél na na combo
-            var vacina = from c in contexto.vacina select new { c.cd_vacina, c.nm_vacina };
+            var vacina = from c in contexto.vacina where c.st_vacina == "Ativo" select new { c.cd_vacina, c.nm_vacina };
             cboVacina.DataSource = vacina.ToList();
             cboVacina.DataValueField = "cd_vacina";
             cboVacina.DataTextField = "nm_vacina";

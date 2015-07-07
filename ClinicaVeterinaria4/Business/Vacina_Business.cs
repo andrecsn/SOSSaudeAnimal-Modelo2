@@ -17,7 +17,6 @@ namespace ClinicaVeterinaria.Business
             };
             contexto.vacina.Add(vacina);
             contexto.SaveChanges();
-            Response.Redirect("ListarVacina.aspx");
         }
 
         protected void editarVacina(int codigo, string nome, string status, double valor)

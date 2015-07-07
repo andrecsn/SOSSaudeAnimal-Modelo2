@@ -162,12 +162,12 @@
                         <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i>Seu Perfil</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.aspx"><i class="fa fa-sign-out fa-fw"></i>Sair do Sistema</a>
+                        <li><a href="logout.aspx"><i class="fa fa-sign-out fa-fw"></i> Sair do Sistema</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -194,7 +194,7 @@
                             <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Buscar<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-search fa-fw"></i> Buscar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="ListarAnimal_Responsavel.aspx">Animal e Responsável</a>
@@ -215,7 +215,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                  <li>
                                     <a href="CadastroAnimal_Responsavel.aspx">Animal e Responsável</a>
@@ -223,23 +223,14 @@
                                 <li>
                                     <a href="CadastroFuncionario.aspx">Funcionário</a>
                                 </li>
-                                <li>
-                                    <a href="CadastroVacina.aspx">Vacina</a>
-                                </li>
-                                <li>
-                                    <a href="CadastroRaca.aspx">Raça</a>
-                                </li>
-                                <li>
-                                    <a href="CadastroEspecie.aspx">Espécie</a>
-                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                          <li>
-                            <a href="ListarProntuario.aspx"><i class="fa fa-dashboard fa-fw"></i> Prontuário</a>
+                            <a href="ListarProntuario.aspx"><i class="fa fa-stethoscope fa-fw"></i> Prontuário</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Financeiro</a>
+                            <a href="#"><i class="fa  fa-dollar fa-fw"></i> Financeiro</a>
                         </li>
                     </ul>
                 </div>
@@ -264,6 +255,7 @@
     <script src="../App_Themes/Bootstrap/bower_components/jquery/dist/jquery.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
+    <script src="../App_Themes/Bootstrap/js/jquery-1.11.3.min.js"></script>
     <script src="../App_Themes/Bootstrap/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->

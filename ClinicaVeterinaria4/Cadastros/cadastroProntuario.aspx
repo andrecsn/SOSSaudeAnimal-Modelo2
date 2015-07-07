@@ -71,7 +71,7 @@
 
                         <div class="col-lg-4 text-center img-responsive">
 
-                            <asp:Image ID="Image1" runat="server" ImageUrl="~/App_Themes/Bootstrap/images/sem-foto.jpg" Height="150" Width="150" CssClass="img-circle" />
+                            <asp:Image ID="foto" runat="server" ImageUrl="~/App_Themes/Bootstrap/images/sem-foto.jpg" Height="150" Width="150" CssClass="img-circle" />
 
                         </div>
 
@@ -151,10 +151,10 @@
             </div>
         </div>
 
-        
+
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
 
-        
+
         <!-- Aplicação e Histórico de Vacinas -->
         <div class="row">
             <div class="col-lg-12">
@@ -240,149 +240,157 @@
                     <div class="panel-heading"><b>Descrição do Atendimento</b></div>
                     <div class="panel-body">
 
-                        <div class="row">
-                            <div class="form-group">
+                        <asp:UpdatePanel ID="upAtendimento" runat="server">
+                            <ContentTemplate>
+
                                 <div class="row">
-                                    <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
 
-                                        <div class="col-xs-12">
-                                            <div class="form-group">
-                                                <asp:TextBox ID="txtDescricaoAtendimento" runat="server" class="form-control" placeholder="Descreva aqui todos os procedimentos realizados com o animal" TextMode="MultiLine" Rows="4"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <asp:TextBox ID="txtDescricaoAtendimento" runat="server" class="form-control" placeholder="Descreva aqui todos os procedimentos realizados com o animal" TextMode="MultiLine" Rows="4"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <label for="usr">Consulta:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">R$</div>
-                                                <asp:TextBox ID="txtConsultaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-lg-2">
+                                                    <label for="usr">Consulta:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <asp:TextBox ID="txtConsultaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <label for="usr">Cirurgia:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">R$</div>
-                                                <asp:TextBox ID="txtCirurgiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-lg-2">
+                                                    <label for="usr">Cirurgia:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <asp:TextBox ID="txtCirurgiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <label for="usr">Soroterapia:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">R$</div>
-                                                <asp:TextBox ID="txtSoroterapiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-lg-2">
+                                                    <label for="usr">Soroterapia:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <asp:TextBox ID="txtSoroterapiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <label for="usr">Tartarectomia:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">R$</div>
-                                                <asp:TextBox ID="txtTartarectomiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-lg-2">
+                                                    <label for="usr">Tartarectomia:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <asp:TextBox ID="txtTartarectomiaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <label for="usr">Medicamentos:</label>
-                                            <div class="input-group">
-                                                <div class="input-group-addon">R$</div>
-                                                <asp:TextBox ID="txtMedicamentosValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                            </div>
-                                        </div>
+                                                <div class="col-lg-2">
+                                                    <label for="usr">Medicamentos:</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-addon">R$</div>
+                                                        <asp:TextBox ID="txtMedicamentosValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    </div>
+                                                </div>
 
-                                        <div class="col-lg-2">
-                                            <div class="input-group">
-                                                </br>
+                                                <div class="col-lg-2">
+                                                    <div class="input-group">
+                                                        </br>
                                                 <button type="button" class="btn btn-primary" onclick="javascript:CalcularTotal()">Calcular Total</button>
-                                                <asp:Button ID="btnEditarConsulta" runat="server" Text="Alterar Consulta" class="btn btn-primary" Visible="false" OnClick="btnEditarConsulta_Click" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-
-                                            <div class="col-lg-2">
-                                                <label for="usr">Exame Laboratório:</label>
-                                            </div>
-
-                                            <div class="col-lg-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">R$</div>
-                                                    <asp:TextBox ID="txtExameValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                        <asp:Button ID="btnEditarConsulta" runat="server" Text="Alterar Consulta" class="btn btn-primary" Visible="false" OnClick="btnEditarConsulta_Click" />
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-8">
-                                                <asp:TextBox ID="txtExameDescricao" runat="server" class="form-control" placeholder="Descrição exame laboratório"></asp:TextBox>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="form-group">
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
 
-                                            <div class="col-lg-2">
-                                                <label for="usr">Vendas:</label>
-                                            </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="usr">Exame Laboratório:</label>
+                                                    </div>
 
-                                            <div class="col-lg-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">R$</div>
-                                                    <asp:TextBox ID="txtVendaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    <div class="col-lg-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">R$</div>
+                                                            <asp:TextBox ID="txtExameValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-8">
+                                                        <asp:TextBox ID="txtExameDescricao" runat="server" class="form-control" placeholder="Descrição exame laboratório"></asp:TextBox>
+                                                    </div>
+
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-8">
-                                                <asp:TextBox ID="txtVendaDescricao" runat="server" class="form-control" placeholder="Descrição das vendas"></asp:TextBox>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
 
-                        <div class="row">
-                            <div class="form-group">
                                 <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
 
-                                            <div class="col-lg-2">
-                                                <label for="usr">Outros:</label>
-                                            </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="usr">Vendas:</label>
+                                                    </div>
 
-                                            <div class="col-lg-2">
-                                                <div class="input-group">
-                                                    <div class="input-group-addon">R$</div>
-                                                    <asp:TextBox ID="txtOutrosValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                    <div class="col-lg-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">R$</div>
+                                                            <asp:TextBox ID="txtVendaValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-8">
+                                                        <asp:TextBox ID="txtVendaDescricao" runat="server" class="form-control" placeholder="Descrição das vendas"></asp:TextBox>
+                                                    </div>
+
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-8">
-                                                <asp:TextBox ID="txtOutrosDescricao" runat="server" class="form-control" placeholder="Descrição de outros"></asp:TextBox>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+
+                                                    <div class="col-lg-2">
+                                                        <label for="usr">Outros:</label>
+                                                    </div>
+
+                                                    <div class="col-lg-2">
+                                                        <div class="input-group">
+                                                            <div class="input-group-addon">R$</div>
+                                                            <asp:TextBox ID="txtOutrosValor" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-lg-8">
+                                                        <asp:TextBox ID="txtOutrosDescricao" runat="server" class="form-control" placeholder="Descrição de outros"></asp:TextBox>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </ContentTemplate>
+                            <Triggers>
+                            </Triggers>
+                        </asp:UpdatePanel>
 
                     </div>
                 </div>
@@ -410,8 +418,8 @@
                                             <HeaderStyle Width="200px" />
                                         </asp:BoundField>
                                         <asp:BoundField DataField="ds_consulta" HeaderText="Descrição do atendimento" />
-                                        <asp:CommandField ButtonType="Image" EditImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowEditButton="True" />
-                                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/visualizar.png" ShowSelectButton="True" />
+                                        <asp:CommandField ButtonType="Image" EditImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowEditButton="True" HeaderStyle-Width="30" />
+                                        <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/visualizar.png" ShowSelectButton="True" HeaderStyle-Width="30" />
                                     </Columns>
                                 </asp:GridView>
 

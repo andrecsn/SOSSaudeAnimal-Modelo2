@@ -25,7 +25,7 @@ namespace ClinicaVeterinaria
         protected void listarRaca()
         {
             //Adicionando a raça na combo
-            var raca = from c in contexto.raca select new { c.cd_raca, c.nm_raca };
+            var raca = from c in contexto.raca where c.st_raca == "Ativo" select new { c.cd_raca, c.nm_raca };
             cboRaca.DataSource = raca.ToList();
             cboRaca.DataValueField = "cd_raca";
             cboRaca.DataTextField = "nm_raca";
@@ -36,7 +36,7 @@ namespace ClinicaVeterinaria
         protected void listarEspecie()
         {
             //Adicionando a especie na combo
-            var especie = from c in contexto.especie select new { c.cod_especie, c.nm_especie };
+            var especie = from c in contexto.especie where c.st_especie == "Ativo" select new { c.cod_especie, c.nm_especie };
             cboEspecie.DataSource = especie.ToList();
             cboEspecie.DataValueField = "cod_especie";
             cboEspecie.DataTextField = "nm_especie";
@@ -80,9 +80,17 @@ namespace ClinicaVeterinaria
                 int raca = Convert.ToInt32(cboRaca.SelectedValue.ToString());
                 int especie = Convert.ToInt32(cboEspecie.SelectedValue.ToString());
                 string inf_animal = txtInformacoes.Text;
-                string foto = arqFoto.FileName.ToString();
+                string nomeFoto = "";
 
-                cadastrarAnimal(nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, foto);
+                if (arqFoto.HasFile)
+                {
+                    arqFoto.SaveAs(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/" + arqFoto.FileName));
+                    System.Drawing.Image img1 = System.Drawing.Image.FromFile(MapPath("~/App_Themes/Bootstrap/images/imagens_upload/") + arqFoto.FileName);
+                    nomeFoto = arqFoto.FileName;
+                }
+
+                cadastrarAnimal(nm_animal, cor, peso, dt_nascimento, sexo, responsavel, raca, especie, inf_animal, nomeFoto);
+                Server.Transfer("ListarAnimal_Responsavel.aspx");
             }
             catch (Exception ex)
             {

@@ -50,8 +50,6 @@ namespace ClinicaVeterinaria
             txtDescricaoAtendimento.Text = Editarconsulta.ds_consulta;
             //txtValorAtendimento.Text = Editarconsulta.varlor_total.ToString();
 
-            MultviewHistoricoVacinas.ActiveViewIndex -= 1;
-
             btnEditarConsulta.Visible = true;
             btnCadastrarConsulta.Visible = false;
         }
@@ -91,7 +89,7 @@ namespace ClinicaVeterinaria
         protected void listarVacina()
         {
             //Adiconando o resposanvél na na combo
-            var vacina = from c in contexto.vacina select new { c.cd_vacina, c.nm_vacina };
+            var vacina = from c in contexto.vacina where c.st_vacina == "Ativo" select new { c.cd_vacina, c.nm_vacina };
             cboVacina.DataSource = vacina.ToList();
             cboVacina.DataValueField = "cd_vacina";
             cboVacina.DataTextField = "nm_vacina";
@@ -114,6 +112,15 @@ namespace ClinicaVeterinaria
                 lblEspecie.Text = animal.especie.nm_especie;
                 lblraca.Text = animal.raca.nm_raca;
                 lblInformacoes.Text = animal.inf_animal;
+
+                if (animal.foto != "")
+                {
+                    foto.ImageUrl = "~/App_Themes/Bootstrap/images/imagens_upload/" + animal.foto;
+                }
+                else
+                {
+                    foto.ImageUrl = "~/App_Themes/Bootstrap/images/sem-foto.jpg";
+                }
             }
         }
 
@@ -248,13 +255,36 @@ namespace ClinicaVeterinaria
                 double saldo_devedor = (valor_total - (pg_dinheiro + pg_debito + pg_credito));
 
                 cadastrarConsulta(dt_consulta, ds_consulta, st_consulta, cd_funcionario, cd_animal, consultaValor, cirurgiaValor, soroterapiaValor, medicamentosValor, vacinasValor, tartarectomiaValor, outrosValor, ds_outros, exameValor, ds_exame, vendasValor, ds_vendas, valor_total, saldo_devedor, pg_dinheiro, pg_credito, pg_debito);
-                modal("#pagamento", "hide");
+                limpaCampos();
                 listarConsulta(cd_animal);
+                modal("#pagamento", "hide");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.InnerException);
             }
+        }
+
+        private void limpaCampos()
+        {
+            txtDescricaoAtendimento.Text = "";
+            hiddenVacinas.Value = "0";
+            lblTotalVacinas.Text = "0";
+            txtConsultaValor.Text = "";
+            txtCirurgiaValor.Text = "";
+            txtSoroterapiaValor.Text = "";
+            txtMedicamentosValor.Text = "";
+            txtTartarectomiaValor.Text = "";
+            txtOutrosValor.Text = "";
+            txtExameValor.Text = "";
+            txtVendaValor.Text = "";
+            HiddenTotal.Value = "0";
+            txtDinheiro.Text = "";
+            txtCredito.Text = "";
+            txtDebito.Text = "";
+            txtOutrosDescricao.Text = "";
+            txtExameDescricao.Text = "";
+            txtVendaDescricao.Text = "";
         }
 
         protected void btnEditarConsulta_Click(object sender, EventArgs e)
@@ -271,8 +301,6 @@ namespace ClinicaVeterinaria
                 //Limpando campos e setando botões
                 //txtValorAtendimento.Text = "";
                 txtDescricaoAtendimento.Text = "";
-
-                MultviewHistoricoVacinas.ActiveViewIndex = 0;
 
                 btnCadastrarConsulta.Visible = true;
                 btnEditarConsulta.Visible = false;
