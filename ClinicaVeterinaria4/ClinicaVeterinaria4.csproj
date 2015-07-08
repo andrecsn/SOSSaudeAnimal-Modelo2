@@ -513,6 +513,7 @@
     <Content Include="Cadastros\CadastrarHistVacina.aspx" />
     <Content Include="Cadastros\CadastroProntuario.aspx" />
     <Content Include="Cadastros\CadastroAnimal_Novo.aspx" />
+    <Content Include="Cadastros\ListarFinanceiro.aspx" />
     <Content Include="Cadastros\ListarProntuario.aspx" />
     <Content Include="Cadastros\ListarAnimal_Responsavel.aspx" />
     <Content Include="Cadastros\ListarEspecie.aspx" />
@@ -521,6 +522,7 @@
     <Content Include="Cadastros\ListarFuncionario.aspx" />
     <Content Include="Cadastros\login.aspx" />
     <Content Include="Cadastros\logout.aspx" />
+    <Content Include="Cadastros\RelatorioFinanceiro.aspx" />
     <Content Include="Cadastros\Site1.Master" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\Bootstrap\bower_components\bootstrap-social\.bower.json" />
@@ -892,6 +894,13 @@
     <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.designer.cs">
       <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\ListarFinanceiro.aspx.cs">
+      <DependentUpon>ListarFinanceiro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\ListarFinanceiro.aspx.designer.cs">
+      <DependentUpon>ListarFinanceiro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cadastros\ListarProntuario.aspx.cs">
       <DependentUpon>ListarProntuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -947,6 +956,13 @@
     </Compile>
     <Compile Include="Cadastros\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\RelatorioFinanceiro.aspx.cs">
+      <DependentUpon>RelatorioFinanceiro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\RelatorioFinanceiro.aspx.designer.cs">
+      <DependentUpon>RelatorioFinanceiro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\animal.cs" />
     <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.cs">
