@@ -10,7 +10,7 @@
 namespace ClinicaVeterinaria.Cadastros {
     
     
-    public partial class RelatorioFinanceiro {
+    public partial class ListarDebito {
         
         /// <summary>
         /// form1 control.
@@ -22,103 +22,13 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// css control.
+        /// txtAnimal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel css;
-        
-        /// <summary>
-        /// txtDt_inicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDt_inicio;
-        
-        /// <summary>
-        /// txtDt_fim control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDt_fim;
-        
-        /// <summary>
-        /// btnPesquisar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnPesquisar;
-        
-        /// <summary>
-        /// btnVoltar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton btnVoltar;
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// upRelatorio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.UpdatePanel upRelatorio;
-        
-        /// <summary>
-        /// pnlImpressao control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlImpressao;
-        
-        /// <summary>
-        /// lblDt_inicio control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDt_inicio;
-        
-        /// <summary>
-        /// lblDt_Fim control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDt_Fim;
-        
-        /// <summary>
-        /// lblVeterinaria control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVeterinaria;
+        protected global::System.Web.UI.WebControls.TextBox txtAnimal;
         
         /// <summary>
         /// hiddenCodigo control.
@@ -130,75 +40,120 @@ namespace ClinicaVeterinaria.Cadastros {
         protected global::System.Web.UI.WebControls.HiddenField hiddenCodigo;
         
         /// <summary>
-        /// tblRelatorio control.
+        /// txtResponsavel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblRelatorio;
+        protected global::System.Web.UI.WebControls.TextBox txtResponsavel;
         
         /// <summary>
-        /// lblRecebiveisSDesconto control.
+        /// btnPesquisar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecebiveisSDesconto;
+        protected global::System.Web.UI.WebControls.Button btnPesquisar;
         
         /// <summary>
-        /// lblRecebiveisCDesconto control.
+        /// ScriptManager2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRecebiveisCDesconto;
+        protected global::System.Web.UI.ScriptManager ScriptManager2;
         
         /// <summary>
-        /// lbl60 control.
+        /// upGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl60;
+        protected global::System.Web.UI.UpdatePanel upGrid;
         
         /// <summary>
-        /// lbl40 control.
+        /// gridAnimal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl40;
+        protected global::System.Web.UI.WebControls.GridView gridAnimal;
         
         /// <summary>
-        /// lblTotalEntradas control.
+        /// upPagamento control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalEntradas;
+        protected global::System.Web.UI.UpdatePanel upPagamento;
         
         /// <summary>
-        /// lblCartaoRecebido control.
+        /// lblSaldoDevetor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCartaoRecebido;
+        protected global::System.Web.UI.WebControls.Label lblSaldoDevetor;
         
         /// <summary>
-        /// lblTotalReceber control.
+        /// HiddenSaldoDevedor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotalReceber;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenSaldoDevedor;
+        
+        /// <summary>
+        /// HiddenConsulta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenConsulta;
+        
+        /// <summary>
+        /// txtDinheiro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDinheiro;
+        
+        /// <summary>
+        /// txtCredito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCredito;
+        
+        /// <summary>
+        /// txtDebito control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDebito;
+        
+        /// <summary>
+        /// btnCadastrarConsulta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCadastrarConsulta;
     }
 }

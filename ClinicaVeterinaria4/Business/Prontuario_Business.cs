@@ -50,5 +50,17 @@ namespace ClinicaVeterinaria.Business
 
             contexto.SaveChanges();
         }
+
+        protected void realizarPagamentoDivida(int cd_consulta, double dinheiro, double debito, double credito, double saldo_devedor)
+        {
+            Models.consulta consulta = contexto.consulta.First(x => x.cd_consulta == cd_consulta);
+
+            consulta.pg_dinheiro = dinheiro;
+            consulta.pg_debito = debito;
+            consulta.pg_credito = credito;
+            consulta.saldo_devedor = saldo_devedor;
+
+            contexto.SaveChanges();
+        }
     }
 }

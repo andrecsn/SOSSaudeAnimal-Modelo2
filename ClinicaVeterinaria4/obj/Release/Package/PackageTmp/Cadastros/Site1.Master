@@ -21,12 +21,6 @@
     <!-- Custom Fonts -->
     <link href="../App_Themes/Bootstrap/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
 
-    <style>
-        .separador {
-            margin-right: 10px;
-        }
-    </style>
-
 </head>
 
 <body>
@@ -230,7 +224,7 @@
                             <a href="ListarProntuario.aspx"><i class="fa fa-stethoscope fa-fw"></i> Prontuário</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa  fa-dollar fa-fw"></i> Financeiro</a>
+                            <a href="ListarFinanceiro.aspx"><i class="fa  fa-dollar fa-fw"></i> Financeiro</a>
                         </li>
                     </ul>
                 </div>

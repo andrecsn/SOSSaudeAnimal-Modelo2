@@ -513,6 +513,7 @@
     <Content Include="Cadastros\CadastrarHistVacina.aspx" />
     <Content Include="Cadastros\CadastroProntuario.aspx" />
     <Content Include="Cadastros\CadastroAnimal_Novo.aspx" />
+    <Content Include="Cadastros\ListarDebito.aspx" />
     <Content Include="Cadastros\ListarFinanceiro.aspx" />
     <Content Include="Cadastros\ListarProntuario.aspx" />
     <Content Include="Cadastros\ListarAnimal_Responsavel.aspx" />
@@ -893,6 +894,13 @@
     </Compile>
     <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.designer.cs">
       <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cadastros\ListarDebito.aspx.cs">
+      <DependentUpon>ListarDebito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\ListarDebito.aspx.designer.cs">
+      <DependentUpon>ListarDebito.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cadastros\ListarFinanceiro.aspx.cs">
       <DependentUpon>ListarFinanceiro.aspx</DependentUpon>

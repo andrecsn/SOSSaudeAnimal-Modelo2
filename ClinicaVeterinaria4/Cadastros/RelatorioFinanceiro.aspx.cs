@@ -12,10 +12,7 @@ namespace ClinicaVeterinaria.Cadastros
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
-
-            }
+            autenticarUsuario();
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
@@ -25,6 +22,8 @@ namespace ClinicaVeterinaria.Cadastros
 
             listarCabecalho(dt_inicio, dt_fim);
             gerarRelatorio(dt_inicio, dt_fim);
+
+            pnlImpressao.Visible = true;
 
         }
 
@@ -38,8 +37,6 @@ namespace ClinicaVeterinaria.Cadastros
 
             lblDt_inicio.Text = dt_inicio.ToShortDateString();
             lblDt_Fim.Text = dt_fim.ToShortDateString();
-
-            //Session.Remove("cd_funcionario");
         }
 
         private void gerarRelatorio(DateTime Dt_inicio, DateTime Dt_fim)
@@ -52,6 +49,8 @@ namespace ClinicaVeterinaria.Cadastros
             double dinheiro = 0;
             double debito = 0;
             double credito = 0;
+
+            gerarTitulos();
 
             for (int i = 0; i <= linhas; i++)
             {
@@ -72,21 +71,21 @@ namespace ClinicaVeterinaria.Cadastros
 
                     if (j == 1)
                     {
-                        lblNew.Text = calculoDinheiro(data).ToString();
+                        lblNew.Text = string.Format("{0:C}", calculoDinheiro(data));
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 2)
                     {
-                        lblNew.Text = calculoDebito(data).ToString();
+                        lblNew.Text = string.Format("{0:C}", calculoDebito(data));
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 3)
                     {
-                        lblNew.Text = calculoCredito(data).ToString();
+                        lblNew.Text = string.Format("{0:C}", calculoCredito(data));
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
@@ -100,6 +99,8 @@ namespace ClinicaVeterinaria.Cadastros
                 data = data.AddDays(1);
             }
 
+            double debitoDesc = (debito - (debito * 0.03));
+            double creditoDesc = (credito - (credito * 0.05));
 
             for (int i = 0; i < 1; i++)
             {
@@ -120,21 +121,21 @@ namespace ClinicaVeterinaria.Cadastros
 
                     if (j == 1)
                     {
-                        lblNew.Text = dinheiro.ToString();
+                        lblNew.Text = string.Format("{0:C}", dinheiro);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 2)
                     {
-                        lblNew.Text = debito.ToString();
+                        lblNew.Text = string.Format("{0:C}", debito);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 3)
                     {
-                        lblNew.Text = credito.ToString();
+                        lblNew.Text = string.Format("{0:C}", credito);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
@@ -162,31 +163,83 @@ namespace ClinicaVeterinaria.Cadastros
 
                     if (j == 1)
                     {
-                        lblNew.Text = dinheiro.ToString();
+                        lblNew.Text = string.Format("{0:C}", dinheiro);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 2)
                     {
-                        lblNew.Text = debito.ToString();
+                        lblNew.Text = string.Format("{0:C}", debitoDesc);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
 
                     if (j == 3)
                     {
-                        lblNew.Text = credito.ToString();
+                        lblNew.Text = string.Format("{0:C}", creditoDesc);
                         novaColuna.Controls.Add(lblNew);
                         novaLinha.Controls.Add(novaColuna);
                     }
                 }
             }
 
-            lblRecebiveis.Text = string.Format("{0:C}", (dinheiro + debito + credito));
-            lbl60.Text = string.Format("{0:C}", ((dinheiro + debito + credito) * 0.6));
-            lbl40.Text = string.Format("{0:C}", ((dinheiro + debito + credito) * 0.4));
+            lblRecebiveisSDesconto.Text = string.Format("{0:C}", (dinheiro + debito + credito));
+            lblRecebiveisCDesconto.Text = string.Format("{0:C}", (dinheiro + debitoDesc + creditoDesc));
+            lbl60.Text = string.Format("{0:C}", ((dinheiro + debitoDesc + creditoDesc) * 0.6));
+            lbl40.Text = string.Format("{0:C}", ((dinheiro + debitoDesc + creditoDesc) * 0.4));
 
+            double totalEntradas = ((dinheiro + debito + credito) * 0.6);
+            double totalCartaoRecebido = (debito + credito);
+            double totalReceber = (totalEntradas - totalCartaoRecebido);
+
+            lblTotalEntradas.Text = string.Format("{0:C}", totalEntradas);
+            lblCartaoRecebido.Text = string.Format("{0:C}", totalCartaoRecebido);
+            lblTotalReceber.Text = string.Format("{0:C}", totalReceber);
+
+        }
+
+        public void gerarTitulos()
+        {
+            for (int i = 0; i < 1; i++)
+            {
+                TableRow linhaTitulo = new TableRow();
+                tblRelatorio.Controls.Add(linhaTitulo);
+
+                for (int j = 0; j < 4; j++)
+                {
+                    TableCell colunaTitulo = new TableCell();
+                    Label lblNew = new Label();
+
+                    if (j == 0)
+                    {
+                        lblNew.Text = "<b>Data</b>";
+                        colunaTitulo.Controls.Add(lblNew);
+                        linhaTitulo.Controls.Add(colunaTitulo);
+                    }
+
+                    if (j == 1)
+                    {
+                        lblNew.Text = "<b>Dinheiro(R$)</b>";
+                        colunaTitulo.Controls.Add(lblNew);
+                        linhaTitulo.Controls.Add(colunaTitulo);
+                    }
+
+                    if (j == 2)
+                    {
+                        lblNew.Text = "<b>Cartão de Débito</b>";
+                        colunaTitulo.Controls.Add(lblNew);
+                        linhaTitulo.Controls.Add(colunaTitulo);
+                    }
+
+                    if (j == 3)
+                    {
+                        lblNew.Text = "<b>Cartão de Crédito</b>";
+                        colunaTitulo.Controls.Add(lblNew);
+                        linhaTitulo.Controls.Add(colunaTitulo);
+                    }
+                }
+            }
         }
 
         private double calculoDinheiro(DateTime data)
@@ -242,7 +295,7 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void btnVoltar_click(object sender, EventArgs e)
         {
-            Server.Transfer("ListarFinanceiro.aspx");
+            Response.Redirect("ListarFinanceiro.aspx");
         }
     }
 }
