@@ -224,7 +224,16 @@
                             <a href="ListarProntuario.aspx"><i class="fa fa-stethoscope fa-fw"></i> Prontuário</a>
                         </li>
                         <li>
-                            <a href="ListarFinanceiro.aspx"><i class="fa  fa-dollar fa-fw"></i> Financeiro</a>
+                            <a href="#"><i class="fa fa-dollar fa-fw"></i> Financeiro<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                 <li>
+                                    <a href="ListarFinanceiro.aspx">Pró-Labore</a>
+                                </li>
+                                <li>
+                                    <a href="ListarDebito.aspx">Débito de Clientes</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
                         </li>
                     </ul>
                 </div>

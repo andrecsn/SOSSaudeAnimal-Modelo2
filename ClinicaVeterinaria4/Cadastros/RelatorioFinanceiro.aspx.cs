@@ -13,6 +13,7 @@ namespace ClinicaVeterinaria.Cadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             autenticarUsuario();
+            verificaPerfil(this.Page.ToString());
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)

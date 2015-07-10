@@ -28,6 +28,30 @@ namespace ClinicaVeterinaria.Model.Shared
             if (cd_usuario == null) Response.Redirect("logout.aspx");
         }
 
+        protected void verificaPerfil(string tela)
+        {
+            //pegando o perfil do usuário logado
+            int cd_usuario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
+            Models.funcionario funcionario = contexto.funcionario.First(x => x.cd_funcionario == cd_usuario);
+            string perfil = funcionario.tipo;
+
+            //verificando o perfil e redirecioanndo
+
+            tela = tela.Replace("ASP.cadastros_", "");
+            tela = tela.Replace("_aspx", ".aspx");
+
+            Models.perfil_acesso perfil_acesso = contexto.perfil_acesso.First(x => x.nm_tela == tela);
+
+            if (perfil == "Administrador" & perfil_acesso.perfil_administrador == 0)
+                Response.Redirect("semPermissao.aspx");
+
+            if (perfil == "Veterinária" & perfil_acesso.perfil_veterinaria == 0)
+                Response.Redirect("semPermissao.aspx");
+
+            if (perfil == "Atendente" & perfil_acesso.perfil_atendente == 0)
+                Response.Redirect("semPermissao.aspx");
+        }
+
         protected void modal(string modal, string estado)
         {
             System.Text.StringBuilder sb = new System.Text.StringBuilder();

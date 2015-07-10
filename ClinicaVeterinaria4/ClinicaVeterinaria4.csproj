@@ -499,9 +499,11 @@
     <Content Include="App_Themes\Bootstrap\images\delete.png" />
     <Content Include="App_Themes\Bootstrap\images\funcionarios.png" />
     <Content Include="App_Themes\Bootstrap\images\imagens_upload\cachorro1.jpeg" />
+    <Content Include="App_Themes\Bootstrap\images\pagamento.png" />
     <Content Include="App_Themes\Bootstrap\images\prontuario.png" />
     <Content Include="App_Themes\Bootstrap\images\select.png" />
     <Content Include="App_Themes\Bootstrap\images\sem-foto.jpg" />
+    <Content Include="App_Themes\Bootstrap\images\sem_acesso.gif" />
     <Content Include="App_Themes\Bootstrap\images\vacina.png" />
     <Content Include="App_Themes\Bootstrap\images\visualizar.png" />
     <Content Include="App_Themes\Bootstrap\js\bootstrap-datepicker.js" />
@@ -524,6 +526,7 @@
     <Content Include="Cadastros\login.aspx" />
     <Content Include="Cadastros\logout.aspx" />
     <Content Include="Cadastros\RelatorioFinanceiro.aspx" />
+    <Content Include="Cadastros\semPermissao.aspx" />
     <Content Include="Cadastros\Site1.Master" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\Bootstrap\bower_components\bootstrap-social\.bower.json" />
@@ -972,6 +975,13 @@
     <Compile Include="Cadastros\RelatorioFinanceiro.aspx.designer.cs">
       <DependentUpon>RelatorioFinanceiro.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Cadastros\semPermissao.aspx.cs">
+      <DependentUpon>semPermissao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cadastros\semPermissao.aspx.designer.cs">
+      <DependentUpon>semPermissao.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\animal.cs" />
     <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.cs">
       <DependentUpon>CadastroAnimal_Responsavel.aspx</DependentUpon>
@@ -988,6 +998,7 @@
       <DependentUpon>CadastroFuncionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\consulta.cs" />
+    <Compile Include="Models\perfil_acesso.cs" />
     <Compile Include="Shared\Contexto.cs" />
     <Compile Include="Models\especie.cs" />
     <Compile Include="Models\historico_vacina.cs" />

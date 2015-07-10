@@ -18,6 +18,7 @@ namespace ClinicaVeterinaria.Model.Shared
         public virtual DbSet<consulta> consulta { get; set; }
         public virtual DbSet<especie> especie { get; set; }
         public virtual DbSet<historico_vacina> historico_vacina { get; set; }
+        public virtual DbSet<perfil_acesso> perfil_acesso { get; set; }
         public virtual DbSet<pagamento> pagamento { get; set; }
         public virtual DbSet<raca> raca { get; set; }
         public virtual DbSet<responsavel> responsavel { get; set; }
@@ -75,6 +76,10 @@ namespace ClinicaVeterinaria.Model.Shared
             modelBuilder.Entity<pagamento>()
                 .Property(e => e.valor)
                 .HasPrecision(19, 4);
+
+            modelBuilder.Entity<perfil_acesso>()
+                .Property(e => e.nm_tela)
+                .IsFixedLength();
 
             modelBuilder.Entity<raca>()
                 .Property(e => e.nm_raca)

@@ -12,6 +12,7 @@ namespace ClinicaVeterinaria.Cadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             autenticarUsuario();
+            verificaPerfil(this.Page.ToString());
 
             if (!this.IsPostBack)
             {

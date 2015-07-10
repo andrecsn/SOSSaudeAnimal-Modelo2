@@ -12,7 +12,7 @@
         </div>
 
 
-        <div class="col-lg-16">
+        <div class="col-lg-12">
             <div class="well well-sm">
                 <h4>Caixa de pesquisa</h4>
                 <div class="row">
@@ -27,7 +27,7 @@
 
                     <div class="col-xs-4">
                         <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
-                        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar Animal / Responsável" class="btn btn-success" OnClick="btnCadastrar_Click" />
+                        <asp:Button ID="btCadastrar" runat="server" Text="Cadastrar" class="btn btn-success" OnClick="btnCadastrar_Click" />
                     </div>
                 </div>
             </div>

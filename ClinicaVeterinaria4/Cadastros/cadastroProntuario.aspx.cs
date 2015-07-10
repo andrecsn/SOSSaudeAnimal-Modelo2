@@ -12,6 +12,7 @@ namespace ClinicaVeterinaria
         protected void Page_Load(object sender, EventArgs e)
         {
             autenticarUsuario();
+            verificaPerfil(this.Page.ToString());
 
             //setando txt com data atual do sistema
             txtDt_aplicacao.Text = DateTime.Now.Date.ToShortDateString();
