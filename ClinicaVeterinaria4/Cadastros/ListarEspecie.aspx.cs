@@ -20,6 +20,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public bool delete()
+        {
+            string tipo = HttpContext.Current.Session["tipo"].ToString();
+
+            if (tipo == "Administrador")
+                return true;
+            else
+                return false;
+        }
+
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
             listarGrid();
@@ -43,23 +53,26 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void gridEspecie_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int index = int.Parse((string)e.CommandArgument);
-            string cd_especie = gridEspecie.DataKeys[index]["cod_especie"].ToString();
-            HttpContext.Current.Items["cod_especie"] = cd_especie;
-
-            if (e.CommandName == "Select")
+            if (e.CommandName == "Deletar")
             {
-                detalheModal(cd_especie);
-                btnAlterar.Visible = true;
-                btnCadastrar.Visible = false;
-                lblTituloModal.Text = "Alterar Espécie";
-                modal("#modalAlterarIncluir", "show");
-            }
-
-            if (e.CommandName == "New")
-            {
-                detalheModal(cd_especie);
+                string cod_especie = HttpContext.Current.Session["cod_especie"].ToString();
+                detalheModal(cod_especie);
                 modal("#modalExcluir", "show");
+            }
+            else
+            {
+                int index = int.Parse((string)e.CommandArgument);
+                string cd_especie = gridEspecie.DataKeys[index]["cod_especie"].ToString();
+                HttpContext.Current.Items["cod_especie"] = cd_especie;
+
+                if (e.CommandName == "Select")
+                {
+                    detalheModal(cd_especie);
+                    btnAlterar.Visible = true;
+                    btnCadastrar.Visible = false;
+                    lblTituloModal.Text = "Alterar Espécie";
+                    modal("#modalAlterarIncluir", "show");
+                }
             }
         }
 
@@ -91,6 +104,16 @@ namespace ClinicaVeterinaria.Cadastros
             btnAlterar.Visible = false;
             lblTituloModal.Text = "Incluir Espécie";
             modal("#modalAlterarIncluir", "show");
+        }
+
+        protected void imgDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int index = row.RowIndex;
+            string cod_especie = gridEspecie.DataKeys[index]["cod_especie"].ToString();
+            HttpContext.Current.Session["cod_especie"] = cod_especie;
         }
 
         protected void btnIncluir_Click(object sender, EventArgs e)

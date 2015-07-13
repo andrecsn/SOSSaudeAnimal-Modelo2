@@ -20,6 +20,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public bool delete()
+        {
+            string tipo = HttpContext.Current.Session["tipo"].ToString();
+
+            if (tipo == "Administrador")
+                return true;
+            else
+                return false;
+        }
+
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
             listarGrid();
@@ -43,21 +53,24 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void gridFuncionario_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int index = int.Parse((string)e.CommandArgument);
-            string cd_funcionario = gridFuncionario.DataKeys[index]["cd_funcionario"].ToString();
-            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
-
-            if (e.CommandName == "Select")
+            if (e.CommandName == "Deletar")
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Response.Redirect("CadastroFuncionario.aspx");
-            }
-
-            if (e.CommandName == "New")
-            {
+                string cd_funcionario = HttpContext.Current.Session["cd_funcionario"].ToString();
                 detalheModal(cd_funcionario);
                 modal("#modalExcluir", "show");
+            }
+            else
+            {
+                int index = int.Parse((string)e.CommandArgument);
+                string cd_funcionario = gridFuncionario.DataKeys[index]["cd_funcionario"].ToString();
+                HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
+
+                if (e.CommandName == "Select")
+                {
+                    //Enviando ID para edição
+                    HttpContext.Current.Session["alterar"] = "Alterar";
+                    Response.Redirect("CadastroFuncionario.aspx");
+                }
             }
         }
 
@@ -83,6 +96,16 @@ namespace ClinicaVeterinaria.Cadastros
             hiddenCodigo.Value = detalheFuncionario.cd_funcionario.ToString();
             lblNomeModal.Text = detalheFuncionario.nm_funcionario.ToString();
             HttpContext.Current.Session["cd_funcionario"] = cd_funcionario2;
+        }
+
+        protected void imgDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int index = row.RowIndex;
+            string cd_funcionario = gridFuncionario.DataKeys[index]["cd_funcionario"].ToString();
+            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
         }
 
         protected void btnExcluir_Click(object sender, EventArgs e)

@@ -20,6 +20,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public bool delete()
+        {
+            string tipo = HttpContext.Current.Session["tipo"].ToString();
+
+            if (tipo == "Administrador")
+                return true;
+            else
+                return false;
+        }
+
         private void listarGrid(string nm_animal, string nm_responsavel)
         {
             var dados = from a in contexto.animal
@@ -48,37 +58,40 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void gridAnimal_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int index = int.Parse((string)e.CommandArgument);
-            string cd_animal = gridAnimal.DataKeys[index]["cd_animal"].ToString();
-            HttpContext.Current.Session["cd_animal"] = cd_animal;
-
-            string cd_responsavel = gridAnimal.DataKeys[index]["cd_responsavel"].ToString();
-            HttpContext.Current.Session["cd_responsavel"] = cd_responsavel;
-
-            if (e.CommandName == "Select")
+            if (e.CommandName == "Deletar")
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["alterar"] = "Alterar";
-                Response.Redirect("cadastroAnimal_Novo.aspx");
-            }
-
-            if (e.CommandName == "New")
-            {
+                string cd_animal = HttpContext.Current.Session["cd_animal"].ToString();
                 detalheModal(cd_animal);
                 modal("#modalExcluir", "show");
             }
-
-            if (e.CommandName == "Edit")
+            else
             {
-                //Enviando ID para edição
-                HttpContext.Current.Session["novo"] = "NovoAnimal";
-                Response.Redirect("cadastroAnimal_Novo.aspx");
-            }
+                int index = int.Parse((string)e.CommandArgument);
+                string cd_animal = gridAnimal.DataKeys[index]["cd_animal"].ToString();
+                HttpContext.Current.Session["cd_animal"] = cd_animal;
 
-            if (e.CommandName == "Delete")
-            {
-                //Enviando ID para histórico de vacinas
-                Response.Redirect("CadastrarHistVacina.aspx");
+                string cd_responsavel = gridAnimal.DataKeys[index]["cd_responsavel"].ToString();
+                HttpContext.Current.Session["cd_responsavel"] = cd_responsavel;
+
+                if (e.CommandName == "Select")
+                {
+                    //Enviando ID para edição
+                    HttpContext.Current.Session["alterar"] = "Alterar";
+                    Response.Redirect("cadastroAnimal_Novo.aspx");
+                }
+
+                if (e.CommandName == "Edit")
+                {
+                    //Enviando ID para edição
+                    HttpContext.Current.Session["novo"] = "NovoAnimal";
+                    Response.Redirect("cadastroAnimal_Novo.aspx");
+                }
+
+                if (e.CommandName == "Delete")
+                {
+                    //Enviando ID para histórico de vacinas
+                    Response.Redirect("CadastrarHistVacina.aspx");
+                }
             }
         }
 
@@ -111,6 +124,16 @@ namespace ClinicaVeterinaria.Cadastros
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             Server.Transfer("CadastroAnimal_Responsavel.aspx");
+        }
+
+        protected void imgDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int index = row.RowIndex;
+            string cd_animal = gridAnimal.DataKeys[index]["cd_animal"].ToString();
+            HttpContext.Current.Session["cd_animal"] = cd_animal;
         }
     }
 }

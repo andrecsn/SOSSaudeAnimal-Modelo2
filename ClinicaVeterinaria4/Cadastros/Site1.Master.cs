@@ -11,9 +11,8 @@ namespace ClinicaVeterinaria
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-            }
+            lblFuncionario.Text = HttpContext.Current.Session["usuario"].ToString();
+            lblTipo.Text = HttpContext.Current.Session["tipo"].ToString();
         }
     }
 }

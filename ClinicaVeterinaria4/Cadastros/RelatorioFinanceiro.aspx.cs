@@ -13,7 +13,7 @@ namespace ClinicaVeterinaria.Cadastros
         protected void Page_Load(object sender, EventArgs e)
         {
             autenticarUsuario();
-            verificaPerfil(this.Page.ToString());
+            //verificaPerfil(this.Page.ToString());
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
@@ -190,7 +190,7 @@ namespace ClinicaVeterinaria.Cadastros
             lbl60.Text = string.Format("{0:C}", ((dinheiro + debitoDesc + creditoDesc) * 0.6));
             lbl40.Text = string.Format("{0:C}", ((dinheiro + debitoDesc + creditoDesc) * 0.4));
 
-            double totalEntradas = ((dinheiro + debito + credito) * 0.6);
+            double totalEntradas = ((dinheiro + debitoDesc + creditoDesc) * 0.6);
             double totalCartaoRecebido = (debito + credito);
             double totalReceber = (totalEntradas - totalCartaoRecebido);
 

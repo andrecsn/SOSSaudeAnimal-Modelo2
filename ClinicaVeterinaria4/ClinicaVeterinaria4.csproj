@@ -499,6 +499,7 @@
     <Content Include="App_Themes\Bootstrap\images\delete.png" />
     <Content Include="App_Themes\Bootstrap\images\funcionarios.png" />
     <Content Include="App_Themes\Bootstrap\images\imagens_upload\cachorro1.jpeg" />
+    <Content Include="App_Themes\Bootstrap\images\logo.png" />
     <Content Include="App_Themes\Bootstrap\images\pagamento.png" />
     <Content Include="App_Themes\Bootstrap\images\prontuario.png" />
     <Content Include="App_Themes\Bootstrap\images\select.png" />

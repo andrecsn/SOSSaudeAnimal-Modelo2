@@ -52,7 +52,11 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
-                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" HeaderStyle-Width="30" />
+                                <asp:TemplateField HeaderStyle-Width="45" ShowHeader="False">
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgDelete" runat="server" CausesValidation="False" CommandName="Deletar" ImageUrl="~/App_Themes/Bootstrap/images/delete.png" OnClick="imgDelete_Click" Visible='<%# delete() %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
 

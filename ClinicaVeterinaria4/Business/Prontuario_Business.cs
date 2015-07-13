@@ -51,7 +51,7 @@ namespace ClinicaVeterinaria.Business
             contexto.SaveChanges();
         }
 
-        protected void realizarPagamentoDivida(int cd_consulta, double dinheiro, double debito, double credito, double saldo_devedor)
+        protected void realizarPagamentoDivida(int cd_consulta, double dinheiro, double debito, double credito, double saldo_devedor, string st_consulta)
         {
             Models.consulta consulta = contexto.consulta.First(x => x.cd_consulta == cd_consulta);
 
@@ -59,6 +59,7 @@ namespace ClinicaVeterinaria.Business
             consulta.pg_debito = debito;
             consulta.pg_credito = credito;
             consulta.saldo_devedor = saldo_devedor;
+            consulta.st_consulta = st_consulta;
 
             contexto.SaveChanges();
         }

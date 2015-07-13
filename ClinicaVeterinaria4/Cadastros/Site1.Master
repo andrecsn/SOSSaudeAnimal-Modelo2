@@ -36,7 +36,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">SOS Saúde Animal</a>
+                <span class="navbar-brand">Funcionárioª: <b><asp:Label ID="lblFuncionario" runat="server"></asp:Label></b></span>
+                <span class="navbar-brand">Tipo: <b><asp:Label ID="lblTipo" runat="server"></asp:Label></b></span>
             </div>
             <!-- /.navbar-header -->
 
@@ -156,12 +157,12 @@
                         <i class="fa fa-user fa-fw"></i><i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Meu Perfil</a>
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>Meu Perfil</a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configurações</a>
+                        <li><a href="#"><i class="fa fa-gear fa-fw"></i>Configurações</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="logout.aspx"><i class="fa fa-sign-out fa-fw"></i> Sair do Sistema</a>
+                        <li><a href="logout.aspx"><i class="fa fa-sign-out fa-fw"></i>Sair do Sistema</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -174,21 +175,13 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Pesquisar...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
+                            <img src="../App_Themes/Bootstrap/images/logo.png" width="150" height="150" class="img-circle img-responsive" style="margin: 0px auto 0px auto" />
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Home</a>
+                            <a href="index.html"><i class="fa fa-dashboard fa-fw"></i>Home</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-search fa-fw"></i> Buscar<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-search fa-fw"></i>Buscar<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="ListarAnimal_Responsavel.aspx">Animal e Responsável</a>
@@ -209,9 +202,9 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-pencil-square-o fa-fw"></i>Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                 <li>
+                                <li>
                                     <a href="CadastroAnimal_Responsavel.aspx">Animal e Responsável</a>
                                 </li>
                                 <li>
@@ -220,13 +213,13 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                         <li>
-                            <a href="ListarProntuario.aspx"><i class="fa fa-stethoscope fa-fw"></i> Prontuário</a>
+                        <li>
+                            <a href="ListarProntuario.aspx"><i class="fa fa-stethoscope fa-fw"></i>Prontuário</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-dollar fa-fw"></i> Financeiro<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-dollar fa-fw"></i>Financeiro<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                 <li>
+                                <li>
                                     <a href="ListarFinanceiro.aspx">Pró-Labore</a>
                                 </li>
                                 <li>

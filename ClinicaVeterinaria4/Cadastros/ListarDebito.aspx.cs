@@ -15,34 +15,76 @@ namespace ClinicaVeterinaria.Cadastros
             autenticarUsuario();
             verificaPerfil(this.Page.ToString());
 
-            listarGrid("", "");
+            if (!IsPostBack)
+            {
+                listarGrid("", "", "");
+            }
         }
 
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
-            listarGrid(txtAnimal.Text, txtResponsavel.Text);
+            listarGrid(txtAnimal.Text, txtResponsavel.Text, cboTipo.SelectedValue);
         }
 
-        private void listarGrid(string nm_animal, string nm_responsavel)
+        private void listarGrid(string nm_animal, string nm_responsavel, string st_consulta)
         {
-            var dados = from a in contexto.consulta
-                        where a.animal.nm_animal.Contains(nm_animal) 
-                        & a.animal.responsavel.nm_responsavel.Contains(nm_responsavel)
-                        & a.saldo_devedor > 0
-                        select new
-                        {
-                            cd_consulta = a.cd_consulta,
-                            cd_animal = a.cd_animal,
-                            cd_responsavel = a.animal.cd_responsavel,
-                            nm_animal = a.animal.nm_animal,
-                            nm_raca = a.animal.raca.nm_raca,
-                            nm_especie = a.animal.especie.nm_especie,
-                            nm_responsavel = a.animal.responsavel.nm_responsavel,
-                            celular = a.animal.responsavel.celular,
-                            valor_debito = a.saldo_devedor
-                        };
-            this.gridAnimal.DataSource = dados.ToList();
-            this.gridAnimal.DataBind();
+            if (st_consulta != "Gratuidade")
+            {
+                var dados = from a in contexto.consulta
+                            where a.animal.nm_animal.Contains(nm_animal)
+                            & a.animal.responsavel.nm_responsavel.Contains(nm_responsavel)
+                            & a.saldo_devedor > 0
+                            & a.st_consulta.Contains(st_consulta)
+                            select new
+                            {
+                                cd_consulta = a.cd_consulta,
+                                cd_animal = a.cd_animal,
+                                cd_responsavel = a.animal.cd_responsavel,
+                                nm_animal = a.animal.nm_animal,
+                                nm_raca = a.animal.raca.nm_raca,
+                                nm_especie = a.animal.especie.nm_especie,
+                                nm_responsavel = a.animal.responsavel.nm_responsavel,
+                                celular = a.animal.responsavel.celular,
+                                st_consulta = a.st_consulta,
+                                valor_debito = a.saldo_devedor
+                            };
+                this.gridAnimal.DataSource = dados.ToList();
+                this.gridAnimal.DataBind();
+            }
+            else
+            {
+                var dados = from a in contexto.consulta
+                            where a.animal.nm_animal.Contains(nm_animal)
+                            & a.animal.responsavel.nm_responsavel.Contains(nm_responsavel)
+                            & a.st_consulta.Contains(st_consulta)
+                            select new
+                            {
+                                cd_consulta = a.cd_consulta,
+                                cd_animal = a.cd_animal,
+                                cd_responsavel = a.animal.cd_responsavel,
+                                nm_animal = a.animal.nm_animal,
+                                nm_raca = a.animal.raca.nm_raca,
+                                nm_especie = a.animal.especie.nm_especie,
+                                nm_responsavel = a.animal.responsavel.nm_responsavel,
+                                celular = a.animal.responsavel.celular,
+                                st_consulta = a.st_consulta,
+                                valor_debito = a.saldo_devedor
+                            };
+                this.gridAnimal.DataSource = dados.ToList();
+                this.gridAnimal.DataBind();
+            }
+        }
+
+        public string cssGrid(string tipo)
+        {
+            if (tipo == "Gratuidade")
+                return "label label-success";
+            else if (tipo == "Cliente em Débito")
+                return "label label-danger";
+            else if (tipo == "Consulta Normal")
+                return "label label-info";
+
+            return "";
         }
 
         protected void gridAnimal_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -85,26 +127,27 @@ namespace ClinicaVeterinaria.Cadastros
             lblDt_Consulta.Text = detalheConsulta.dt_consulta.ToString();
             lblveterinaria.Text = detalheConsulta.funcionario.nm_funcionario.ToString();
             lblDsConsulta.Text = detalheConsulta.ds_consulta.ToString();
+            lblStatusConsulta.Text = detalheConsulta.st_consulta.ToString();
 
             int cd_usuario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
 
-            lblValorConsulta.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_consulta);
-            lblValorCirurgia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_cirurgia);
-            lblValorSoroterapia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_soroterapia);
-            lblValortartarectomia.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_tartarectomia);
-            lblValorMedicamentos.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_medicamentos);
-            lblValorVacinas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_vacinas);
-            lblValorOutros.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_outros);
-            lblDescricaoOutros.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_outros.ToString();
-            lblValorExame.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_exame);
-            lblDescricaoExame.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_exame.ToString();
-            lblValorVendas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_vendas);
-            lblDescricaoVendas.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : detalheConsulta.ds_vendas.ToString();
+            lblValorConsulta.Text = string.Format("{0:C}", detalheConsulta.valor_consulta);
+            lblValorCirurgia.Text = string.Format("{0:C}", detalheConsulta.valor_cirurgia);
+            lblValorSoroterapia.Text = string.Format("{0:C}", detalheConsulta.valor_soroterapia);
+            lblValortartarectomia.Text = string.Format("{0:C}", detalheConsulta.valor_tartarectomia);
+            lblValorMedicamentos.Text = string.Format("{0:C}", detalheConsulta.valor_medicamentos);
+            lblValorVacinas.Text = string.Format("{0:C}", detalheConsulta.valor_vacinas);
+            lblValorOutros.Text = string.Format("{0:C}", detalheConsulta.valor_outros);
+            lblDescricaoOutros.Text = detalheConsulta.ds_outros.ToString();
+            lblValorExame.Text = string.Format("{0:C}", detalheConsulta.valor_exame);
+            lblDescricaoExame.Text = detalheConsulta.ds_exame.ToString();
+            lblValorVendas.Text = string.Format("{0:C}", detalheConsulta.valor_vendas);
+            lblDescricaoVendas.Text = detalheConsulta.ds_vendas.ToString();
 
-            lblValorDinheiro.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_dinheiro);
-            lblValorDebito.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_debito);
-            lblValorCredito.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.pg_credito);
-            lblTotalModal.Text = detalheConsulta.cd_funcionario != cd_usuario ? "---" : string.Format("{0:C}", detalheConsulta.valor_total);
+            lblValorDinheiro.Text = string.Format("{0:C}", detalheConsulta.pg_dinheiro);
+            lblValorDebito.Text = string.Format("{0:C}", detalheConsulta.pg_debito);
+            lblValorCredito.Text = string.Format("{0:C}", detalheConsulta.pg_credito);
+            lblTotalModal.Text = string.Format("{0:C}", detalheConsulta.valor_total);
 
             lblSaldoDevedor.Text = string.Format("{0:C}", detalheConsulta.saldo_devedor);
         }
@@ -124,6 +167,7 @@ namespace ClinicaVeterinaria.Cadastros
             double dinheiro = Convert.ToDouble(consulta.pg_dinheiro);
             double debito = Convert.ToDouble(consulta.pg_debito);
             double credito = Convert.ToDouble(consulta.pg_credito);
+            string st_consulta = "";
 
             double dinheiroPg = txtDinheiro.Text == "" ? 0 : Convert.ToDouble(txtDinheiro.Text);
             double debitoPg = txtDebito.Text == "" ? 0 : Convert.ToDouble(txtDebito.Text);
@@ -135,9 +179,14 @@ namespace ClinicaVeterinaria.Cadastros
 
             double saldo_devedor = (valor_total - (dinheiroNovo + debitoNovo + creditoNovo));
 
-            realizarPagamentoDivida(codigo, dinheiroNovo, debitoNovo, creditoNovo, saldo_devedor);
+            if (saldo_devedor == 0 & consulta.st_consulta == "Cliente em Débito")
+                st_consulta = "Consulta Normal";
+            else
+                st_consulta = consulta.st_consulta;
 
-            listarGrid("", "");
+            realizarPagamentoDivida(codigo, dinheiroNovo, debitoNovo, creditoNovo, saldo_devedor, st_consulta);
+
+            listarGrid("", "", "");
             modal("#pagamento", "hide");
         }
     }

@@ -454,31 +454,13 @@ namespace ClinicaVeterinaria {
         protected global::System.Web.UI.UpdatePanel upPagamento;
         
         /// <summary>
-        /// txtDinheiro control.
+        /// tipoConsulta control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDinheiro;
-        
-        /// <summary>
-        /// txtCredito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCredito;
-        
-        /// <summary>
-        /// txtDebito control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDebito;
+        protected global::System.Web.UI.WebControls.RadioButtonList tipoConsulta;
         
         /// <summary>
         /// btnCadastrarConsulta control.
@@ -515,6 +497,15 @@ namespace ClinicaVeterinaria {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblveterinaria;
+        
+        /// <summary>
+        /// lblStatusConsulta control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatusConsulta;
         
         /// <summary>
         /// lblDsConsulta control.

@@ -32,15 +32,19 @@ namespace ClinicaVeterinaria.Model.Shared
         {
             //pegando o perfil do usuário logado
             int cd_usuario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
-            Models.funcionario funcionario = contexto.funcionario.First(x => x.cd_funcionario == cd_usuario);
-            string perfil = funcionario.tipo;
-
-            //verificando o perfil e redirecioanndo
+            string perfil = HttpContext.Current.Session["tipo"].ToString();
 
             tela = tela.Replace("ASP.cadastros_", "");
             tela = tela.Replace("_aspx", ".aspx");
 
+            //verificando o perfil e redirecioanndo
             Models.perfil_acesso perfil_acesso = contexto.perfil_acesso.First(x => x.nm_tela == tela);
+
+            if (tela == "listarfinanceiro.aspx" & perfil == "Veterinária")
+            {
+                HttpContext.Current.Session["cd_funcionario"] = cd_usuario;
+                Response.Redirect("RelatorioFinanceiro.aspx");
+            }
 
             if (perfil == "Administrador" & perfil_acesso.perfil_administrador == 0)
                 Response.Redirect("semPermissao.aspx");

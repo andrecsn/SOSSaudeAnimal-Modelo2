@@ -20,6 +20,16 @@ namespace ClinicaVeterinaria.Cadastros
             }
         }
 
+        public bool delete()
+        {
+            string tipo = HttpContext.Current.Session["tipo"].ToString();
+
+            if (tipo == "Administrador")
+                return true;
+            else
+                return false;
+        }
+
         protected void btnPesquisar_Click(object sender, EventArgs e)
         {
             listarGridVacina();
@@ -43,23 +53,26 @@ namespace ClinicaVeterinaria.Cadastros
 
         protected void gridVacina_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            int index = int.Parse((string)e.CommandArgument);
-            string cd_vacina = gridVacina.DataKeys[index]["cd_vacina"].ToString();
-            HttpContext.Current.Items["cd_vacina"] = cd_vacina;
-
-            if (e.CommandName == "Select")
+            if (e.CommandName == "Deletar")
             {
-                detalheModal(cd_vacina);
-                btnAlterar.Visible = true;
-                btnCadastrar.Visible = false;
-                lblTituloModal.Text = "Alterar Vacina";
-                modal("#modalAlterarIncluir", "show");
-            }
-
-            if (e.CommandName == "New")
-            {
+                string cd_vacina = HttpContext.Current.Session["cd_vacina"].ToString();
                 detalheModal(cd_vacina);
                 modal("#modalExcluir", "show");
+            }
+            else
+            {
+                int index = int.Parse((string)e.CommandArgument);
+                string cd_vacina = gridVacina.DataKeys[index]["cd_vacina"].ToString();
+                HttpContext.Current.Items["cd_vacina"] = cd_vacina;
+
+                if (e.CommandName == "Select")
+                {
+                    detalheModal(cd_vacina);
+                    btnAlterar.Visible = true;
+                    btnCadastrar.Visible = false;
+                    lblTituloModal.Text = "Alterar Vacina";
+                    modal("#modalAlterarIncluir", "show");
+                }
             }
         }
 
@@ -92,6 +105,16 @@ namespace ClinicaVeterinaria.Cadastros
             btnAlterar.Visible = false;
             lblTituloModal.Text = "Incluir Raça";
             modal("#modalAlterarIncluir", "show");
+        }
+
+        protected void imgDelete_Click(object sender, ImageClickEventArgs e)
+        {
+            ImageButton btn = (ImageButton)sender;
+            GridViewRow row = (GridViewRow)btn.NamingContainer;
+
+            int index = row.RowIndex;
+            string cd_vacina = gridVacina.DataKeys[index]["cd_vacina"].ToString();
+            HttpContext.Current.Session["cd_vacina"] = cd_vacina;
         }
 
         protected void btnIncluir_Click(object sender, EventArgs e)
