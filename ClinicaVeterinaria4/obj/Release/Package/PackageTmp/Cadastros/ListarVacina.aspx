@@ -61,7 +61,11 @@
                                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30">
                                     <HeaderStyle Width="30px" />
                                 </asp:CommandField>
-                                <asp:CommandField ButtonType="Image" ShowInsertButton="True" HeaderStyle-Width="30" NewImageUrl="~/App_Themes/Bootstrap/images/delete.png" />
+                                <asp:TemplateField HeaderStyle-Width="45" ShowHeader="False">
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="imgDelete" runat="server" CausesValidation="False" CommandName="Deletar" ImageUrl="~/App_Themes/Bootstrap/images/delete.png" OnClick="imgDelete_Click" Visible='<%# delete() %>' />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                             </Columns>
                         </asp:GridView>
 

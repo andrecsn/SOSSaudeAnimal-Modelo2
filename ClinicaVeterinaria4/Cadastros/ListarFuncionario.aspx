@@ -52,6 +52,7 @@
                                     </ItemTemplate>
                                 </asp:TemplateField>
                                 <asp:CommandField ButtonType="Image" SelectImageUrl="~/App_Themes/Bootstrap/images/select.png" ShowSelectButton="True" HeaderStyle-Width="30" />
+                                <asp:CommandField ButtonType="Image" HeaderStyle-Width="30" ShowInsertButton="True" NewImageUrl="~/App_Themes/Bootstrap/images/senha.png"></asp:CommandField>
                                 <asp:TemplateField HeaderStyle-Width="45" ShowHeader="False">
                                     <ItemTemplate>
                                         <asp:ImageButton ID="imgDelete" runat="server" CausesValidation="False" CommandName="Deletar" ImageUrl="~/App_Themes/Bootstrap/images/delete.png" OnClick="imgDelete_Click" Visible='<%# delete() %>' />
@@ -110,6 +111,69 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         <asp:Button ID="btnExcluir" runat="server" Text="Confirmar" class="btn btn-danger" OnClick="btnExcluir_Click" />
                     </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Modal trocar a senha -->
+        <div id="trocarSenha" class="modal fade" tabindex="-1" role="dialog" data-backdrop="static" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+
+                    <asp:UpdatePanel ID="upAlterarSenha" runat="server">
+                        <ContentTemplate>
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="gridSystemModalLabel">Alteração de Senha</h4>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+
+                                    <div class="col-lg-12">
+                                        <div class="well well-sm">
+                                            <label>Funcionárioª:</label>
+                                            <b>
+                                                <asp:Label ID="lblFuncionario" runat="server"></asp:Label></b>
+                                            <asp:HiddenField ID="hiddenFuncionario" runat="server" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <label>Senha Antiga:</label>
+                                        <asp:TextBox ID="txtSenhaAntiga" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <label>Nova Senha:</label>
+                                        <asp:TextBox ID="txtNovaSenha" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
+                                    </div>
+
+                                    <div class="col-xs-4">
+                                        <label>Repetir Nova Senha:</label>
+                                        <asp:TextBox ID="txtNovaSenha2" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="modal-footer">
+                                <span id="mensagemErro" runat="server" style="color: #FF0000; font-size: medium; float: left; padding-top: 5px;"></span>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                                <asp:Button ID="btnTrocarSenha" runat="server" Text="Trocar Senha" class="btn btn-success" OnClientClick="return verificaNulo()" OnClick="btnTrocarSenha_Click" />
+                            </div>
+
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnTrocarSenha" EventName="Click" />
+                        </Triggers>
+                    </asp:UpdatePanel>
 
                 </div>
             </div>

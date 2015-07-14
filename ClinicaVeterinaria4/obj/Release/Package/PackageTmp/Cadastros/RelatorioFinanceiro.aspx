@@ -169,7 +169,7 @@
 
                                                     <table style="width: 100%;" class="table table-bordered">
                                                         <tr>
-                                                            <td><b>TOTAL DE ENTRADAS</b></td>
+                                                            <td><b>TOTAL A RECEBER (Bruto)</b></td>
                                                             <td>
                                                                 <asp:Label ID="lblTotalEntradas" runat="server"></asp:Label></td>
                                                         </tr>
@@ -181,7 +181,7 @@
                                                         </tr>
                                                         <tr class="success">
                                                             <td>
-                                                                <b>TOTAL A RECEBER</b></td>
+                                                                <b>TOTAL A RECEBER (Líquido)</b></td>
                                                             <td>
                                                                 <asp:Label ID="lblTotalReceber" runat="server"></asp:Label></td>
                                                         </tr>

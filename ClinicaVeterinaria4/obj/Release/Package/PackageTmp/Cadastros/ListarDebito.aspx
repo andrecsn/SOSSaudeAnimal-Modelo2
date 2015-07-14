@@ -21,16 +21,25 @@
 
                         <div class="row">
 
-                            <div class="col-xs-4">
+                            <div class="col-xs-3">
                                 <asp:TextBox ID="txtAnimal" runat="server" OnTextChanged="btnPesquisar_Click" AutoPostBack="true" class="form-control" placeholder="Nome do Animal" autofocus></asp:TextBox>
                                 <asp:HiddenField ID="hiddenCodigo" runat="server" />
                             </div>
 
-                            <div class="col-xs-4">
+                            <div class="col-xs-3">
                                 <asp:TextBox ID="txtResponsavel" runat="server" OnTextChanged="btnPesquisar_Click" AutoPostBack="true" class="form-control" placeholder="Nome do Responsavel"></asp:TextBox>
                             </div>
 
-                            <div class="col-xs-4">
+                            <div class="col-xs-3">
+                                <asp:DropDownList ID="cboTipo" runat="server" class="form-control" AutoPostBack="true" OnTextChanged="btnPesquisar_Click">
+                                    <asp:ListItem Selected="True" Value="">&lt;-- Escolha --&gt;</asp:ListItem>
+                                    <asp:ListItem>Cliente em D&#233;bito</asp:ListItem>
+                                    <asp:ListItem>Gratuidade</asp:ListItem>
+                                    <asp:ListItem>Consulta Normal</asp:ListItem>
+                                </asp:DropDownList>
+                            </div>
+
+                            <div class="col-xs-3">
                                 <asp:Button ID="btnPesquisar" runat="server" Text="Pesquisar" class="btn btn-primary" OnClick="btnPesquisar_Click" />
                             </div>
 
@@ -59,6 +68,11 @@
                                 <asp:BoundField DataField="nm_especie" HeaderText="Espécie" />
                                 <asp:BoundField DataField="nm_responsavel" HeaderText="Responsável" />
                                 <asp:BoundField DataField="celular" HeaderText="Celular" />
+                                <asp:TemplateField HeaderText="Tipo">
+                                    <ItemTemplate>
+                                        <asp:Label ID="lblTipo" runat="server" CssClass='<%# cssGrid(Eval("st_consulta").ToString()) %>' Text='<%# Bind("st_consulta") %>'></asp:Label>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
                                 <asp:BoundField DataField="valor_debito" HeaderText="Saldo Devedor" DataFormatString="{0:C}" />
                                 <asp:CommandField ButtonType="Image" NewImageUrl="~/App_Themes/Bootstrap/images/pagamento.png" ShowInsertButton="True">
                                     <HeaderStyle Width="50px" />
@@ -69,6 +83,7 @@
 
                     </ContentTemplate>
                     <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="cboTipo" EventName="TextChanged" />
                         <asp:AsyncPostBackTrigger ControlID="txtAnimal" EventName="TextChanged" />
                         <asp:AsyncPostBackTrigger ControlID="txtResponsavel" EventName="TextChanged" />
                         <asp:AsyncPostBackTrigger ControlID="btnPesquisar" EventName="Click" />
@@ -161,16 +176,22 @@
 
                                 <div class="row">
 
-                                    <div class="col-xs-5">
+                                    <div class="col-xs-4">
                                         <label for="usr">Data da Consulta</label>
                                         <h4><b>
                                             <asp:Label ID="lblDt_Consulta" runat="server"></asp:Label></b></h4>
                                     </div>
 
-                                    <div class="col-xs-7">
+                                    <div class="col-xs-4">
                                         <label for="usr">Veterinária</label>
                                         <h4><b>
                                             <asp:Label ID="lblveterinaria" runat="server"></asp:Label></b></h4>
+                                    </div>
+
+                                    <div class="col-xs-4 text-center">
+                                        <label for="usr">Tipo</label>
+                                        <h4><b>
+                                            <asp:Label ID="lblStatusConsulta" runat="server"></asp:Label></b></h4>
                                     </div>
 
 

@@ -67,6 +67,15 @@ namespace ClinicaVeterinaria.Business
             contexto.SaveChanges();
         }
 
+        protected void alterarSenha(int codigo, string senhaNova)
+        {
+            Models.funcionario funcionario = contexto.funcionario.First(x => x.cd_funcionario == codigo);
+
+            funcionario.senha = senhaNova;
+
+            contexto.SaveChanges();
+        }
+
         protected void verificarUsuario(string login, string senha)
         {
             var selecao = contexto.funcionario.FirstOrDefault(x => x.login == login & x.senha == senha);

@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="col-xs-3">
-                                <asp:DropDownList ID="cboTipo" runat="server" class="form-control" AutoPostBack="true" OnTextChanged="btnPesquisar_Click" >
+                                <asp:DropDownList ID="cboTipo" runat="server" class="form-control" AutoPostBack="true" OnTextChanged="btnPesquisar_Click">
                                     <asp:ListItem Selected="True" Value="">&lt;-- Escolha --&gt;</asp:ListItem>
                                     <asp:ListItem>Cliente em D&#233;bito</asp:ListItem>
                                     <asp:ListItem>Gratuidade</asp:ListItem>

@@ -505,6 +505,7 @@
     <Content Include="App_Themes\Bootstrap\images\select.png" />
     <Content Include="App_Themes\Bootstrap\images\sem-foto.jpg" />
     <Content Include="App_Themes\Bootstrap\images\sem_acesso.gif" />
+    <Content Include="App_Themes\Bootstrap\images\senha.png" />
     <Content Include="App_Themes\Bootstrap\images\vacina.png" />
     <Content Include="App_Themes\Bootstrap\images\visualizar.png" />
     <Content Include="App_Themes\Bootstrap\js\bootstrap-datepicker.js" />

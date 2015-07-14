@@ -296,6 +296,7 @@
 
                                                 <div class="col-lg-2">
                                                     <div class="input-group">
+                                                        <br>
                                                         </br>
                                                 <button type="button" class="btn btn-primary" onclick="javascript:CalcularTotal()">Calcular Total</button>
                                                         <asp:Button ID="btnEditarConsulta" runat="server" Text="Alterar Consulta" class="btn btn-primary" Visible="false" OnClick="btnEditarConsulta_Click" />
@@ -454,29 +455,16 @@
 
                                 <div class="row">
 
-                                    <div class="col-xs-4">
-                                        <label for="usr">Dinheiro:</label>
+                                    <div class="col-xs-12">
                                         <div class="input-group">
-                                            <div class="input-group-addon">R$</div>
-                                            <asp:TextBox ID="txtDinheiro" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)" autofocus></asp:TextBox>
+                                            <asp:RadioButtonList ID="tipoConsulta" runat="server" RepeatDirection="Horizontal" Width="570">
+                                                <asp:ListItem Selected="True">Consulta Normal</asp:ListItem>
+                                                <asp:ListItem>Gratuidade</asp:ListItem>
+                                                <asp:ListItem>Cliente em D&#233;bito</asp:ListItem>
+                                            </asp:RadioButtonList>
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-4">
-                                        <label for="usr">C. Crédito:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">R$</div>
-                                            <asp:TextBox ID="txtCredito" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-xs-4">
-                                        <label for="usr">C. Débito:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-addon">R$</div>
-                                            <asp:TextBox ID="txtDebito" runat="server" class="form-control" placeholder="0,00" onKeyUp="formataValor(this)"></asp:TextBox>
-                                        </div>
-                                    </div>
                                 </div>
 
                                 </div>
@@ -514,16 +502,22 @@
 
                                 <div class="row">
 
-                                    <div class="col-xs-5">
+                                    <div class="col-xs-4">
                                         <label for="usr">Data da Consulta</label>
                                         <h4><b>
                                             <asp:Label ID="lblDt_Consulta" runat="server"></asp:Label></b></h4>
                                     </div>
 
-                                    <div class="col-xs-7">
+                                    <div class="col-xs-4">
                                         <label for="usr">Veterinária</label>
                                         <h4><b>
                                             <asp:Label ID="lblveterinaria" runat="server"></asp:Label></b></h4>
+                                    </div>
+
+                                    <div class="col-xs-4 text-center">
+                                        <label for="usr">Tipo</label>
+                                        <h4><b>
+                                            <asp:Label ID="lblStatusConsulta" runat="server"></asp:Label></b></h4>
                                     </div>
 
 
@@ -664,25 +658,12 @@
 
             function verificaNulo() {
                 var ds_atendimento = document.getElementById("Corpo_txtDescricaoAtendimento").value;
-                var dinheiro = document.getElementById("Corpo_txtDinheiro").value == "" ? 0 : parseFloat(document.getElementById("Corpo_txtDinheiro").value);
-                var credito = document.getElementById("Corpo_txtCredito").value == "" ? 0 : parseFloat(document.getElementById("Corpo_txtCredito").value);
-                var debito = document.getElementById("Corpo_txtDebito").value == "" ? 0 : parseFloat(document.getElementById("Corpo_txtDebito").value);
-                var total = document.getElementById("Corpo_HiddenTotal").value == "" ? 0 : parseFloat(document.getElementById("Corpo_HiddenTotal").value);
-
-                var pagar = parseFloat(dinheiro + debito + credito);
 
                 if (ds_atendimento == "") {
                     document.getElementById("mensagemErro").innerHTML = "Preencha a descrição do atendimento!";
                     return false;
                 } else if (total == 0) {
                     document.getElementById("mensagemErro").innerHTML = "Não há valor para o procedimento R$0,00!";
-                    return false;
-                } else if (pagar > total) {
-                    document.getElementById("mensagemErro").innerHTML = "Pagamento maior que total! R$ " + pagar;
-                    return false;
-                } else if (dinheiro == "" && credito == "" && debito == "") {
-                    document.getElementById("mensagemErro").innerHTML = "Preencha uma forma de Pagamento!";
-                    document.getElementById("Corpo_txtDinheiro").focus();
                     return false;
                 } else {
                     return true;

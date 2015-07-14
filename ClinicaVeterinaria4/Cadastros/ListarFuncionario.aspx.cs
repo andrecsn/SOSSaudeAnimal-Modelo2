@@ -55,14 +55,14 @@ namespace ClinicaVeterinaria.Cadastros
         {
             if (e.CommandName == "Deletar")
             {
-                string cd_funcionario = HttpContext.Current.Session["cd_funcionario"].ToString();
+                int cd_funcionario = Convert.ToInt32(HttpContext.Current.Session["cd_funcionario"]);
                 detalheModal(cd_funcionario);
                 modal("#modalExcluir", "show");
             }
             else
             {
                 int index = int.Parse((string)e.CommandArgument);
-                string cd_funcionario = gridFuncionario.DataKeys[index]["cd_funcionario"].ToString();
+                int cd_funcionario = Convert.ToInt32(gridFuncionario.DataKeys[index]["cd_funcionario"]);
                 HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
 
                 if (e.CommandName == "Select")
@@ -70,6 +70,13 @@ namespace ClinicaVeterinaria.Cadastros
                     //Enviando ID para edição
                     HttpContext.Current.Session["alterar"] = "Alterar";
                     Response.Redirect("CadastroFuncionario.aspx");
+                }
+
+                if (e.CommandName == "New")
+                {
+                    senhaModal(cd_funcionario);
+                    limpaCamposSenha();
+                    modal("#trocarSenha", "show");
                 }
             }
         }
@@ -88,14 +95,21 @@ namespace ClinicaVeterinaria.Cadastros
             return retorno;
         }
 
-        protected void detalheModal(string cd_funcionario)
+        protected void detalheModal(int cd_funcionario)
         {
-            int cd_funcionario2 = Convert.ToInt32(cd_funcionario);
-            Models.funcionario detalheFuncionario = contexto.funcionario.First(x => x.cd_funcionario == cd_funcionario2);
+            Models.funcionario detalheFuncionario = contexto.funcionario.First(x => x.cd_funcionario == cd_funcionario);
 
             hiddenCodigo.Value = detalheFuncionario.cd_funcionario.ToString();
             lblNomeModal.Text = detalheFuncionario.nm_funcionario.ToString();
-            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario2;
+            HttpContext.Current.Session["cd_funcionario"] = cd_funcionario;
+        }
+
+        protected void senhaModal(int cd_funcionario)
+        {
+            Models.funcionario detalheFuncionario = contexto.funcionario.First(x => x.cd_funcionario == cd_funcionario);
+
+            hiddenFuncionario.Value = detalheFuncionario.cd_funcionario.ToString();
+            lblFuncionario.Text = detalheFuncionario.nm_funcionario.ToString();
         }
 
         protected void imgDelete_Click(object sender, ImageClickEventArgs e)
@@ -127,6 +141,60 @@ namespace ClinicaVeterinaria.Cadastros
         protected void btnCadastrar_Click(object sender, EventArgs e)
         {
             Server.Transfer("cadastroFuncionario.aspx");
+        }
+
+        protected void btnTrocarSenha_Click(object sender, EventArgs e)
+        {
+            string senhaAntiga = txtSenhaAntiga.Text;
+            string senhaNova = txtNovaSenha.Text;
+            string senhaNova2 = txtNovaSenha2.Text;
+            int cd_funcionario = Convert.ToInt32(hiddenFuncionario.Value);
+
+            if (validarSenha(cd_funcionario, senhaAntiga, senhaNova, senhaNova2) == true)
+            {
+                alterarSenha(cd_funcionario, senhaNova);
+                modal("#trocarSenha", "hide");
+            }
+        }
+
+        private void limpaCamposSenha()
+        {
+            mensagemErro.InnerText = "";
+            txtSenhaAntiga.Text = "";
+            txtNovaSenha.Text = "";
+            txtNovaSenha2.Text = "";
+            txtSenhaAntiga.Focus();
+        }
+
+        private bool validarSenha(int cd_funcionario, string senhaAntiga, string senhaNova, string senhaNova2)
+        {
+            Models.funcionario alterarSenha = contexto.funcionario.First(x => x.cd_funcionario == cd_funcionario);
+
+            if (senhaAntiga == "" || senhaNova == "" || senhaNova2 == "")
+            {
+                mensagemErro.InnerText = "Preencha todos os campos!";
+                txtSenhaAntiga.Focus();
+                return false;
+            }
+            else if (senhaAntiga != alterarSenha.senha)
+            {
+                mensagemErro.InnerText = "Senha antiga não reconhecida!";
+                txtSenhaAntiga.Text = "";
+                txtSenhaAntiga.Focus();
+                return false;
+            }
+            else if (senhaNova != senhaNova2)
+            {
+                mensagemErro.InnerText = "Nova Senha não corresponde!";
+                txtNovaSenha.Text = "";
+                txtNovaSenha2.Text = "";
+                txtNovaSenha.Focus();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
 }

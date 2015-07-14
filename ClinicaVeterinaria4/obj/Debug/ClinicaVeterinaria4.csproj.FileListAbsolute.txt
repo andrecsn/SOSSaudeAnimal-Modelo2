@@ -56,4 +56,3 @@ C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\bin\EntityFramework.SqlServer.xml
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\obj\Debug\ClinicaVeterinaria4.dll
 C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\obj\Debug\ClinicaVeterinaria4.pdb
-C:\Users\acnogueira\Documents\GitHub\SOSSaudeAnimal-Modelo2\ClinicaVeterinaria4\obj\Debug\ClinicaVeterinaria4.csprojResolveAssemblyReference.cache

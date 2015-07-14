@@ -65,7 +65,7 @@
                                         <div class="form-group">
                                             <label>Data de Nascimento: </label>
                                             <div class='input-group date'>
-                                                <asp:TextBox ID="txtNascimento" runat="server" class="form-control data" placeholder="00/00/0000" required></asp:TextBox>
+                                                <asp:TextBox ID="txtNascimento" runat="server" class="form-control data" placeholder="00/00/0000"></asp:TextBox>
                                                 <span class="input-group-addon">
                                                     <span class="glyphicon glyphicon-calendar"></span>
                                                 </span>
