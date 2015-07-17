@@ -139,7 +139,7 @@
 
                             <div class="form-group">
                                 <label>Celular:</label>
-                                <asp:TextBox ID="txtCelularResp" runat="server" class="form-control telefone" placeholder="(xx) xxxxx-xxxx"></asp:TextBox>
+                                <asp:TextBox ID="txtCelularResp" runat="server" class="form-control celular" placeholder="(xx) xxxxx-xxxx"></asp:TextBox>
                             </div>
 
                             <div class="form-group">

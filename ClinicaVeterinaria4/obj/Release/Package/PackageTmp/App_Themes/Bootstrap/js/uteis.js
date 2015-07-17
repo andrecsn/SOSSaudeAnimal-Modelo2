@@ -44,7 +44,8 @@ function formataValor(campo) {
 $(function () {
     $.mask.definitions['~'] = "[+-]";
     $(".data").mask("99/99/9999");
-    $(".telefone").mask("(99) 99999-9999");
+    $(".telefone").mask("(99) 9999-9999");
+    $(".celular").mask("(99) 99999-9999");
     $(".cep").mask("99999-999");
     $(".cpf").mask("999.999.999-99");
     $(".product").mask("a*-999-a999", { placeholder: " " });

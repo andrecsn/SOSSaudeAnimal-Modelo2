@@ -514,22 +514,22 @@
     <Content Include="App_Themes\Bootstrap\js\jquery.maskedinput.min.js" />
     <Content Include="App_Themes\Bootstrap\js\morris-data.js" />
     <Content Include="App_Themes\Bootstrap\js\uteis.js" />
-    <Content Include="Cadastros\CadastrarHistVacina.aspx" />
-    <Content Include="Cadastros\CadastroProntuario.aspx" />
-    <Content Include="Cadastros\CadastroAnimal_Novo.aspx" />
-    <Content Include="Cadastros\ListarDebito.aspx" />
-    <Content Include="Cadastros\ListarFinanceiro.aspx" />
-    <Content Include="Cadastros\ListarProntuario.aspx" />
-    <Content Include="Cadastros\ListarAnimal_Responsavel.aspx" />
-    <Content Include="Cadastros\ListarEspecie.aspx" />
-    <Content Include="Cadastros\ListarRaca.aspx" />
-    <Content Include="Cadastros\ListarVacina.aspx" />
-    <Content Include="Cadastros\ListarFuncionario.aspx" />
-    <Content Include="Cadastros\login.aspx" />
-    <Content Include="Cadastros\logout.aspx" />
-    <Content Include="Cadastros\RelatorioFinanceiro.aspx" />
-    <Content Include="Cadastros\semPermissao.aspx" />
-    <Content Include="Cadastros\Site1.Master" />
+    <Content Include="Presentation\CadastrarHistVacina.aspx" />
+    <Content Include="Presentation\CadastroProntuario.aspx" />
+    <Content Include="Presentation\CadastroAnimal_Novo.aspx" />
+    <Content Include="Presentation\ListarDebito.aspx" />
+    <Content Include="Presentation\ListarFinanceiro.aspx" />
+    <Content Include="Presentation\ListarProntuario.aspx" />
+    <Content Include="Presentation\ListarAnimal_Responsavel.aspx" />
+    <Content Include="Presentation\ListarEspecie.aspx" />
+    <Content Include="Presentation\ListarRaca.aspx" />
+    <Content Include="Presentation\ListarVacina.aspx" />
+    <Content Include="Presentation\ListarFuncionario.aspx" />
+    <Content Include="Presentation\login.aspx" />
+    <Content Include="Presentation\logout.aspx" />
+    <Content Include="Presentation\RelatorioFinanceiro.aspx" />
+    <Content Include="Presentation\semPermissao.aspx" />
+    <Content Include="Presentation\Site1.Master" />
     <Content Include="packages.config" />
     <Content Include="App_Themes\Bootstrap\bower_components\bootstrap-social\.bower.json" />
     <Content Include="App_Themes\Bootstrap\bower_components\bootstrap-social\.editorconfig" />
@@ -848,8 +848,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Cadastros\CadastroAnimal_Responsavel.aspx" />
-    <Content Include="Cadastros\CadastroFuncionario.aspx" />
+    <Content Include="Presentation\CadastroAnimal_Responsavel.aspx" />
+    <Content Include="Presentation\CadastroFuncionario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -869,9 +869,6 @@
     <Compile Include="Business\Raca_Business.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Business\Responsavel_Business.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
     <Compile Include="Business\Tratamento_Business.cs" />
     <Compile Include="Business\Vacina_Business.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -879,124 +876,124 @@
     <Compile Include="Business\Funcionario_Business.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastrarHistVacina.aspx.cs">
+    <Compile Include="Presentation\CadastrarHistVacina.aspx.cs">
       <DependentUpon>CadastrarHistVacina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastrarHistVacina.aspx.designer.cs">
+    <Compile Include="Presentation\CadastrarHistVacina.aspx.designer.cs">
       <DependentUpon>CadastrarHistVacina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\CadastroProntuario.aspx.cs">
+    <Compile Include="Presentation\CadastroProntuario.aspx.cs">
       <DependentUpon>CadastroProntuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastroProntuario.aspx.designer.cs">
+    <Compile Include="Presentation\CadastroProntuario.aspx.designer.cs">
       <DependentUpon>CadastroProntuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.cs">
+    <Compile Include="Presentation\CadastroAnimal_Novo.aspx.cs">
       <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastroAnimal_Novo.aspx.designer.cs">
+    <Compile Include="Presentation\CadastroAnimal_Novo.aspx.designer.cs">
       <DependentUpon>CadastroAnimal_Novo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarDebito.aspx.cs">
+    <Compile Include="Presentation\ListarDebito.aspx.cs">
       <DependentUpon>ListarDebito.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarDebito.aspx.designer.cs">
+    <Compile Include="Presentation\ListarDebito.aspx.designer.cs">
       <DependentUpon>ListarDebito.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarFinanceiro.aspx.cs">
+    <Compile Include="Presentation\ListarFinanceiro.aspx.cs">
       <DependentUpon>ListarFinanceiro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarFinanceiro.aspx.designer.cs">
+    <Compile Include="Presentation\ListarFinanceiro.aspx.designer.cs">
       <DependentUpon>ListarFinanceiro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarProntuario.aspx.cs">
+    <Compile Include="Presentation\ListarProntuario.aspx.cs">
       <DependentUpon>ListarProntuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarProntuario.aspx.designer.cs">
+    <Compile Include="Presentation\ListarProntuario.aspx.designer.cs">
       <DependentUpon>ListarProntuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarAnimal_Responsavel.aspx.cs">
+    <Compile Include="Presentation\ListarAnimal_Responsavel.aspx.cs">
       <DependentUpon>ListarAnimal_Responsavel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarAnimal_Responsavel.aspx.designer.cs">
+    <Compile Include="Presentation\ListarAnimal_Responsavel.aspx.designer.cs">
       <DependentUpon>ListarAnimal_Responsavel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarEspecie.aspx.cs">
+    <Compile Include="Presentation\ListarEspecie.aspx.cs">
       <DependentUpon>ListarEspecie.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarEspecie.aspx.designer.cs">
+    <Compile Include="Presentation\ListarEspecie.aspx.designer.cs">
       <DependentUpon>ListarEspecie.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarRaca.aspx.cs">
+    <Compile Include="Presentation\ListarRaca.aspx.cs">
       <DependentUpon>ListarRaca.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarRaca.aspx.designer.cs">
+    <Compile Include="Presentation\ListarRaca.aspx.designer.cs">
       <DependentUpon>ListarRaca.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarVacina.aspx.cs">
+    <Compile Include="Presentation\ListarVacina.aspx.cs">
       <DependentUpon>ListarVacina.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarVacina.aspx.designer.cs">
+    <Compile Include="Presentation\ListarVacina.aspx.designer.cs">
       <DependentUpon>ListarVacina.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\ListarFuncionario.aspx.cs">
+    <Compile Include="Presentation\ListarFuncionario.aspx.cs">
       <DependentUpon>ListarFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\ListarFuncionario.aspx.designer.cs">
+    <Compile Include="Presentation\ListarFuncionario.aspx.designer.cs">
       <DependentUpon>ListarFuncionario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\login.aspx.cs">
+    <Compile Include="Presentation\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\login.aspx.designer.cs">
+    <Compile Include="Presentation\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\logout.aspx.cs">
+    <Compile Include="Presentation\logout.aspx.cs">
       <DependentUpon>logout.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\logout.aspx.designer.cs">
+    <Compile Include="Presentation\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\RelatorioFinanceiro.aspx.cs">
+    <Compile Include="Presentation\RelatorioFinanceiro.aspx.cs">
       <DependentUpon>RelatorioFinanceiro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\RelatorioFinanceiro.aspx.designer.cs">
+    <Compile Include="Presentation\RelatorioFinanceiro.aspx.designer.cs">
       <DependentUpon>RelatorioFinanceiro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\semPermissao.aspx.cs">
+    <Compile Include="Presentation\semPermissao.aspx.cs">
       <DependentUpon>semPermissao.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\semPermissao.aspx.designer.cs">
+    <Compile Include="Presentation\semPermissao.aspx.designer.cs">
       <DependentUpon>semPermissao.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\animal.cs" />
-    <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.cs">
+    <Compile Include="Presentation\CadastroAnimal_Responsavel.aspx.cs">
       <DependentUpon>CadastroAnimal_Responsavel.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastroAnimal_Responsavel.aspx.designer.cs">
+    <Compile Include="Presentation\CadastroAnimal_Responsavel.aspx.designer.cs">
       <DependentUpon>CadastroAnimal_Responsavel.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cadastros\CadastroFuncionario.aspx.cs">
+    <Compile Include="Presentation\CadastroFuncionario.aspx.cs">
       <DependentUpon>CadastroFuncionario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\CadastroFuncionario.aspx.designer.cs">
+    <Compile Include="Presentation\CadastroFuncionario.aspx.designer.cs">
       <DependentUpon>CadastroFuncionario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\consulta.cs" />
@@ -1006,11 +1003,11 @@
     <Compile Include="Models\historico_vacina.cs" />
     <Compile Include="Models\pagamento.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Cadastros\Site1.Master.cs">
+    <Compile Include="Presentation\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cadastros\Site1.Master.designer.cs">
+    <Compile Include="Presentation\Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
     <Compile Include="Models\raca.cs" />

@@ -31,11 +31,12 @@ namespace ClinicaVeterinaria.Business
             //Removendo sessões e redirecionando
             Session.Remove("cd_funcionario");
             Session.Remove("alterar");
-            Response.Redirect("listarFuncionario.aspx");
+            Response.Redirect("~/Presentation/ListarFuncionario.aspx");
         }
 
         protected void editarFuncionario(int codigo, string nome, string cpf, string telefone, string celular, string email, string endereco, string bairro, string cep, string cidade, string estado, string login, string tipo)
         {
+
             Models.funcionario funcionario = contexto.funcionario.First(x => x.cd_funcionario == codigo);
 
             funcionario.nm_funcionario = nome;
@@ -56,7 +57,7 @@ namespace ClinicaVeterinaria.Business
             //Removendo sessões e redirecionando
             Session.Remove("cd_funcionario");
             Session.Remove("alterar");
-            Response.Redirect("listarFuncionario.aspx");
+            Response.Redirect("~/Presentation/ListarFuncionario.aspx");
         }
 
         protected void excluirFuncionario(int codigo)
@@ -81,13 +82,13 @@ namespace ClinicaVeterinaria.Business
             var selecao = contexto.funcionario.FirstOrDefault(x => x.login == login & x.senha == senha);
 
             if (selecao == null)
-                Server.Transfer("login.aspx");
+                Server.Transfer("~/Presentation/login.aspx");
             else
             {
                 HttpContext.Current.Session["cd_usuario"] = selecao.cd_funcionario;
                 HttpContext.Current.Session["usuario"] = selecao.nm_funcionario;
                 HttpContext.Current.Session["tipo"] = selecao.tipo;
-                Server.Transfer("ListarAnimal_Responsavel.aspx");
+                Response.Redirect("~/Presentation/ListarAnimal_Responsavel.aspx");
             }
         }
     }

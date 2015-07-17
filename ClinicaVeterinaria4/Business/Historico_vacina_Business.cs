@@ -23,8 +23,6 @@ namespace ClinicaVeterinaria.Business
 
             //Enviando ID para a página de inserção de novo animal
             HttpContext.Current.Items["cd_animal"] = animal;
-            //HttpContext.Current.Items["cd_responsavel"] = historico_vacina;
-            //Server.Transfer(pagina);
         }
 
         protected void editarHistVacina(int codigo, int animal, int vacina, DateTime data, DateTime vencimento)
@@ -37,7 +35,7 @@ namespace ClinicaVeterinaria.Business
             historico_vacina.dt_vencimento = vencimento;
 
             contexto.SaveChanges();
-            Response.Redirect("ListarHistVacina.aspx");
+            Response.Redirect("~/Presentation/ListarHistVacina.aspx");
         }
 
         protected void excluirHistVacina(int vacina, int animal, string pagina)

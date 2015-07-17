@@ -99,7 +99,7 @@ namespace ClinicaVeterinaria.Business
 
             contexto.responsavel.Remove(responsavel);
             contexto.SaveChanges();
-            Response.Redirect("listarResponsavel.aspx");
+            Response.Redirect("~/Presentation/listarResponsavel.aspx");
         }
     }
 }

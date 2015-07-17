@@ -25,7 +25,7 @@ namespace ClinicaVeterinaria.Model.Shared
         {
             var cd_usuario = HttpContext.Current.Session["cd_usuario"];
 
-            if (cd_usuario == null) Response.Redirect("logout.aspx");
+            if (cd_usuario == null) Response.Redirect("~/Presentation/logout.aspx");
         }
 
         protected void verificaPerfil(string tela)
@@ -34,7 +34,9 @@ namespace ClinicaVeterinaria.Model.Shared
             int cd_usuario = Convert.ToInt32(HttpContext.Current.Session["cd_usuario"]);
             string perfil = HttpContext.Current.Session["tipo"].ToString();
 
-            tela = tela.Replace("ASP.cadastros_", "");
+            tela = tela.Replace("ASP.presentation_", "");
+            tela = tela.Replace("cadastros_", "");
+            tela = tela.Replace("listas_", "");
             tela = tela.Replace("_aspx", ".aspx");
 
             //verificando o perfil e redirecioanndo
@@ -43,17 +45,17 @@ namespace ClinicaVeterinaria.Model.Shared
             if (tela == "listarfinanceiro.aspx" & perfil == "Veterinária")
             {
                 HttpContext.Current.Session["cd_funcionario"] = cd_usuario;
-                Response.Redirect("RelatorioFinanceiro.aspx");
+                Response.Redirect("~/Presentation/Relatorios/RelatorioFinanceiro.aspx");
             }
 
             if (perfil == "Administrador" & perfil_acesso.perfil_administrador == 0)
-                Response.Redirect("semPermissao.aspx");
+                Response.Redirect("~/Presentation/semPermissao.aspx");
 
             if (perfil == "Veterinária" & perfil_acesso.perfil_veterinaria == 0)
-                Response.Redirect("semPermissao.aspx");
+                Response.Redirect("~/Presentation/semPermissao.aspx");
 
             if (perfil == "Atendente" & perfil_acesso.perfil_atendente == 0)
-                Response.Redirect("semPermissao.aspx");
+                Response.Redirect("~/Presentation/semPermissao.aspx");
         }
 
         protected void modal(string modal, string estado)

@@ -66,7 +66,7 @@
 
                             <div class="form-group">
                                 <label>Celular:</label>
-                                <asp:TextBox ID="txtCelular" runat="server" class="form-control telefone" placeholder="(xx) xxxxx-xxxx" required></asp:TextBox>
+                                <asp:TextBox ID="txtCelular" runat="server" class="form-control celular" placeholder="(xx) xxxxx-xxxx" required></asp:TextBox>
                             </div>
 
                             <div class="form-group">
